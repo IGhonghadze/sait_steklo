@@ -1305,6 +1305,143 @@
             }
         }
 
+    
+        /* ==========================================================================
+           СВЕРХКОМПАКТНЫЙ РЕЖИМ ДЛЯ ТЕЛЕФОНОВ (МАЛЕНЬКИЙ ЛОГОТИП И МАЛЕНЬКИЙ ПОПАП)
+           ========================================================================== */
+        @media (max-width: 639px) {
+            /* 1. Шапка сайта и стекло логотипа */
+            .site-top-bar {
+                padding: 4px 10px !important;
+            }
+            .site-top-header {
+                top: 48px !important;
+                padding: 0 10px !important;
+                height: 38px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+            }
+            
+            /* Плашка-стекло: миниатюрная, аккуратная, высота всего ~34-36px */
+            #liquidBrandPlaque {
+                padding: 3px 10px 3px 6px !important;
+                border-radius: 10px !important;
+                gap: 6px !important;
+                max-width: 230px !important;
+                height: 34px !important;
+                min-height: 34px !important;
+                max-height: 34px !important;
+                backdrop-filter: blur(16px) !important;
+                -webkit-backdrop-filter: blur(16px) !important;
+                box-shadow: 0 2px 10px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
+                border: 1px solid rgba(255, 255, 255, 0.9) !important;
+            }
+            .brand-logo-fixed-box {
+                width: 22px !important;
+                height: 22px !important;
+                min-width: 22px !important;
+                min-height: 22px !important;
+                max-width: 22px !important;
+                max-height: 22px !important;
+            }
+            #mainBrandLogo {
+                width: 22px !important;
+                height: 22px !important;
+                max-width: 22px !important;
+                max-height: 22px !important;
+            }
+            .brand-title-row {
+                gap: 4px !important;
+            }
+            .brand-title-green, .brand-title-blue, .brand-title-divider {
+                font-size: 10.5px !important;
+                letter-spacing: 0.02em !important;
+            }
+            .brand-title-serif {
+                font-size: 11.5px !important;
+                letter-spacing: 0.04em !important;
+            }
+            
+            /* 4 микро-рутеля по углам плашки (4px) */
+            .glass-corner-mount {
+                width: 4px !important;
+                height: 4px !important;
+            }
+            .glass-corner-mount .mount-core {
+                width: 1.5px !important;
+                height: 1.5px !important;
+            }
+            .mount-tl { top: 2px !important; left: 2px !important; }
+            .mount-tr { top: 2px !important; right: 2px !important; }
+            .mount-bl { bottom: 2px !important; left: 2px !important; }
+            .mount-br { bottom: 2px !important; right: 2px !important; }
+
+            /* Правая круглая кнопка звонка: гармоничные 34px под стать плашке */
+            .site-top-header a[aria-label="Позвонить на завод"] {
+                width: 34px !important;
+                height: 34px !important;
+                min-width: 34px !important;
+                min-height: 34px !important;
+                max-width: 34px !important;
+                max-height: 34px !important;
+            }
+
+            /* 2. Кнопка попапа связи: миниатюрная (40×40 px), аккуратная в углу */
+            #martha-widget-wrapper {
+                bottom: 72px !important;
+                right: 12px !important;
+            }
+            #main-widget-btn {
+                width: 40px !important;
+                height: 40px !important;
+                min-width: 40px !important;
+                min-height: 40px !important;
+                max-width: 40px !important;
+                max-height: 40px !important;
+                box-shadow: 0 3px 10px rgba(14, 165, 233, 0.45) !important;
+            }
+            #main-widget-btn svg, #main-widget-btn i {
+                width: 18px !important;
+                height: 18px !important;
+                max-width: 18px !important;
+                max-height: 18px !important;
+            }
+            /* Полностью убираем любые раздувающиеся волны и кольца на телефоне */
+            .pulse-wave-cyan, .pulse-wave-mint, .pulse-ring {
+                display: none !important;
+            }
+            #widget-badge {
+                width: 8px !important;
+                height: 8px !important;
+                top: 0 !important;
+                right: 0 !important;
+            }
+            /* Мягкая деликатная пульсация без раздувания тени */
+            @keyframes widgetMiniMobilePulse {
+                0%, 100% {
+                    transform: scale(1);
+                    box-shadow: 0 3px 10px rgba(14, 165, 233, 0.45);
+                }
+                50% {
+                    transform: scale(1.05);
+                    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.6);
+                }
+            }
+            .widget-attention-blink {
+                animation: widgetMiniMobilePulse 2.2s infinite ease-in-out !important;
+            }
+
+            /* 3. Первый экран: свободное пространство, архитектурное фото и створка */
+            #atelier-stage {
+                padding-top: 92px !important;
+                padding-bottom: 24px !important;
+            }
+            #heroStageContainer {
+                min-height: 480px !important;
+            }
+        }
+
     </style>
 </head>
 <body class="antialiased selection:bg-crystalCyan/20 selection:text-slateDeep pb-24">
@@ -1512,7 +1649,7 @@
     <!-- 2. ОРИГИНАЛЬНАЯ ПРОСТРАНСТВЕННАЯ ШАПКА: ДВЕ НЕВЕСОМЫЕ СТЕКЛЯННЫЕ ПРИЗМЫ -->
     <header class="site-top-header fixed z-40 flex items-start justify-between pointer-events-none">
         <!-- Левая капсула с эффектом ЖИДКОГО СТЕКЛА и чистым логотипом (Увеличенная и просторная) -->
-        <a href="#atelier-stage" id="liquidBrandPlaque" class="pointer-events-auto liquid-glass-brand px-4 py-3 sm:px-7 sm:py-3.5 flex items-center gap-3 sm:gap-4 group relative max-w-[75%] sm:max-w-none" style="padding-left: 20px; padding-right: 22px;">
+        <a href="#atelier-stage" id="liquidBrandPlaque" class="pointer-events-auto liquid-glass-brand px-3 py-1.5 sm:px-7 sm:py-3.5 flex items-center gap-2 sm:gap-4 group relative shrink-0">
             <!-- 4 архитектурных дистанционных держателя (хромированные рутели AISI 316 по углам стекла) -->
             <span class="glass-corner-mount mount-tl" title="Дистанционный держатель"><span class="mount-core"></span></span>
             <span class="glass-corner-mount mount-tr" title="Дистанционный держатель"><span class="mount-core"></span></span>
@@ -1522,15 +1659,15 @@
                 <img id="mainBrandLogo" src="logo.webp" alt="Оконный завод Стекло" width="56" height="56" decoding="async" class="brand-logo-spin" >
             </div>
             <div class="pr-2 relative z-10">
-                <div class="flex flex-wrap items-center gap-x-2.5 gap-y-1 leading-none">
-                    <span class="brand-title-text font-sans text-xs sm:text-xl font-black tracking-wider brand-3d-green">ОКОННЫЙ</span>
-                    <span class="font-sans text-base sm:text-xl font-black tracking-wider brand-3d-blue">ЗАВОД</span>
-                    <span class="text-slate-400 font-light text-base sm:text-xl">|</span>
-                    <span class="font-serif text-lg sm:text-2xl font-bold tracking-[0.14em] text-slateDeep uppercase drop-shadow-[0_1px_2px_rgba(255,255,255,0.95)]">Стекло</span>
+                <div class="brand-title-row flex items-center gap-x-1.5 sm:gap-x-2.5 leading-none">
+                    <span class="brand-title-green font-sans text-[11px] sm:text-xl font-black tracking-wider brand-3d-green">ОКОННЫЙ</span>
+                    <span class="brand-title-blue font-sans text-[11px] sm:text-xl font-black tracking-wider brand-3d-blue">ЗАВОД</span>
+                    <span class="brand-title-divider text-slate-400 font-light text-[11px] sm:text-xl">|</span>
+                    <span class="brand-title-serif font-serif text-[12px] sm:text-2xl font-bold tracking-[0.08em] sm:tracking-[0.14em] text-slateDeep uppercase drop-shadow-[0_1px_2px_rgba(255,255,255,0.95)]">Стекло</span>
                 </div>
-                <div class="flex items-center gap-2 mt-1.5">
+                <div class="hidden sm:flex items-center gap-2 mt-1.5">
                     <span class="w-2 h-2 rounded-full bg-[#16A685] animate-pulse"></span>
-                    <span class="brand-subtitle-text text-[8px] sm:text-xs uppercase tracking-[0.08em] sm:tracking-[0.16em] text-slateDeep font-semibold block">Архитектурные стеклянные конструкции</span>
+                    <span class="brand-subtitle-text text-xs uppercase tracking-[0.16em] text-slateDeep font-semibold block">Архитектурные стеклянные конструкции</span>
                 </div>
             </div>
         </a>
@@ -2470,7 +2607,7 @@
         </div>
 
         <!-- Главная плавающая кнопка виджета (АКТИВНОЕ МИГАНИЕ И ПРИВЛЕЧЕНИЕ ВНИМАНИЯ) -->
-        <button id="main-widget-btn" class="widget-attention-blink relative w-16 h-16 sm:w-18 sm:h-18 bg-gradient-to-tr from-[#0EA5E9] to-[#10B981] rounded-full shadow-2xl flex items-center justify-center text-white hover:brightness-105 hover:scale-105 transition-all z-20 pointer-events-auto" aria-label="Открыть чат" style="width: 68px; height: 68px; min-width: 68px; min-height: 68px;">
+        <button id="main-widget-btn" class="widget-attention-blink relative w-10 h-10 sm:w-16 sm:h-16 bg-gradient-to-tr from-[#0EA5E9] to-[#10B981] rounded-full shadow-lg flex items-center justify-center text-white hover:brightness-105 hover:scale-105 transition-all z-20 pointer-events-auto" aria-label="Открыть чат">
             <span class="pulse-wave-cyan"></span>
             <span class="pulse-wave-mint"></span>
             <div class="pulse-ring"></div>
