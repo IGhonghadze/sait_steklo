@@ -1045,15 +1045,7 @@
             }
 
             /* 2. Изящное стекло для логотипа: миниатюрное, аккуратное, не перекрывает экран */
-            #liquidBrandPlaque {
-                padding: 4px 10px 4px 8px !important;
-                border-radius: 14px !important;
-                gap: 7px !important;
-                max-width: 80% !important;
-                backdrop-filter: blur(14px) !important;
-                -webkit-backdrop-filter: blur(14px) !important;
-                box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
-            }
+            /* cleaned */
             .brand-logo-fixed-box {
                 width: 30px !important;
                 height: 30px !important;
@@ -1074,13 +1066,8 @@
                 font-size: 7.5px !important;
                 letter-spacing: 0.05em !important;
             }
-            #liquidBrandPlaque .font-serif {
-                font-size: 14px !important;
-                letter-spacing: 0.08em !important;
-            }
-            #liquidBrandPlaque .font-light {
-                font-size: 11px !important;
-            }
+            /* cleaned */
+            /* cleaned */
 
             /* 4 миниатюрных угловых хромированных держателя стекла */
             .glass-corner-mount {
@@ -1193,14 +1180,7 @@
                 align-items: center !important;
                 width: 100% !important;
             }
-            #liquidBrandPlaque {
-                padding: 5px 10px 5px 8px !important;
-                border-radius: 14px !important;
-                gap: 8px !important;
-                max-width: calc(100% - 56px) !important;
-                backdrop-filter: blur(14px) !important;
-                -webkit-backdrop-filter: blur(14px) !important;
-            }
+            /* cleaned */
             .brand-logo-fixed-box, #mainBrandLogo {
                 width: 30px !important;
                 height: 30px !important;
@@ -1214,9 +1194,7 @@
                 font-size: 7.5px !important;
                 letter-spacing: 0.04em !important;
             }
-            #liquidBrandPlaque .font-serif {
-                font-size: 14px !important;
-            }
+            /* cleaned */
 
             /* 4 хромированных рутеля по углам */
             .glass-corner-mount {
@@ -1324,19 +1302,7 @@
             }
             
             /* Плашка-стекло: миниатюрная, аккуратная, высота всего ~34-36px */
-            #liquidBrandPlaque {
-                padding: 3px 10px 3px 6px !important;
-                border-radius: 10px !important;
-                gap: 6px !important;
-                max-width: 230px !important;
-                height: 34px !important;
-                min-height: 34px !important;
-                max-height: 34px !important;
-                backdrop-filter: blur(16px) !important;
-                -webkit-backdrop-filter: blur(16px) !important;
-                box-shadow: 0 2px 10px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
-                border: 1px solid rgba(255, 255, 255, 0.9) !important;
-            }
+            /* cleaned */
             .brand-logo-fixed-box {
                 width: 22px !important;
                 height: 22px !important;
@@ -1518,12 +1484,7 @@
                 height: 36px !important;
                 padding: 0 10px !important;
             }
-            #liquidBrandPlaque {
-                height: 34px !important;
-                min-height: 34px !important;
-                max-height: 34px !important;
-                padding: 3px 10px 3px 7px !important;
-            }
+            /* cleaned */
             
             /* Дистанция между плашкой и фотографией (никаких наложений!) */
             #atelier-stage {
@@ -1633,18 +1594,7 @@
             }
 
             /* Плашка логотипа: крупная, полноценная, поднятая высоко, видна на 100%! */
-            #liquidBrandPlaque {
-                padding: 6px 14px 6px 10px !important;
-                border-radius: 16px !important;
-                gap: 10px !important;
-                max-width: calc(100% - 56px) !important;
-                height: auto !important;
-                min-height: 48px !important;
-                backdrop-filter: blur(16px) !important;
-                -webkit-backdrop-filter: blur(16px) !important;
-                box-shadow: 0 4px 20px rgba(15, 23, 42, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
-                border: 1.5px solid rgba(255, 255, 255, 0.9) !important;
-            }
+            /* cleaned */
             .brand-logo-fixed-box {
                 width: 38px !important;
                 height: 38px !important;
@@ -1787,6 +1737,198 @@
             .hero-text-wrapper {
                 padding-top: 10px !important;
                 max-width: 64% !important;
+            }
+        }
+
+    
+        /* ==========================================================================
+           ЭТАЛОННАЯ СТЕКЛЯННАЯ ПЛАШКА ЛОГОТИПА (LIQUID OPTIWHITE GLASS)
+           Ровные шрифты в один размер, одинаковые отступы, вид натурального стекла
+           ========================================================================== */
+        
+        .liquid-glass-brand {
+            display: inline-flex !important;
+            align-items: center !important;
+            position: relative !important;
+            background: linear-gradient(
+                135deg, 
+                rgba(255, 255, 255, 0.84) 0%, 
+                rgba(240, 249, 255, 0.62) 50%, 
+                rgba(255, 255, 255, 0.80) 100%
+            ) !important;
+            backdrop-filter: blur(18px) saturate(180%) !important;
+            -webkit-backdrop-filter: blur(18px) saturate(180%) !important;
+            border: 1px solid rgba(255, 255, 255, 0.95) !important;
+            box-shadow: 
+                0 8px 26px rgba(15, 23, 42, 0.10),
+                0 2px 6px rgba(15, 23, 42, 0.04),
+                inset 0 1px 1.5px rgba(255, 255, 255, 1),
+                inset 0 -1px 1px rgba(186, 230, 253, 0.35) !important;
+            box-sizing: border-box !important;
+            transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+        }
+
+        /* 4 архитектурных дистанционных держателя (хромированные рутели) */
+        .glass-corner-mount {
+            position: absolute !important;
+            border-radius: 50% !important;
+            background: radial-gradient(circle at 35% 35%, #ffffff 0%, #cbd5e1 45%, #64748b 85%, #334155 100%) !important;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35), inset 0 0.5px 0.5px rgba(255, 255, 255, 0.9) !important;
+            z-index: 15 !important;
+            pointer-events: none !important;
+        }
+        .glass-corner-mount .mount-core {
+            position: absolute !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            border-radius: 50% !important;
+            background: #0f172a !important;
+            box-shadow: inset 0 0.5px 1px rgba(0, 0, 0, 0.8) !important;
+        }
+
+        /* ДЕСКТОП: Полноразмерный роскошный масштаб */
+        @media (min-width: 640px) {
+            #liquidBrandPlaque {
+                padding: 10px 20px !important;
+                border-radius: 20px !important;
+                gap: 14px !important;
+            }
+            .brand-logo-fixed-box, #mainBrandLogo {
+                width: 48px !important;
+                height: 48px !important;
+                min-width: 48px !important;
+                max-width: 48px !important;
+            }
+            .brand-title-row {
+                gap: 0 !important;
+            }
+            .brand-title-row .brand-word {
+                font-size: 18px !important;
+                line-height: 1 !important;
+            }
+            .brand-word-gap {
+                display: inline-block !important;
+                width: 8px !important;
+            }
+            .brand-divider {
+                font-size: 18px !important;
+                margin: 0 10px !important;
+                line-height: 1 !important;
+            }
+            .brand-subtitle-row {
+                gap: 6px !important;
+                margin-top: 5px !important;
+            }
+            .brand-subtitle-text {
+                font-size: 10.5px !important;
+                letter-spacing: 0.16em !important;
+                line-height: 1 !important;
+            }
+            .glass-corner-mount {
+                width: 8px !important;
+                height: 8px !important;
+            }
+            .glass-corner-mount .mount-core {
+                width: 2.5px !important;
+                height: 2.5px !important;
+            }
+            .mount-tl { top: 5px !important; left: 5px !important; }
+            .mount-tr { top: 5px !important; right: 5px !important; }
+            .mount-bl { bottom: 5px !important; left: 5px !important; }
+            .mount-br { bottom: 5px !important; right: 5px !important; }
+        }
+
+        /* ТЕЛЕФОННАЯ ВЕРСИЯ: Идеальные равные отступы, все слова в один размер, вид стекла */
+        @media (max-width: 639px) {
+            .site-top-header {
+                top: 10px !important;
+                left: 0 !important;
+                right: 0 !important;
+                padding: 0 10px !important;
+                z-index: 50 !important;
+                display: flex !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+            }
+
+            #liquidBrandPlaque {
+                padding: 6px 12px !important;
+                border-radius: 14px !important;
+                gap: 9px !important;
+                max-width: calc(100% - 54px) !important;
+                height: 48px !important;
+                min-height: 48px !important;
+                max-height: 48px !important;
+            }
+            .brand-logo-fixed-box, #mainBrandLogo {
+                width: 34px !important;
+                height: 34px !important;
+                min-width: 34px !important;
+                max-width: 34px !important;
+                max-height: 34px !important;
+            }
+            .brand-title-row {
+                display: flex !important;
+                align-items: center !important;
+                gap: 0 !important;
+                line-height: 1 !important;
+            }
+            /* ВСЕ НАДПИСИ СТРОГО В ОДИН РАЗМЕР: 12.5px */
+            .brand-title-row .brand-word {
+                font-size: 12.5px !important;
+                line-height: 1 !important;
+                letter-spacing: 0.03em !important;
+            }
+            .brand-word-gap {
+                display: inline-block !important;
+                width: 5px !important;
+            }
+            .brand-divider {
+                font-size: 12.5px !important;
+                margin: 0 6px !important;
+                line-height: 1 !important;
+            }
+            /* Вторая строка: четкий ровный подзаголовок */
+            .brand-subtitle-row {
+                display: flex !important;
+                align-items: center !important;
+                gap: 4px !important;
+                margin-top: 3px !important;
+                line-height: 1 !important;
+            }
+            .brand-subtitle-text {
+                font-size: 7.5px !important;
+                letter-spacing: 0.08em !important;
+                line-height: 1 !important;
+            }
+
+            /* 4 симметричных рутеля по углам */
+            .glass-corner-mount {
+                width: 6px !important;
+                height: 6px !important;
+            }
+            .glass-corner-mount .mount-core {
+                width: 2px !important;
+                height: 2px !important;
+            }
+            .mount-tl { top: 4px !important; left: 4px !important; }
+            .mount-tr { top: 4px !important; right: 4px !important; }
+            .mount-bl { bottom: 4px !important; left: 4px !important; }
+            .mount-br { bottom: 4px !important; right: 4px !important; }
+
+            /* Правая кнопка звонка: гармоничный размер 40x40 px */
+            .site-top-header a[aria-label="Позвонить на завод"] {
+                width: 40px !important;
+                height: 40px !important;
+                min-width: 40px !important;
+                min-height: 40px !important;
+            }
+
+            /* Отступ первого экрана: гарантирует зазор 38px между плашкой и фото */
+            #atelier-stage {
+                padding-top: 96px !important;
+                padding-bottom: 74px !important;
             }
         }
 
@@ -1997,26 +2139,30 @@
     <!-- 2. ОРИГИНАЛЬНАЯ ПРОСТРАНСТВЕННАЯ ШАПКА: ДВЕ НЕВЕСОМЫЕ СТЕКЛЯННЫЕ ПРИЗМЫ -->
     <header class="site-top-header fixed z-40 flex items-start justify-between pointer-events-none">
         <!-- Левая капсула с эффектом ЖИДКОГО СТЕКЛА и чистым логотипом (Увеличенная и просторная) -->
-        <a href="#atelier-stage" id="liquidBrandPlaque" class="pointer-events-auto liquid-glass-brand px-4 py-2.5 sm:px-6 sm:py-3.5 flex items-center gap-3 sm:gap-4 group relative shrink-0">
-            <!-- 4 архитектурных дистанционных держателя (хромированные рутели AISI 316 по углам стекла) -->
+        <a href="#atelier-stage" id="liquidBrandPlaque" class="pointer-events-auto liquid-glass-brand group relative shrink-0">
+            <!-- 4 архитектурных дистанционных держателя (хромированные рутели AISI 316) -->
             <span class="glass-corner-mount mount-tl" title="Дистанционный держатель"><span class="mount-core"></span></span>
             <span class="glass-corner-mount mount-tr" title="Дистанционный держатель"><span class="mount-core"></span></span>
             <span class="glass-corner-mount mount-bl" title="Дистанционный держатель"><span class="mount-core"></span></span>
             <span class="glass-corner-mount mount-br" title="Дистанционный держатель"><span class="mount-core"></span></span>
+            
             <div class="brand-logo-fixed-box shrink-0 flex items-center justify-center relative z-10">
                 <img id="mainBrandLogo" src="logo.webp" alt="Оконный завод Стекло" width="46" height="46" decoding="async" class="brand-logo-spin">
             </div>
-            <div class="pr-2 relative z-10">
+            
+            <div class="brand-text-content relative z-10 flex flex-col justify-center">
+                <!-- Главная строка: все слова строго одного размера, на одной линии, с одинаковыми зазорами -->
                 <div class="brand-title-row flex items-center leading-none">
-                    <span class="brand-title-green font-sans text-sm sm:text-xl font-black tracking-wider brand-3d-green">ОКОННЫЙ</span>
-                    <span class="inline-block w-2"></span>
-                    <span class="brand-title-blue font-sans text-sm sm:text-xl font-black tracking-wider brand-3d-blue">ЗАВОД</span>
-                    <span class="text-slate-400 font-light text-sm sm:text-xl mx-2.5 sm:mx-3">|</span>
-                    <span class="brand-title-serif font-serif text-base sm:text-2xl font-bold tracking-[0.1em] sm:tracking-[0.14em] text-slateDeep uppercase drop-shadow-[0_1px_2px_rgba(255,255,255,0.95)]">Стекло</span>
+                    <span class="brand-word brand-green font-sans font-black tracking-wider brand-3d-green">ОКОННЫЙ</span>
+                    <span class="brand-word-gap"></span>
+                    <span class="brand-word brand-blue font-sans font-black tracking-wider brand-3d-blue">ЗАВОД</span>
+                    <span class="brand-divider font-light opacity-50">|</span>
+                    <span class="brand-word brand-glass font-sans font-black tracking-wider text-slateDeep uppercase">СТЕКЛО</span>
                 </div>
-                <div class="brand-subtitle-container flex items-center gap-2 mt-1 sm:mt-1.5">
-                    <span class="w-2 h-2 rounded-full bg-[#16A685] animate-pulse"></span>
-                    <span class="brand-subtitle-text text-[10px] sm:text-xs uppercase tracking-[0.14em] sm:tracking-[0.16em] text-slateDeep font-semibold block">Архитектурные стеклянные конструкции</span>
+                <!-- Вторая строка: подзаголовок ровно под первой строкой -->
+                <div class="brand-subtitle-row flex items-center mt-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse shrink-0"></span>
+                    <span class="brand-subtitle-text uppercase font-semibold text-slateDeep block">Архитектурные стеклянные конструкции</span>
                 </div>
             </div>
         </a>
