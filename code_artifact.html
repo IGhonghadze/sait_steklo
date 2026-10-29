@@ -1,0 +1,2251 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оконный завод | Стекло — Архитектурное стекло и конструкции</title>
+    
+    <!-- DNS Prefetch & Preconnect для ускорения загрузки внешних ресурсов -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://api.telegram.org">
+    <link rel="dns-prefetch" href="https://formsubmit.co">
+
+    <!-- Preload ключевого изображения первого экрана (LCP) -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=85" fetchpriority="high">
+
+    <!-- Предварительно скомпилированный, сверхбыстрый production CSS (без 3.5МБ блокирующего CDN) -->
+    <link rel="preload" href="tailwind.min.css" as="style">
+    <link rel="stylesheet" href="tailwind.min.css">
+
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Оптимизированные шрифты: только нужные начертания + display=swap (защита от невидимого текста) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons (отложенная неблокирующая загрузка) -->
+    <script defer src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #F8FAFD;
+            color: #0F172A;
+            overflow-x: hidden;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* === СТИЛИ ШАПКИ И НАВИГАЦИИ (ЛЕГКИЙ БЫСТРЫЙ КОМПОЗИТИНГ 60FPS) === */
+        .glass-header {
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 4px 20px -5px rgba(15, 23, 42, 0.05);
+        }
+
+        .nav-link { position: relative; }
+        .nav-link::after {
+            content: ''; 
+            position: absolute; 
+            width: 0; 
+            height: 2.5px; 
+            bottom: -5px; 
+            left: 0;
+            background: linear-gradient(90deg, #0EA5E9, #10B981); 
+            border-radius: 4px;
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        .force-text-color { color: #0F172A !important; transition: color 0.3s ease; }
+        .force-text-color:hover { color: #0EA5E9 !important; }
+
+        /* Соцсети в верхнем баре */
+        .social-link { color: #ffffff !important; opacity: 0.92 !important; transition: all 0.3s ease; }
+        .social-link:hover { transform: scale(1.18); opacity: 1 !important; }
+        .hover-tg:hover { color: #229ED9 !important; text-shadow: 0 0 12px rgba(34, 158, 217, 0.6); }
+        .hover-wa:hover { color: #25D366 !important; text-shadow: 0 0 12px rgba(37, 211, 102, 0.6); }
+        .hover-vk:hover { color: #0077FF !important; text-shadow: 0 0 12px rgba(0, 119, 255, 0.6); }
+        .hover-ok:hover { color: #F4731C !important; text-shadow: 0 0 12px rgba(244, 115, 28, 0.6); }
+        .hover-mail:hover { color: #38BDF8 !important; text-shadow: 0 0 12px rgba(56, 189, 248, 0.6); }
+
+        .max-logo-style {
+            filter: brightness(0) invert(1) !important;
+            transition: all 0.3s ease;
+        }
+        .link-max:hover .max-logo-style {
+            filter: none !important;
+            transform: scale(1.15);
+        }
+
+        /* Анимация быстрого вращения логотипа при наведении */
+        .brand-logo-spin {
+            display: block;
+            transform-origin: center center;
+            will-change: transform, filter;
+            transition: transform 0.75s cubic-bezier(0.18, 0.89, 0.32, 1.15), filter 0.4s ease;
+            filter: drop-shadow(0 2px 8px rgba(15,23,42,0.18));
+            cursor: pointer;
+        }
+        .brand-logo-spin.is-spinning {
+            filter: drop-shadow(0 0 16px rgba(56, 189, 248, 0.65)) drop-shadow(0 4px 10px rgba(16, 185, 129, 0.45));
+        }
+
+        /* === ПРЕМИАЛЬНЫЙ АРХИТЕКТУРНЫЙ ПОПАП РАСЧЕТА (ЖЕСТКАЯ ШИРИНА 440px) === */
+        #conciergeModal {
+            position: fixed !important;
+            inset: 0 !important;
+            z-index: 999999 !important;
+            display: none;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: 20px !important;
+            background: rgba(15, 23, 42, 0.72) !important;
+            backdrop-filter: blur(8px) !important;
+            -webkit-backdrop-filter: blur(8px) !important;
+            overflow-y: auto !important;
+            box-sizing: border-box !important;
+        }
+
+        #conciergeModal.is-open {
+            display: flex !important;
+        }
+
+        .modal-architect-card {
+            position: relative !important;
+            width: 100% !important;
+            max-width: 440px !important; /* ЖЕСТКИЙ ЛИМИТ: НИКОГДА НЕ РАСТЯГИВАЕТСЯ */
+            background: #ffffff !important;
+            border-radius: 28px !important;
+            padding: 30px 26px !important;
+            margin: auto !important;
+            border: 1px solid rgba(226, 232, 240, 0.9) !important;
+            box-shadow: 0 25px 60px -12px rgba(15, 23, 42, 0.30), 0 0 0 1px rgba(255, 255, 255, 0.9) inset !important;
+            animation: modalScaleIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+            box-sizing: border-box !important;
+        }
+
+        @keyframes modalScaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.94) translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .modal-close-button {
+            position: absolute !important;
+            top: 18px !important;
+            right: 18px !important;
+            width: 34px !important;
+            height: 34px !important;
+            border-radius: 50% !important;
+            background: #F1F5F9 !important;
+            border: none !important;
+            color: #64748B !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-size: 15px !important;
+            font-weight: 700 !important;
+            cursor: pointer !important;
+            transition: all 0.2s ease !important;
+            z-index: 10 !important;
+            padding: 0 !important;
+            line-height: 1 !important;
+        }
+
+        .modal-close-button:hover {
+            background: #E2E8F0 !important;
+            color: #0F172A !important;
+            transform: scale(1.08) !important;
+        }
+
+        .modal-input-field {
+            width: 100% !important;
+            padding: 11px 14px !important;
+            background: #F8FAFC !important;
+            border-radius: 14px !important;
+            border: 1px solid #E2E8F0 !important;
+            font-size: 13px !important;
+            color: #0F172A !important;
+            outline: none !important;
+            transition: all 0.2s ease !important;
+            font-family: inherit !important;
+            box-sizing: border-box !important;
+        }
+
+        .modal-input-field:focus {
+            background: #FFFFFF !important;
+            border-color: #0EA5E9 !important;
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.12) !important;
+        }
+
+        .modal-submit-button {
+            width: 100% !important;
+            padding: 14px !important;
+            border-radius: 14px !important;
+            background: linear-gradient(135deg, #0F172A 0%, #0d2a33 55%, #0EA5E9 100%) !important;
+            color: #FFFFFF !important;
+            font-size: 14px !important;
+            font-weight: 600 !important;
+            border: none !important;
+            cursor: pointer !important;
+            box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.35) !important;
+            transition: all 0.25s ease !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 8px !important;
+            font-family: inherit !important;
+        }
+
+        .modal-submit-button:hover {
+            filter: brightness(1.1) !important;
+            transform: translateY(-1px) !important;
+            box-shadow: 0 14px 28px -5px rgba(14, 165, 233, 0.45) !important;
+        }
+
+        .modal-submit-button:active {
+            transform: translateY(0) !important;
+        }
+
+        /* Тултип инженерного виджета */
+        #widget-tooltip {
+            position: absolute !important;
+            right: 76px !important;
+            bottom: 6px !important;
+            width: 250px !important;
+            background: rgba(255, 255, 255, 0.98) !important;
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
+            border-radius: 20px !important;
+            padding: 12px 14px !important;
+            border: 1px solid #E0F2FE !important;
+            box-shadow: 0 18px 40px -10px rgba(15, 23, 42, 0.18) !important;
+            box-sizing: border-box !important;
+        }
+
+        /* === СТИЛИ СЕКЦИИ КОНТАКТОВ И КАРТЫ (В ЕДИНОМ ЦВЕТЕ САЙТА #F8FAFD) === */
+        .custom-contacts-section {
+            position: relative;
+            background-color: #F8FAFD;
+            color: #0F172A;
+            font-family: 'Manrope', 'Inter', sans-serif;
+            line-height: 1.5;
+        }
+        .contact-card {
+            background: #ffffff;
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.05);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .contact-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px -10px rgba(14, 165, 233, 0.14);
+            border-color: rgba(14, 165, 233, 0.45);
+        }
+        .map-wrapper {
+            background: #ffffff;
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            border-radius: 32px;
+        }
+        .map-wrapper iframe { width: 100%; height: 100%; border-radius: 32px; }
+        .hero-pattern { 
+            display: none; 
+        }
+        a.contact-page-link { color: #0F172A !important; text-decoration: none !important; }
+        a.contact-page-link:hover { color: #0EA5E9 !important; }
+        a.tilda-fixed-white { color: #ffffff !important; }
+        a.tilda-fixed-white:hover { color: #ffffff !important; }
+        .custom-contacts-section h1, .custom-contacts-section h2, .custom-contacts-section h3, .custom-contacts-section p { margin-top: 0; }
+
+        /* Плавающий инженерный виджет */
+        #martha-widget-wrapper {
+            font-family: 'Inter', sans-serif;
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 99980;
+            pointer-events: none; 
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 12px;
+        }
+
+        #martha-widget-wrapper > * {
+            pointer-events: auto;
+        }
+
+        .widget-menu-item {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: scale(0.92);
+            opacity: 0;
+            visibility: hidden;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none !important;
+        }
+        
+        .widget-open .widget-menu-item {
+            transform: scale(1);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .pulse-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            animation: pulsateRing 2.2s infinite;
+            border: 2px solid #0EA5E9;
+            opacity: 0;
+            pointer-events: none;
+        }
+        @keyframes pulsateRing {
+            0% { transform: scale(1); opacity: 0.85; }
+            100% { transform: scale(1.6); opacity: 0; }
+        }
+
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(14, 165, 233, 0.25); border-radius: 10px; }
+
+        /* Мягкий кристальный свет и нежные полупрозрачные каустики в цветах логотипа (циан и мята) */
+        .ambient-canvas {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            pointer-events: none;
+            background: 
+                radial-gradient(circle at 14% 12%, rgba(56, 189, 248, 0.12) 0%, transparent 45%),
+                radial-gradient(circle at 86% 22%, rgba(52, 211, 153, 0.12) 0%, transparent 45%),
+                radial-gradient(circle at 50% 60%, rgba(125, 211, 252, 0.08) 0%, transparent 50%),
+                #F8FAFD;
+            contain: strict;
+        }
+
+        .sun-beam {
+            position: fixed;
+            top: -25%;
+            left: 10%;
+            width: 60vw;
+            height: 150vh;
+            background: radial-gradient(ellipse 65% 55% at 50% 50%, rgba(255, 255, 255, 0.35) 0%, rgba(56, 189, 248, 0.05) 45%, transparent 75%);
+            transform: rotate(-26deg);
+            pointer-events: none;
+            z-index: -1;
+            contain: strict;
+        }
+
+        /* Настоящее многослойное стекло с полированной оптической фаской (Еврокромкой) */
+        .glass-slab {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border: 1px solid rgba(226, 232, 240, 0.85);
+            box-shadow: 0 10px 25px -10px rgba(15, 23, 42, 0.04);
+            content-visibility: auto;
+            contain-intrinsic-size: 500px;
+        }
+
+        /* Кристальное ультрапрозрачное полотно (эффект Optiwhite) */
+        .glass-crystal {
+            background: rgba(255, 255, 255, 0.90);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 10px 25px -10px rgba(14, 85, 105, 0.06);
+        }
+
+        /* Плотная плавающая стеклянная капсула для док-навигации */
+        .glass-dock {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.95);
+            box-shadow: 0 10px 25px -8px rgba(15, 23, 42, 0.08);
+        }
+
+        /* ЭФФЕКТ ЖИДКОГО СТЕКЛА (LIQUID GLASS) ДЛЯ КАПСУЛЫ БРЕНДА И ЛОГОТИПА */
+        .liquid-glass-brand {
+            position: relative;
+            overflow: hidden;
+            border-radius: 26px;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1.5px solid rgba(255, 255, 255, 0.95);
+            box-shadow: 0 8px 24px -6px rgba(15, 65, 86, 0.12);
+            transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+        }
+
+        /* Живой оптический мениск (объемная линза жидкого стекла по контуру) */
+        .liquid-glass-brand::before {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            border-radius: 23px;
+            pointer-events: none;
+            background: linear-gradient(
+                165deg,
+                rgba(255, 255, 255, 0.85) 0%,
+                rgba(255, 255, 255, 0.08) 38%,
+                rgba(76, 195, 236, 0.14) 72%,
+                rgba(255, 255, 255, 0.72) 100%
+            );
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            -webkit-mask-composite: xor;
+            padding: 2px;
+            z-index: 2;
+        }
+
+        /* Каустический оптический блик внутри жидкого стекла */
+        .liquid-glass-brand::after {
+            content: '';
+            position: absolute;
+            top: -60%;
+            left: -40%;
+            width: 180%;
+            height: 220%;
+            pointer-events: none;
+            background: radial-gradient(
+                ellipse 42% 28% at 50% 50%,
+                rgba(255, 255, 255, 0.65) 0%,
+                rgba(178, 238, 255, 0.20) 45%,
+                transparent 70%
+            );
+            transform: rotate(-18deg);
+            transition: transform 0.5s ease, opacity 0.4s ease;
+            opacity: 0.85;
+            z-index: 1;
+        }
+
+        .liquid-glass-brand:hover::after {
+            transform: translate(6%, 4%) rotate(-12deg) scale(1.05);
+            opacity: 1;
+        }
+
+        .liquid-glass-brand:hover {
+            transform: translateY(-2px) scale(1.018);
+            box-shadow:
+                0 28px 58px -10px rgba(15, 65, 86, 0.28),
+                0 10px 26px -4px rgba(53, 167, 220, 0.28),
+                0 0 0 1.5px rgba(255, 255, 255, 1),
+                inset 0 4px 9px rgba(255, 255, 255, 1),
+                inset 0 -8px 18px rgba(31, 169, 139, 0.30),
+                inset 0 0 32px rgba(255, 255, 255, 0.9);
+        }
+
+        /* Капля жидкого стекла вокруг самого 3D-значка */
+        .liquid-icon-pod {
+            background: radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.95) 0%, rgba(235, 250, 255, 0.55) 60%, rgba(195, 238, 245, 0.72) 100%);
+            box-shadow:
+                0 8px 20px -4px rgba(15, 82, 100, 0.22),
+                inset 0 2px 4px rgba(255, 255, 255, 1),
+                inset 0 -3px 6px rgba(25, 158, 130, 0.22);
+            border: 1px solid rgba(255, 255, 255, 0.95);
+        }
+
+        /* Объемный 3D-текст названия как на стеклянной вывеске */
+        .brand-3d-green {
+            color: #16A685;
+            text-shadow:
+                0 1px 0 #0D6E59,
+                0 2px 0 #095243,
+                0 4px 10px rgba(15, 82, 100, 0.22),
+                0 0 12px rgba(255, 255, 255, 0.8);
+        }
+
+        .brand-3d-blue {
+            color: #38B0E3;
+            text-shadow:
+                0 1px 0 #217CA6,
+                0 2px 0 #16597A,
+                0 4px 10px rgba(15, 82, 100, 0.22),
+                0 0 12px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Эффекты 4 фактур для живой сдвижной створки на Главном Экране */
+        .pane-optiwhite {
+            background: linear-gradient(115deg, rgba(255,255,255,0.34) 0%, rgba(235,248,255,0.12) 50%, rgba(255,255,255,0.28) 100%);
+            backdrop-filter: blur(2.5px) brightness(1.04) contrast(1.02);
+            -webkit-backdrop-filter: blur(2.5px) brightness(1.04) contrast(1.02);
+        }
+
+        .pane-fluted {
+            background: repeating-linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0.48) 0px,
+                rgba(255, 255, 255, 0.12) 8px,
+                rgba(205, 226, 234, 0.52) 16px,
+                rgba(255, 255, 255, 0.30) 22px
+            );
+            backdrop-filter: blur(11px) saturate(140%);
+            -webkit-backdrop-filter: blur(11px) saturate(140%);
+        }
+
+        .pane-bronze {
+            background: linear-gradient(125deg, rgba(176, 132, 92, 0.38) 0%, rgba(132, 92, 56, 0.22) 100%);
+            backdrop-filter: blur(4px) sepia(30%);
+            -webkit-backdrop-filter: blur(4px) sepia(30%);
+        }
+
+        .pane-satin {
+            background: linear-gradient(125deg, rgba(255, 255, 255, 0.72) 0%, rgba(238, 244, 248, 0.56) 100%);
+            backdrop-filter: blur(22px) saturate(130%);
+            -webkit-backdrop-filter: blur(22px) saturate(130%);
+        }
+
+        /* Блик на стеклянных витринах */
+        .glass-sheen {
+            position: relative;
+            overflow: hidden;
+        }
+        .glass-sheen::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -130%;
+            width: 60%;
+            height: 200%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.55),
+                transparent
+            );
+            transform: rotate(25deg);
+            transition: left 0.9s cubic-bezier(0.19, 1, 0.22, 1);
+            pointer-events: none;
+        }
+        .glass-sheen:hover::after {
+            left: 160%;
+        }
+
+        /* Пульсация точек на интерактивном проекте */
+        .hotspot-btn {
+            cursor: pointer;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.25s ease;
+        }
+        .hotspot-btn.active-pin {
+            background-color: #0EA5E9 !important;
+            color: #ffffff !important;
+            border-color: #ffffff !important;
+            box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.35), 0 8px 24px rgba(14, 165, 233, 0.5) !important;
+            transform: scale(1.18) !important;
+            z-index: 30 !important;
+        }
+        .hotspot-pulse {
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.9);
+            animation: pulseRing 2.2s infinite;
+        }
+        @keyframes pulseRing {
+            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.85); }
+            70% { box-shadow: 0 0 0 14px rgba(255, 255, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+        }
+
+        /* Скрытие полосы прокрутки для горизонтальных галерей на мобильных */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-crystalCyan/20 selection:text-slateDeep pb-24">
+
+    <!-- Скрытый SVG-фильтр оптического преломления Жидкого Стекла (Liquid Glass) и эталонный 3D-символ логотипа -->
+    <svg width="0" height="0" class="absolute pointer-events-none" aria-hidden="true">
+        <defs>
+            <!-- Градиенты для точной 3D-копии вашего значка "Оконный завод" -->
+            <linearGradient id="ozTopLeftFront" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#58CCF2" />
+                <stop offset="100%" stop-color="#43B7E4" />
+            </linearGradient>
+            <linearGradient id="ozTopLeftSide" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#62B7DB" />
+                <stop offset="100%" stop-color="#4A99BE" />
+            </linearGradient>
+            <linearGradient id="ozTopRightFront" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#56CBF1" />
+                <stop offset="60%" stop-color="#43B8E5" />
+                <stop offset="100%" stop-color="#35A1CF" />
+            </linearGradient>
+            <linearGradient id="ozTopRightExtrude" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#3B93BC" />
+                <stop offset="100%" stop-color="#226E97" />
+            </linearGradient>
+            <linearGradient id="ozBotLeftFront" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#1FC198" />
+                <stop offset="100%" stop-color="#11A77F" />
+            </linearGradient>
+            <linearGradient id="ozBotLeftSide" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#55B59E" />
+                <stop offset="100%" stop-color="#3E9680" />
+            </linearGradient>
+            <linearGradient id="ozBotRightFront" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#1BC096" />
+                <stop offset="100%" stop-color="#11A57E" />
+            </linearGradient>
+            <linearGradient id="ozBotRightSide" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#239378" />
+                <stop offset="100%" stop-color="#146E57" />
+            </linearGradient>
+            <linearGradient id="ozDarkWallFront" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#145E73" />
+                <stop offset="100%" stop-color="#0B4758" />
+            </linearGradient>
+            <linearGradient id="ozDarkWallDepth" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0A3D4C" />
+                <stop offset="100%" stop-color="#062934" />
+            </linearGradient>
+
+            <!-- ТОЧНЫЙ 3D-ЗНАЧОК ПОЛЬЗОВАТЕЛЯ (1:1 с загруженным файлом "3D логотип без фона.webp") -->
+            <symbol id="ExactCompanyLogo3D" viewBox="0 0 1000 1000">
+                <!-- ================= 1. ВЕРХНЯЯ ЛЕВАЯ ГОЛУБАЯ БАЛКА ================= -->
+                <!-- Левая 3D-боковина (экструзия) -->
+                <polygon points="58,252 94,234 94,398 58,414" fill="url(#ozTopLeftSide)" />
+                <!-- Верхняя тонкая фаска -->
+                <polygon points="58,252 484,36 492,42 94,234" fill="#7AD9F8" />
+                <!-- Нижняя темная грань под балкой -->
+                <polygon points="58,414 94,398 242,324 226,334" fill="#2A7EA3" />
+                <!-- Лицевая голубая грань -->
+                <polygon points="94,234 492,42 492,202 94,398" fill="url(#ozTopLeftFront)" />
+
+                <!-- ================= 2. ВНУТРЕННИЙ ЛЕВЫЙ ТЕМНО-БИРЮЗОВЫЙ КОРПУС С ОКНАМИ ================= -->
+                <!-- 3D-глубина (левые и нижние торцы переплета окон слева) -->
+                <!-- Верхний выступ под голубой балкой -->
+                <polygon points="226,334 258,318 318,322 318,348 226,342" fill="url(#ozDarkWallDepth)" />
+                <!-- Вертикальный торец верхнего левого проема -->
+                <polygon points="318,322 346,322 346,422 318,416" fill="url(#ozDarkWallDepth)" />
+                <!-- Средняя горизонтальная перекладина (боковой 3D-торец и низ) -->
+                <polygon points="242,424 270,416 270,456 242,462" fill="url(#ozDarkWallDepth)" />
+                <polygon points="242,462 270,456 346,456 318,464" fill="#062833" />
+                <!-- Вертикальный торец нижнего левого проема -->
+                <polygon points="318,456 346,456 346,536 318,530" fill="url(#ozDarkWallDepth)" />
+                <!-- Нижняя массивная часть левого корпуса (боковой 3D-торец и нижний скос) -->
+                <polygon points="242,542 270,530 270,612 242,626" fill="url(#ozDarkWallDepth)" />
+                <polygon points="242,626 270,612 492,724 492,742" fill="#062833" />
+                <!-- Внутренние 3D-откосы двух правых квадратных окон -->
+                <!-- Верхнее окно (левый и нижний внутренний откос) -->
+                <polygon points="376,342 394,348 394,412 376,418" fill="url(#ozDarkWallDepth)" />
+                <polygon points="376,418 394,412 452,412 452,418" fill="#062833" />
+                <!-- Нижнее окно (левый и нижний внутренний откос) -->
+                <polygon points="376,456 394,462 394,524 376,530" fill="url(#ozDarkWallDepth)" />
+                <polygon points="376,530 394,524 452,524 452,530" fill="#062833" />
+
+                <!-- Главная лицевая пластина левого темно-бирюзового корпуса с вырезами окон (evenodd) -->
+                <path fill="url(#ozDarkWallFront)" fill-rule="evenodd" d="
+                    M 258,318
+                    L 492,202
+                    L 492,724
+                    L 270,612
+                    L 270,530
+                    L 346,530
+                    L 346,456
+                    L 270,456
+                    L 270,416
+                    L 346,416
+                    L 346,322
+                    Z
+                    M 376,342 L 452,342 L 452,418 L 376,418 Z
+                    M 376,456 L 452,456 L 452,530 L 376,530 Z
+                " />
+
+                <!-- ================= 3. НИЖНИЙ ЛЕВЫЙ ИЗУМРУДНЫЙ УГОЛОК ================= -->
+                <!-- Левая 3D-боковина -->
+                <polygon points="58,448 94,432 94,712 58,696" fill="url(#ozBotLeftSide)" />
+                <!-- Верхний скос уголка -->
+                <polygon points="58,448 214,370 228,378 94,432" fill="#4FD6B5" />
+                <!-- Нижняя 3D-грань под уголком -->
+                <polygon points="58,696 94,712 492,912 480,918" fill="#0E785D" />
+                <!-- Внутренний верхний скос нижней полки -->
+                <polygon points="228,644 240,636 492,764 492,776" fill="#3CCAA7" />
+                <!-- Лицевая изумрудная грань -->
+                <polygon points="94,432 228,378 228,644 492,776 492,912 94,712" fill="url(#ozBotLeftFront)" />
+
+                <!-- ================= 4. ВЕРХНИЙ ПРАВЫЙ ГОЛУБОЙ УГОЛОК ================= -->
+                <!-- Левая вертикальная 3D-боковина у центрального разрыва -->
+                <polygon points="518,36 546,28 546,186 518,198" fill="url(#ozTopRightExtrude)" />
+                <!-- Нижняя внутренняя 3D-грань под диагональю -->
+                <polygon points="518,198 546,186 824,328 800,342" fill="#21729E" />
+                <!-- Левая внутренняя 3D-боковина вертикального крыла справа -->
+                <polygon points="800,342 824,328 824,602 800,590" fill="url(#ozTopRightExtrude)" />
+                <!-- Нижний торец правого крыла -->
+                <polygon points="800,590 824,602 956,534 942,526" fill="#21729E" />
+                <!-- Лицевая голубая грань правого верхнего уголка -->
+                <polygon points="546,28 956,246 956,534 824,602 824,328 546,186" fill="url(#ozTopRightFront)" />
+
+                <!-- ================= 5. ВНУТРЕННИЙ ПРАВЫЙ ТЕМНО-БИРЮЗОВЫЙ КОРПУС С ОКНАМИ ================= -->
+                <!-- Длинная вертикальная 3D-боковина по центру -->
+                <polygon points="518,256 546,246 546,768 518,780" fill="url(#ozDarkWallDepth)" />
+                <!-- Верхняя тонкая 3D-фаска -->
+                <polygon points="518,256 546,246 768,362 754,368" fill="#1F7189" />
+                <!-- Внутренние 3D-откосы двух левых квадратных окон правого корпуса -->
+                <!-- Верхнее окно -->
+                <polygon points="584,524 600,530 600,592 584,598" fill="url(#ozDarkWallDepth)" />
+                <polygon points="584,598 600,592 656,592 656,598" fill="#062833" />
+                <!-- Нижнее окно -->
+                <polygon points="584,632 600,638 600,696 584,702" fill="url(#ozDarkWallDepth)" />
+                <polygon points="584,702 600,696 656,696 656,702" fill="#062833" />
+                <!-- 3D-откосы открытых правых проемов -->
+                <polygon points="688,524 704,530 704,592 688,598" fill="url(#ozDarkWallDepth)" />
+                <polygon points="688,598 704,592 768,592 768,598" fill="#062833" />
+                <polygon points="688,632 704,638 704,704 688,710" fill="url(#ozDarkWallDepth)" />
+                <polygon points="688,626 768,626 768,634 688,634" fill="#062833" />
+
+                <!-- Главная лицевая пластина правого темно-бирюзового корпуса с вырезами окон (evenodd) -->
+                <path fill="url(#ozDarkWallFront)" fill-rule="evenodd" d="
+                    M 546,246
+                    L 768,362
+                    L 768,524
+                    L 688,524
+                    L 688,598
+                    L 768,598
+                    L 768,632
+                    L 688,632
+                    L 688,710
+                    L 546,768
+                    Z
+                    M 584,524 L 656,524 L 656,598 L 584,598 Z
+                    M 584,632 L 656,632 L 656,702 L 584,702 Z
+                " />
+
+                <!-- ================= 6. НИЖНЯЯ ПРАВАЯ ИЗУМРУДНАЯ БАЛКА ================= -->
+                <!-- Левая вертикальная 3D-боковина (продолжает центральную линию) -->
+                <polygon points="518,780 546,768 546,932 518,944" fill="url(#ozBotRightSide)" />
+                <!-- Верхняя светлая 3D-фаска -->
+                <polygon points="518,780 546,768 956,564 942,556" fill="#49D3B1" />
+                <!-- Лицевая изумрудная грань -->
+                <polygon points="546,768 956,564 956,724 546,932" fill="url(#ozBotRightFront)" />
+            </symbol>
+        </defs>
+    </svg>
+
+    <!-- Атмосферное световое поле -->
+    <div class="ambient-canvas"></div>
+    <div class="sun-beam"></div>
+
+    <!-- 1. ВЕРХНЯЯ ТЕМНАЯ ПОЛОСА: ВСЕ СОЦСЕТИ И ЕДИНЫЙ ТЕЛЕФОН -->
+    <div class="fixed top-0 left-0 w-full z-50 bg-[#0b131e]/95 backdrop-blur-md text-white py-2 border-b border-white/10 font-sans">
+        <div class="max-w-[1900px] mx-auto px-4 sm:px-6 lg:px-12 flex flex-col sm:flex-row justify-between items-center gap-2">
+            <!-- ЛЕВО: Соцсети -->
+            <div class="flex items-center gap-6 w-full sm:w-auto justify-center sm:justify-start">
+                <div class="flex gap-4 sm:gap-5 items-center">
+                    <a href="https://max.ru/u/f9LHodD0cOIkVXly5FD_THVWxFw_6wOcmvWKWEL5_QzxWZR56IT5G7hPU90" target="_blank" class="link-max flex items-center justify-center transition" title="MAX Messenger">
+                        <img src="https://static.tildacdn.com/tild3733-3366-4138-a230-646561646262/_.png" alt="MAX" width="22" height="22" decoding="async" class="w-[22px] h-[22px] object-contain max-logo-style" />
+                    </a>
+                    <a href="https://t.me/+79883244747" target="_blank" class="social-link hover-tg" title="Telegram"><i class="fab fa-telegram-plane text-lg"></i></a>
+                    <a href="https://wa.me/79883244747" target="_blank" class="social-link hover-wa" title="WhatsApp"><i class="fab fa-whatsapp text-lg"></i></a>
+                    <a href="mailto:oknazavod-gel@yandex.ru" class="social-link hover-mail" title="Написать на почту"><i class="fas fa-envelope text-lg"></i></a>
+                    <a href="https://vk.com/okonyzavod?from=groups" target="_blank" class="social-link hover-vk" title="ВКонтакте"><i class="fab fa-vk text-lg"></i></a>
+                    <a href="https://ok.ru/group/70000041226243" target="_blank" class="social-link hover-ok" title="Одноклассники"><i class="fab fa-odnoklassniki text-lg"></i></a>
+                </div>
+            </div>
+
+            <!-- ПРАВО: Единый телефон завода -->
+            <div class="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm font-semibold tracking-wide">
+                <a href="tel:+79883244747" class="flex items-center gap-2 text-white hover:text-crystalCyan transition !important">
+                    <span class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
+                    <i class="fas fa-phone-alt text-[#10B981] text-xs"></i>
+                    <span>+7 (988) 324-47-47</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. ОРИГИНАЛЬНАЯ ПРОСТРАНСТВЕННАЯ ШАПКА: ДВЕ НЕВЕСОМЫЕ СТЕКЛЯННЫЕ ПРИЗМЫ -->
+    <header class="fixed top-[74px] sm:top-14 left-4 right-4 sm:left-8 sm:right-8 z-40 flex items-start justify-between pointer-events-none">
+        <!-- Левая капсула с эффектом ЖИДКОГО СТЕКЛА и чистым логотипом (без внутренней стеклянной плашки) -->
+        <a href="#atelier-stage" id="liquidBrandPlaque" class="pointer-events-auto liquid-glass-brand px-4 py-2.5 sm:px-6 sm:py-3.5 flex items-center gap-3.5 sm:gap-4 group relative">
+            <span class="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-white via-slate-200 to-slate-500 border border-white shadow-sm absolute top-2 left-2 z-20"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-white via-slate-200 to-slate-500 border border-white shadow-sm absolute top-2 right-2 z-20"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-white via-slate-200 to-slate-500 border border-white shadow-sm absolute bottom-2 left-2 z-20"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-white via-slate-200 to-slate-500 border border-white shadow-sm absolute bottom-2 right-2 z-20"></span>
+            <div class="w-12 h-12 sm:w-14 sm:h-14 shrink-0 flex items-center justify-center relative z-10">
+                <img id="mainBrandLogo" src="logo.webp" alt="Оконный завод Стекло" width="56" height="56" decoding="async" class="w-full h-full object-contain brand-logo-spin">
+            </div>
+            <div class="pr-2 relative z-10">
+                <div class="flex flex-wrap items-center gap-x-2 gap-y-0.5 leading-none">
+                    <span class="font-sans text-sm sm:text-base font-black tracking-wider brand-3d-green">ОКОННЫЙ</span>
+                    <span class="font-sans text-sm sm:text-base font-black tracking-wider brand-3d-blue">ЗАВОД</span>
+                    <span class="text-slate-400/80 font-light text-base">|</span>
+                    <span class="font-serif text-base sm:text-lg font-bold tracking-[0.14em] text-slateDeep uppercase drop-shadow-[0_1px_2px_rgba(255,255,255,0.95)]">Стекло</span>
+                </div>
+                <div class="flex items-center gap-2 mt-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#199E82]"></span>
+                    <span class="text-[10px] uppercase tracking-[0.15em] text-slateDeep/80 font-medium block">Архитектурные стеклянные конструкции</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Правая стеклянная капсула прямого контакта (ЕДИНЫЙ НОМЕР: +7 988 324 47 47) -->
+        <div class="pointer-events-auto flex items-center gap-2 sm:gap-2.5">
+            <a href="tel:+79883244747" class="glass-dock rounded-2xl px-3.5 sm:px-4 py-3 flex items-center gap-2.5 hover:bg-white/95 transition-all shadow-md">
+                <span class="w-2 h-2 rounded-full bg-[#199E82] animate-pulse shrink-0"></span>
+                <span class="text-xs sm:text-sm font-semibold tracking-wide text-slateDeep whitespace-nowrap">+7 988 324 47 47</span>
+            </a>
+            <button onclick="openConciergeModal('Индивидуальный расчет проекта по вашим размерам')" class="hidden sm:flex glass-dock rounded-2xl px-4 sm:px-5 py-3 text-xs sm:text-sm font-medium text-slateDeep hover:bg-slateDeep hover:text-white transition-all duration-300 items-center gap-2.5 group">
+                <span class="w-2 h-2 rounded-full bg-[#35A7DC] group-hover:bg-white transition-colors"></span>
+                <span>Обсудить проект</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- НИЖНЯЯ ПЛАВАЮЩАЯ СТЕКЛЯННАЯ ЛИНЗА-НАВИГАЦИЯ (В стиле Spatial Architecture) -->
+    <nav class="fixed bottom-5 left-1/2 -translate-x-1/2 z-40 w-[96%] max-w-2xl">
+        <div class="glass-dock rounded-full p-1.5 sm:p-2 flex items-center justify-between gap-1 overflow-x-auto no-scrollbar">
+            <a href="#atelier-stage" class="px-3 sm:px-3.5 py-2 rounded-full text-xs font-medium text-slateDeep hover:bg-white/80 transition-all whitespace-nowrap">
+                Инсталляция
+            </a>
+            <a href="#six-directions" class="px-3 sm:px-3.5 py-2 rounded-full text-xs font-medium text-slateDeep hover:bg-white/80 transition-all whitespace-nowrap flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-crystalCyan"></span>
+                <span>6 направлений</span>
+            </a>
+            <a href="#glass-guide" class="px-3 sm:px-3.5 py-2 rounded-full text-xs font-medium text-slateDeep hover:bg-white/80 transition-all whitespace-nowrap">
+                Гид по стеклу
+            </a>
+            <a href="#contacts-section" class="px-3 sm:px-3.5 py-2 rounded-full text-xs font-semibold text-slateDeep hover:bg-white/80 transition-all whitespace-nowrap flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse"></span>
+                <span>Контакты</span>
+            </a>
+            <button onclick="openConciergeModal('Рассчитать проект по моим размерам')" class="px-3.5 sm:px-5 py-2 rounded-full bg-gradient-to-r from-slateDeep to-[#0d2a33] text-white text-xs font-medium hover:from-[#0EA5E9] hover:to-[#10B981] transition-all whitespace-nowrap shadow-sm">
+                Рассчитать проект
+            </button>
+        </div>
+    </nav>
+
+    <!-- ПЕРВЫЙ ЭКРАН: ПАНОРАМНАЯ СТЕКЛЯННАЯ ИНСТАЛЛЯЦИЯ С ЖИВОЙ СДВИЖНОЙ СТВОРКОЙ -->
+    <section id="atelier-stage" class="relative min-h-screen pt-44 sm:pt-36 pb-12 px-3 sm:px-8 flex flex-col justify-between">
+        <div class="max-w-[1400px] w-full mx-auto flex-1 flex flex-col">
+            
+            <!-- Главная архитектурная сцена (Интерактивное окно с передвижным стеклянным полотном: гладкие 120 FPS) -->
+            <div id="heroStageContainer" class="relative flex-1 min-h-[580px] lg:min-h-[660px] rounded-[2.2rem] overflow-hidden border-2 border-white/90 shadow-2xl select-none flex flex-col justify-between">
+                
+                <!-- Фоновая архитектурная панорама (LCP — приоритетная предзагрузка) -->
+                <img 
+                    id="heroBgImage" 
+                    src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=85" 
+                    onerror="this.src='https://placehold.co/1600x900/EAE6DF/1E252B?text=Architectural+Glass+Space'"
+                    alt="Светлая архитектура и стеклянные конструкции" 
+                    width="1800"
+                    height="1000"
+                    fetchpriority="high"
+                    loading="eager"
+                    decoding="async"
+                    class="absolute inset-0 w-full h-full object-cover object-center scale-105 transition-transform duration-1000"
+                >
+
+                <!-- Мягкая кристаллическая вуаль в нежных полупрозрачных тонах логотипа (циан и изумруд) -->
+                <div class="absolute inset-0 bg-gradient-to-r from-slateDeep/65 via-slateDeep/25 to-slateDeep/35 pointer-events-none"></div>
+                <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(56,189,248,0.18),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(52,211,153,0.18),transparent_60%)] pointer-events-none"></div>
+
+                <!-- Плавающий бейдж перехода к каталогу -->
+                <div class="absolute top-4 right-4 sm:top-6 sm:right-6 z-30 pointer-events-auto">
+                    <a href="#six-directions" class="glass-dock rounded-2xl px-4 py-2.5 text-xs font-semibold text-slateDeep hover:bg-white flex items-center gap-2.5 shadow-xl border border-white transition-all group">
+                        <span class="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-ping"></span>
+                        <span class="tracking-wide">Каталог 6 направлений ↓</span>
+                    </a>
+                </div>
+
+                <!-- ИНТЕРАКТИВНАЯ СДВИЖНАЯ СТЕКЛЯННАЯ СТВОРКА (120 FPS идеальная плавность!) -->
+                <div id="slidingGlassDoor" class="pane-optiwhite absolute top-0 bottom-0 right-0 w-[52%] sm:w-[48%] border-l-[3px] border-white/95 shadow-[-25px_0_60px_rgba(20,30,40,0.25)] transition-colors duration-500 z-20 flex flex-col justify-between p-5 sm:p-8">
+                    
+                    <!-- Верхняя направляющая каретка и штамп стекла -->
+                    <div class="flex items-center justify-between border-b border-white/40 pb-3">
+                        <span id="doorGlassLabel" class="text-[11px] uppercase tracking-[0.2em] text-white font-semibold bg-slateDeep/45 backdrop-blur-md px-3 py-1 rounded-full border border-white/30 flex items-center gap-1.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#38BDF8]"></span>
+                            <span>Створка: Кристалл Optiwhite</span>
+                        </span>
+                        <span class="text-[10px] font-mono text-white/90 hidden sm:inline">ЕВРОКРОМКА • ЗАКАЛКА EN 12150</span>
+                    </div>
+
+                    <!-- Вертикальная ручка-штанга на самом краю стекла (в нежных цветах логотипа: циан + мята) -->
+                    <div id="glassDoorHandle" class="absolute top-1/2 -left-5 -translate-y-1/2 cursor-ew-resize group z-30 flex items-center" title="Потяните стеклянную створку влево или вправо">
+                        <div class="w-11 h-28 rounded-2xl glass-dock border-2 border-white flex flex-col items-center justify-center gap-1.5 shadow-2xl group-hover:scale-105 transition-transform">
+                            <!-- Двухцветный кристальный сердечник ручки: циан сверху, изумруд снизу как в логотипе -->
+                            <span class="w-1.5 h-10 rounded-full bg-gradient-to-b from-[#38BDF8] via-[#2DD4BF] to-[#10B981] shadow-[0_0_10px_rgba(45,212,191,0.7)]"></span>
+                            <div class="flex gap-1 text-[11px] font-bold text-slateDeep">
+                                <span>‹</span><span>›</span>
+                            </div>
+                        </div>
+                        <span class="hidden sm:block ml-3 px-3 py-1.5 rounded-xl bg-slateDeep/80 text-white text-[11px] font-medium backdrop-blur-md whitespace-nowrap pointer-events-none border border-cyan-400/30 shadow-lg">
+                            Двигайте створку
+                        </span>
+                    </div>
+
+                    <!-- Нижний блок внутри стеклянной створки: переключение фактуры на лету -->
+                    <div class="ml-auto max-w-xs w-full glass-dock rounded-2xl p-3.5 border border-white">
+                        <div class="text-[11px] font-medium text-slateMuted mb-2 flex items-center justify-between">
+                            <span>Преломление створки:</span>
+                            <span class="text-slateDeep font-semibold">4 фактуры</span>
+                        </div>
+                        <div class="grid grid-cols-4 gap-1.5">
+                            <button onclick="changeHeroDoorGlass('optiwhite')" id="hero-btn-optiwhite" class="py-2 px-1 rounded-xl text-[11px] font-semibold bg-gradient-to-r from-slateDeep to-[#0d2e33] text-white shadow-sm transition-all">
+                                Optiwhite
+                            </button>
+                            <button onclick="changeHeroDoorGlass('fluted')" id="hero-btn-fluted" class="py-2 px-1 rounded-xl text-[11px] font-medium bg-white/70 text-slateDeep hover:bg-white transition-all">
+                                Рифленое
+                            </button>
+                            <button onclick="changeHeroDoorGlass('bronze')" id="hero-btn-bronze" class="py-2 px-1 rounded-xl text-[11px] font-medium bg-white/70 text-slateDeep hover:bg-white transition-all">
+                                Бронза
+                            </button>
+                            <button onclick="changeHeroDoorGlass('satin')" id="hero-btn-satin" class="py-2 px-1 rounded-xl text-[11px] font-medium bg-white/70 text-slateDeep hover:bg-white transition-all">
+                                Сатин
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Контент поверх архитектурной сцены (реагирует на прохождение стеклянной створки сверху) -->
+                <div class="relative z-10 p-6 sm:p-12 lg:p-16 flex flex-col justify-between h-full flex-1 pointer-events-none">
+                    
+                    <div class="max-w-2xl space-y-5 mt-4 sm:mt-8">
+                        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/85 backdrop-blur-md text-xs font-medium text-slateDeep shadow-sm border border-cyan-100">
+                            <span class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
+                            <span>Проектирование, закалка и чистый монтаж под ключ</span>
+                        </div>
+
+                        <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal text-white leading-[1.03] tracking-tight drop-shadow-sm">
+                            Пространство, <br>
+                            ограненное <span class="italic font-normal text-[#BEE3DB]">светом и стеклом</span>
+                        </h1>
+
+                        <p class="text-sm sm:text-lg text-white/90 font-light leading-relaxed max-w-xl drop-shadow-xs">
+                            Создаем невесомые архитектурные конструкции без громоздкого металла: от парящих лестничных перил и фасадных козырьков до герметичных душевых, межкомнатных перегородок и панорамного безрамного остекления.
+                        </p>
+
+                        <div class="pt-2 flex flex-wrap items-center gap-3.5 pointer-events-auto">
+                            <button onclick="openConciergeModal('Получить расчет проекта и эскиз узлов')" class="px-7 py-4 rounded-2xl bg-white text-slateDeep font-medium text-sm sm:text-base hover:bg-gradient-to-r hover:from-white hover:to-[#BEE3DB] transition-all duration-300 shadow-xl flex items-center gap-3 group">
+                                <span>Рассчитать проект по размерам</span>
+                                <span class="w-6 h-6 rounded-full bg-slateDeep text-white flex items-center justify-center text-xs group-hover:translate-x-1 transition-transform">→</span>
+                            </button>
+                            <a href="#six-directions" class="px-6 py-4 rounded-2xl bg-slateDeep/75 hover:bg-slateDeep text-white backdrop-blur-md border border-white/35 text-sm sm:text-base font-medium transition-all flex items-center gap-2.5">
+                                <span class="w-2.5 h-2.5 rounded-full bg-crystalCyan"></span>
+                                <span>Каталог 6 направлений ↓</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Подсказка внизу сцены -->
+                    <div class="hidden sm:flex items-center gap-3 text-xs text-white/85 pt-8">
+                        <span class="w-8 h-[1px] bg-white/60"></span>
+                        <span>Потяните створку за двухцветную ручку, чтобы оценить чистоту и оптические свойства кристального стекла</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 6 СТЕКЛЯННЫХ ЛАМЕЛЕЙ ПОД СЦЕНОЙ: Быстрый переход ко всем 6 направлениям -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-3.5 -mt-6 relative z-30 px-3 sm:px-8">
+                <a href="#dir-railings" class="glass-slab glass-sheen rounded-2xl p-4 hover:-translate-y-1.5 transition-all duration-300 group">
+                    <span class="text-[10px] font-mono text-crystalCyan font-semibold block">01 / ЭКСТЕРЬЕР И АТРИУМ</span>
+                    <span class="font-serif text-lg sm:text-xl font-semibold text-slateDeep block mt-1 group-hover:text-crystalCyan transition-colors">Стеклянные ограждения</span>
+                    <span class="text-[11px] text-slateMuted block mt-1">Скрытый профиль • Триплекс</span>
+                </a>
+                <a href="#dir-canopies" class="glass-slab glass-sheen rounded-2xl p-4 hover:-translate-y-1.5 transition-all duration-300 group">
+                    <span class="text-[10px] font-mono text-crystalCyan font-semibold block">02 / ВХОДНЫЕ ГРУППЫ</span>
+                    <span class="font-serif text-lg sm:text-xl font-semibold text-slateDeep block mt-1 group-hover:text-crystalCyan transition-colors">Стеклянные козырьки</span>
+                    <span class="text-[11px] text-slateMuted block mt-1">Ванты и консоли • AISI 316</span>
+                </a>
+                <a href="#dir-showers" class="glass-slab glass-sheen rounded-2xl p-4 hover:-translate-y-1.5 transition-all duration-300 group">
+                    <span class="text-[10px] font-mono text-crystalCyan font-semibold block">03 / SPA И ВАННЫЕ</span>
+                    <span class="font-serif text-lg sm:text-xl font-semibold text-slateDeep block mt-1 group-hover:text-crystalCyan transition-colors">Душевые перегородки</span>
+                    <span class="text-[11px] text-slateMuted block mt-1">Walk-In • Покрытие Anti-Drop</span>
+                </a>
+                <a href="#dir-stairs" class="glass-slab glass-sheen rounded-2xl p-4 hover:-translate-y-1.5 transition-all duration-300 group">
+                    <span class="text-[10px] font-mono text-crystalCyan font-semibold block">04 / МАРШИ И ВТОРОЙ СВЕТ</span>
+                    <span class="font-serif text-lg sm:text-xl font-semibold text-slateDeep block mt-1 group-hover:text-crystalCyan transition-colors">Лестничные перила</span>
+                    <span class="text-[11px] text-slateMuted block mt-1">Торец марша • Рутели ⌀50 мм</span>
+                </a>
+                <a href="#dir-interior" class="glass-slab glass-sheen rounded-2xl p-4 hover:-translate-y-1.5 transition-all duration-300 group">
+                    <span class="text-[10px] font-mono text-crystalCyan font-semibold block">05 / ЗОНИРОВАНИЕ СВЕТОМ</span>
+                    <span class="font-serif text-lg sm:text-xl font-semibold text-slateDeep block mt-1 group-hover:text-crystalCyan transition-colors">Межкомнатные перегородки</span>
+                    <span class="text-[11px] text-slateMuted block mt-1">Soft-Close • Без порога на полу</span>
+                </a>
+                <a href="#dir-frameless" class="glass-slab glass-sheen rounded-2xl p-4 hover:-translate-y-1.5 transition-all duration-300 group">
+                    <span class="text-[10px] font-mono text-crystalCyan font-semibold block">06 / ВЕРАНДЫ И ТЕРРАСЫ</span>
+                    <span class="font-serif text-lg sm:text-xl font-semibold text-slateDeep block mt-1 group-hover:text-crystalCyan transition-colors">Безрамное остекление</span>
+                    <span class="text-[11px] text-slateMuted block mt-1">Створки книжкой • 100% проем</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- ГАЛЕРЕЯ-ЭКСПОЗИЦИЯ ВСЕХ 6 НАПРАВЛЕНИЙ (Асимметричная журнальная верстка с эффектом многослойного стекла) -->
+    <section id="six-directions" class="py-16 sm:py-24 px-4 sm:px-8">
+        <div class="max-w-[1400px] mx-auto space-y-12">
+
+            <!-- Заголовок экспозиции -->
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-slateDeep/10 pb-8">
+                <div>
+                    <span class="text-xs uppercase tracking-[0.22em] text-crystalCyan font-semibold block mb-2">Архитектурная коллекция • 6 направлений</span>
+                    <h2 class="font-serif text-4xl sm:text-6xl font-normal text-slateDeep leading-none">
+                        Шесть граней <span class="italic text-crystalCyan">безупречного остекления</span>
+                    </h2>
+                </div>
+                <p class="text-sm sm:text-base text-slateMuted max-w-md font-light">
+                    Выберите нужное направление, чтобы изучить формулу стекла, варианты крепления и получить точную смету по вашим размерам.
+                </p>
+            </div>
+
+            <!-- РЯД 1: 01 Стеклянные ограждения (Широкая панорама 7 колонок) + 02 Стеклянные козырьки (5 колонок) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-7 items-stretch">
+                
+                <!-- 01. СТЕКЛЯННЫЕ ОГРАЖДЕНИЯ -->
+                <article id="dir-railings" class="lg:col-span-7 glass-slab glass-sheen rounded-[2rem] p-4 sm:p-6 flex flex-col justify-between group">
+                    <div class="relative h-72 sm:h-96 rounded-3xl overflow-hidden">
+                        <img 
+                            src="Ограждение.webp" 
+                            onerror="this.src='ograzhdenie.webp'"
+                            alt="Стеклянные ограждения для балконов, террас и второго света" 
+                            width="900"
+                            height="600"
+                            loading="lazy"
+                            decoding="async"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-slateDeep/65 via-transparent to-slateDeep/15"></div>
+                        
+                        <!-- Плавающая стеклянная плашка характеристик прямо на полотне -->
+                        <div class="absolute top-4 left-4 right-4 flex flex-wrap justify-between items-center gap-2">
+                            <span class="glass-dock px-3.5 py-1.5 rounded-full text-xs font-semibold text-slateDeep">
+                                01 • Стеклянные ограждения
+                            </span>
+                            <span class="px-3.5 py-1.5 rounded-full bg-slateDeep/70 text-white backdrop-blur-md text-xs">
+                                Закаленный триплекс 8+8 / 10+10 мм
+                            </span>
+                        </div>
+
+                        <div class="absolute bottom-5 left-5 right-5 text-white">
+                            <h3 class="font-serif text-3xl sm:text-4xl font-normal">Стеклянные ограждения террас, балконов и атриумов</h3>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 px-2 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+                        <div class="space-y-3 max-w-xl">
+                            <p class="text-sm text-slateMuted leading-relaxed">
+                                Полностью прозрачные барьеры безопасности без вертикальных стоек. Монтаж в скрытый зажимной профиль в пол, на точечные рутели или мини-стойки из морской нержавеющей стали AISI 316.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-3 py-1 rounded-lg bg-white/75 border border-white text-slateDeep">Выдерживают до 300 кг/м</span>
+                                <span class="text-xs px-3 py-1 rounded-lg bg-white/75 border border-white text-slateDeep">Свободный край или поручень</span>
+                                <span class="text-xs px-3 py-1 rounded-lg bg-white/75 border border-white text-slateDeep">Optiwhite / Бронза / Графит</span>
+                            </div>
+                        </div>
+                        <div class="shrink-0 flex items-center justify-end border-t sm:border-t-0 pt-4 sm:pt-0 border-slateDeep/10">
+                            <button onclick="openConciergeModal('Стеклянные ограждения — расчет проекта', 'Стеклянные ограждения')" class="px-6 py-3.5 rounded-xl bg-slateDeep text-white text-xs font-semibold hover:bg-crystalCyan transition-colors shadow-sm flex items-center gap-2">
+                                <span>Рассчитать проект</span>
+                                <span>→</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 02. СТЕКЛЯННЫЕ КОЗЫРЬКИ -->
+                <article id="dir-canopies" class="lg:col-span-5 glass-slab glass-sheen rounded-[2rem] p-4 sm:p-6 flex flex-col justify-between group">
+                    <div class="relative h-72 sm:h-96 rounded-3xl overflow-hidden">
+                        <img 
+                            src="Козырёк.webp" 
+                            onerror="this.src='kozyrek.webp'"
+                            alt="Стеклянные козырьки над входом" 
+                            width="800"
+                            height="500"
+                            loading="lazy"
+                            decoding="async"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-slateDeep/70 via-transparent to-slateDeep/15"></div>
+                        
+                        <div class="absolute top-4 left-4 right-4 flex justify-between items-center">
+                            <span class="glass-dock px-3.5 py-1.5 rounded-full text-xs font-semibold text-slateDeep flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#0EA5E9]"></span>
+                                <span>02 • Стеклянные козырьки</span>
+                            </span>
+                            <span class="px-3 py-1.5 rounded-full bg-slateDeep/70 text-white backdrop-blur-md text-xs border border-white/20">
+                                Снеговая нагрузка до 450 кг/м²
+                            </span>
+                        </div>
+
+                        <div class="absolute bottom-5 left-5 right-5 text-white">
+                            <h3 class="font-serif text-3xl sm:text-4xl font-normal">Стеклянные козырьки на вантах и консолях</h3>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 px-2 flex flex-col justify-between gap-5">
+                        <p class="text-sm text-slateMuted leading-relaxed">
+                            Статусная защита входной группы от дождя, сосулек и снега, не затеняющая фасад здания. Изготавливаются из многослойного закаленного триплекса до 24 мм с узлами крепления с терморазрывом.
+                        </p>
+                        <div class="flex items-center justify-end pt-3 border-t border-slateDeep/10">
+                            <button onclick="openConciergeModal('Стеклянные козырьки — расчет проекта', 'Стеклянные козырьки')" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-slateDeep to-[#0d2a33] text-white text-xs font-semibold hover:from-[#0EA5E9] hover:to-[#10B981] shadow-sm transition-colors flex items-center gap-2">
+                                <span>Рассчитать проект</span>
+                                <span>→</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- РЯД 2: 03 Душевые стеклянные перегородки (5 колонок) + 04 Лестничные перила из стекла (7 колонок) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-7 items-stretch">
+
+                <!-- 03. ДУШЕВЫЕ СТЕКЛЯННЫЕ ПЕРЕГОРОДКИ -->
+                <article id="dir-showers" class="lg:col-span-5 glass-slab glass-sheen rounded-[2rem] p-4 sm:p-6 flex flex-col justify-between group">
+                    <div class="relative h-72 sm:h-96 rounded-3xl overflow-hidden">
+                        <img 
+                            src="Душевая.webp" 
+                            onerror="this.src='dushevaya.webp'"
+                            alt="Душевые стеклянные перегородки на заказ" 
+                            width="800"
+                            height="500"
+                            loading="lazy"
+                            decoding="async"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-slateDeep/70 via-transparent to-slateDeep/15"></div>
+                        
+                        <div class="absolute top-4 left-4 right-4 flex justify-between items-center">
+                            <span class="glass-dock px-3.5 py-1.5 rounded-full text-xs font-semibold text-slateDeep flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#10B981]"></span>
+                                <span>03 • Душевые перегородки</span>
+                            </span>
+                            <span class="px-3 py-1.5 rounded-full bg-slateDeep/70 text-white backdrop-blur-md text-xs border border-white/20">
+                                Гидрофобная защита Anti-Drop
+                            </span>
+                        </div>
+
+                        <div class="absolute bottom-5 left-5 right-5 text-white">
+                            <h3 class="font-serif text-3xl sm:text-4xl font-normal">Душевые стеклянные перегородки в размер</h3>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 px-2 flex flex-col justify-between gap-5">
+                        <p class="text-sm text-slateMuted leading-relaxed">
+                            Системы Walk-In со свободным входом, распашные и раздвижные душевые в потолок. Латунная фурнитура (хром, матовое золото, черный муар, бронза), которая не окисляется от влаги.
+                        </p>
+                        <div class="flex items-center justify-end pt-3 border-t border-slateDeep/10">
+                            <button onclick="openConciergeModal('Душевые стеклянные перегородки — расчет проекта', 'Душевые перегородки')" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-slateDeep to-[#0d2a33] text-white text-xs font-semibold hover:from-[#0EA5E9] hover:to-[#10B981] shadow-sm transition-colors flex items-center gap-2">
+                                <span>Рассчитать проект</span>
+                                <span>→</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 04. ЛЕСТНИЧНЫЕ ПЕРИЛА ИЗ СТЕКЛА -->
+                <article id="dir-stairs" class="lg:col-span-7 glass-slab glass-sheen rounded-[2rem] p-4 sm:p-6 flex flex-col justify-between group">
+                    <div class="relative h-72 sm:h-96 rounded-3xl overflow-hidden">
+                        <img 
+                            src="Перила.webp" 
+                            onerror="this.src='perila.webp'"
+                            alt="Лестничные перила из стекла" 
+                            width="900"
+                            height="600"
+                            loading="lazy"
+                            decoding="async"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-slateDeep/65 via-transparent to-slateDeep/15"></div>
+                        
+                        <div class="absolute top-4 left-4 right-4 flex flex-wrap justify-between items-center gap-2">
+                            <span class="glass-dock px-3.5 py-1.5 rounded-full text-xs font-semibold text-slateDeep flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#0EA5E9]"></span>
+                                <span>04 • Лестничные перила из стекла</span>
+                            </span>
+                            <span class="px-3.5 py-1.5 rounded-full bg-slateDeep/70 text-white backdrop-blur-md text-xs border border-white/20">
+                                3D-сканирование наклона ступеней
+                            </span>
+                        </div>
+
+                        <div class="absolute bottom-5 left-5 right-5 text-white">
+                            <h3 class="font-serif text-3xl sm:text-4xl font-normal">Парящие лестничные перила из закаленного стекла</h3>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 px-2 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+                        <div class="space-y-3 max-w-xl">
+                            <p class="text-sm text-slateMuted leading-relaxed">
+                                Изготавливаем прямые, забежные и гнутые (моллированные) стеклянные перила для бетонных, деревянных и металлических лестниц. Крепление в торец марша сохраняет полную ширину ступеней.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-3 py-1 rounded-lg bg-white/75 border border-cyan-100 text-slateDeep">Точечные рутели ⌀50 мм</span>
+                                <span class="text-xs px-3 py-1 rounded-lg bg-white/75 border border-cyan-100 text-slateDeep">Поручень из дуба / ясеня / LED</span>
+                                <span class="text-xs px-3 py-1 rounded-lg bg-white/75 border border-emerald-100 text-slateDeep">Триплекс без зеленого оттенка</span>
+                            </div>
+                        </div>
+                        <div class="shrink-0 flex items-center justify-end border-t sm:border-t-0 pt-4 sm:pt-0 border-slateDeep/10">
+                            <button onclick="openConciergeModal('Лестничные перила из стекла — расчет проекта', 'Лестничные перила')" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-slateDeep to-[#0d2a33] text-white text-xs font-semibold hover:from-[#0EA5E9] hover:to-[#10B981] shadow-sm transition-colors flex items-center gap-2">
+                                <span>Рассчитать проект</span>
+                                <span>→</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- РЯД 3: 05 Межкомнатные стеклянные перегородки (6 колонок) + 06 Безрамное остекление (6 колонок) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-7 items-stretch">
+
+                <!-- 05. МЕЖКОМНАТНЫЕ СТЕКЛЯННЫЕ ПЕРЕГОРОДКИ -->
+                <article id="dir-interior" class="lg:col-span-6 glass-slab glass-sheen rounded-[2rem] p-4 sm:p-6 flex flex-col justify-between group">
+                    <div class="relative h-72 sm:h-96 rounded-3xl overflow-hidden">
+                        <img 
+                            src="Перегородка.webp" 
+                            onerror="this.src='peregorodka.webp'"
+                            alt="Межкомнатные стеклянные перегородки" 
+                            width="850"
+                            height="550"
+                            loading="lazy"
+                            decoding="async"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-slateDeep/70 via-transparent to-slateDeep/15"></div>
+                        
+                        <div class="absolute top-4 left-4 right-4 flex justify-between items-center">
+                            <span class="glass-dock px-3.5 py-1.5 rounded-full text-xs font-semibold text-slateDeep">
+                                05 • Межкомнатные перегородки
+                            </span>
+                            <span class="px-3 py-1.5 rounded-full bg-slateDeep/70 text-white backdrop-blur-md text-xs">
+                                Без нижнего рельса на полу
+                            </span>
+                        </div>
+
+                        <div class="absolute bottom-5 left-5 right-5 text-white">
+                            <h3 class="font-serif text-3xl sm:text-4xl font-normal">Межкомнатные раздвижные и стационарные перегородки</h3>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 px-2 flex flex-col justify-between gap-5">
+                        <p class="text-sm text-slateMuted leading-relaxed">
+                            Каскадные раздвижные перегородки с доводчиками Soft-Close для отделения кухни от гостиной, гардеробных, спален и кабинетов. Чистый пол без порога, звукоизоляция до 42 дБ и высота створок до 3.6 м.
+                        </p>
+                        <div class="flex items-center justify-end pt-3 border-t border-slateDeep/10">
+                            <button onclick="openConciergeModal('Межкомнатные стеклянные перегородки — расчет проекта', 'Межкомнатные перегородки')" class="px-6 py-3.5 rounded-xl bg-slateDeep text-white text-xs font-semibold hover:bg-crystalCyan transition-colors shadow-sm flex items-center gap-2">
+                                <span>Рассчитать проект</span>
+                                <span>→</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 06. БЕЗРАМНОЕ ОСТЕКЛЕНИЕ -->
+                <article id="dir-frameless" class="lg:col-span-6 glass-slab glass-sheen rounded-[2rem] p-4 sm:p-6 flex flex-col justify-between group">
+                    <div class="relative h-72 sm:h-96 rounded-3xl overflow-hidden">
+                        <img 
+                            src="Безрамка.webp" 
+                            onerror="this.src='bezramka.webp'"
+                            alt="Безрамное остекление веранд и террас" 
+                            width="850"
+                            height="550"
+                            loading="lazy"
+                            decoding="async"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-slateDeep/70 via-transparent to-slateDeep/15"></div>
+                        
+                        <div class="absolute top-4 left-4 right-4 flex justify-between items-center">
+                            <span class="glass-dock px-3.5 py-1.5 rounded-full text-xs font-semibold text-slateDeep">
+                                06 • Безрамное остекление
+                            </span>
+                            <span class="px-3 py-1.5 rounded-full bg-slateDeep/70 text-white backdrop-blur-md text-xs">
+                                Полное открытие проема за 15 сек
+                            </span>
+                        </div>
+
+                        <div class="absolute bottom-5 left-5 right-5 text-white">
+                            <h3 class="font-serif text-3xl sm:text-4xl font-normal">Панорамное безрамное остекление террас и беседок</h3>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 px-2 flex flex-col justify-between gap-5">
+                        <p class="text-sm text-slateMuted leading-relaxed">
+                            Сплошная стеклянная стена из закаленного монолита 10–12 мм без единой вертикальной перемычки. Летом все створки легко сдвигаются в компактную парковку («книжкой» или слайдером), зимой защищают от снега и ветра.
+                        </p>
+                        <div class="flex items-center justify-end pt-3 border-t border-slateDeep/10">
+                            <button onclick="openConciergeModal('Безрамное остекление — расчет проекта', 'Безрамное остекление')" class="px-6 py-3.5 rounded-xl bg-slateDeep text-white text-xs font-semibold hover:bg-crystalCyan transition-colors shadow-sm flex items-center gap-2">
+                                <span>Рассчитать проект</span>
+                                <span>→</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- ИНЖЕНЕРНЫЙ ГИД И ИНТЕРАКТИВНЫЙ НАВИГАТОР ПО СТЕКЛУ       -->
+    <!-- ======================================================== -->
+    <section id="glass-guide" class="py-14 sm:py-24 px-4 sm:px-8">
+        <div class="max-w-[1400px] mx-auto space-y-10">
+            
+            <!-- Заглавная стеклянная панель: Интерактивный конфигуратор задачи -->
+            <div class="glass-slab rounded-[2.5rem] p-6 sm:p-12 border border-white/80 shadow-xl bg-white/70">
+                
+                <!-- Шапка блока -->
+                <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-8 gap-4">
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-crystalCyan/15 text-xs font-bold text-crystalCyan uppercase tracking-[0.18em] mb-3">
+                            <span class="w-2 h-2 rounded-full bg-crystalCyan animate-pulse"></span>
+                            Инженерный навигатор • Экспертиза завода
+                        </div>
+                        <h2 class="font-serif text-3xl sm:text-5xl font-normal text-slateDeep leading-tight">
+                            Какое решение подойдет <span class="italic text-crystalCyan">для вашей задачи?</span>
+                        </h2>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slateMuted max-w-md">
+                        Выберите тип зоны — инженерная система подскажет рекомендуемую толщину стекла, тип закалки, безопасную фурнитуру и практический совет главного технолога.
+                    </p>
+                </div>
+
+                <!-- Кнопки выбора сценария / типа помещения -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 mb-8" id="guideScenarioTabs">
+                    <button onclick="selectGuideScenario('terrace')" id="tab-terrace" class="guide-tab p-3.5 sm:p-4 rounded-2xl text-left border transition-all duration-300 bg-slateDeep text-white border-slateDeep shadow-md cursor-pointer">
+                        <div class="text-lg sm:text-xl mb-1.5">🏡</div>
+                        <div class="text-xs sm:text-sm font-bold leading-snug">Терраса и балкон</div>
+                        <div class="text-[11px] opacity-75 mt-0.5">Ветровые нагрузки и вид</div>
+                    </button>
+                    <button onclick="selectGuideScenario('stairs')" id="tab-stairs" class="guide-tab p-3.5 sm:p-4 rounded-2xl text-left border transition-all duration-300 bg-white/80 text-slateDeep border-slate-200/80 hover:bg-white cursor-pointer">
+                        <div class="text-lg sm:text-xl mb-1.5">🪜</div>
+                        <div class="text-xs sm:text-sm font-bold leading-snug">Лестничный марш</div>
+                        <div class="text-[11px] opacity-75 mt-0.5">Жесткость и поручни</div>
+                    </button>
+                    <button onclick="selectGuideScenario('shower')" id="tab-shower" class="guide-tab p-3.5 sm:p-4 rounded-2xl text-left border transition-all duration-300 bg-white/80 text-slateDeep border-slate-200/80 hover:bg-white cursor-pointer">
+                        <div class="text-lg sm:text-xl mb-1.5">🚿</div>
+                        <div class="text-xs sm:text-sm font-bold leading-snug">Ванная и душевая</div>
+                        <div class="text-[11px] opacity-75 mt-0.5">Влага и антикапля</div>
+                    </button>
+                    <button onclick="selectGuideScenario('partitions')" id="tab-partitions" class="guide-tab p-3.5 sm:p-4 rounded-2xl text-left border transition-all duration-300 bg-white/80 text-slateDeep border-slate-200/80 hover:bg-white cursor-pointer">
+                        <div class="text-lg sm:text-xl mb-1.5">🚪</div>
+                        <div class="text-xs sm:text-sm font-bold leading-snug">Межкомнатные зоны</div>
+                        <div class="text-[11px] opacity-75 mt-0.5">Шумоизоляция и подвес</div>
+                    </button>
+                </div>
+
+                <!-- Главная интерактивная карточка сценария: Фото + Характеристики + Лайфхак -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
+                    
+                    <!-- Превью реального проекта с бейджем -->
+                    <div class="lg:col-span-6 relative min-h-[320px] sm:min-h-[420px] rounded-3xl overflow-hidden border border-white shadow-lg bg-slate-900 group">
+                        <img 
+                            id="guideMainImg"
+                            src="assets/actual/01_railings.jpg" 
+                            alt="Решение по остеклению"
+                            class="w-full h-full object-cover transition-opacity duration-300 select-none"
+                        >
+                        <div class="absolute inset-0 bg-gradient-to-t from-slateDeep/85 via-slateDeep/20 to-transparent pointer-events-none"></div>
+                        
+                        <!-- Плавающий бейдж на фото -->
+                        <div class="absolute bottom-5 left-5 right-5 text-white">
+                            <span id="guidePhotoBadge" class="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-semibold tracking-wider uppercase mb-2 border border-white/30">
+                                Ограждения открытых террас и балконов
+                            </span>
+                            <h3 id="guidePhotoTitle" class="font-serif text-xl sm:text-2xl font-bold leading-snug text-white">
+                                Безрамное триплекс-ограждение со скрытым нижним профилем
+                            </h3>
+                        </div>
+                    </div>
+
+                    <!-- Инженерная спецификация и совет технолога -->
+                    <div class="lg:col-span-6 flex flex-col justify-between space-y-5">
+                        
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span id="guideFormulaBadge" class="px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200/80">
+                                    ГОСТ 30698 • Класс защиты СМ4
+                                </span>
+                                <span class="text-xs font-mono text-slateMuted">Заводской стандарт</span>
+                            </div>
+
+                            <h3 id="guideTitle" class="font-serif text-2xl sm:text-3xl font-semibold text-slateDeep mb-3">
+                                Закаленный триплекс 8+8 / 10+10 мм с алмазной кромкой
+                            </h3>
+
+                            <p id="guideDesc" class="text-xs sm:text-sm text-slateMuted leading-relaxed mb-5">
+                                Для террас на высоте мы применяем многослойный триплекс из двух закаленных стекол. При экстремальном ударе стекло не осыпается, а остается на эластичной EVA-мембране, выдерживая вес нескольких человек.
+                            </p>
+
+                            <!-- Блок ключевых параметров -->
+                            <div id="guideSpecsGrid" class="grid grid-cols-2 gap-3 mb-5">
+                                <div class="p-3.5 rounded-2xl bg-white/80 border border-slate-200/80 shadow-sm">
+                                    <div class="text-[11px] text-slateMuted font-medium mb-1">Рекомендуемое стекло</div>
+                                    <div id="guideSpecGlass" class="text-xs sm:text-sm font-bold text-slateDeep">Optiwhite Триплекс 10+10</div>
+                                </div>
+                                <div class="p-3.5 rounded-2xl bg-white/80 border border-slate-200/80 shadow-sm">
+                                    <div class="text-[11px] text-slateMuted font-medium mb-1">Тип крепежа</div>
+                                    <div id="guideSpecMount" class="text-xs sm:text-sm font-bold text-slateDeep">Скрытый профиль в стяжку</div>
+                                </div>
+                                <div class="p-3.5 rounded-2xl bg-white/80 border border-slate-200/80 shadow-sm">
+                                    <div class="text-[11px] text-slateMuted font-medium mb-1">Ветроустойчивость</div>
+                                    <div id="guideSpecLoad" class="text-xs sm:text-sm font-bold text-slateDeep">Порывы до 38 м/с (до 15 этажа)</div>
+                                </div>
+                                <div class="p-3.5 rounded-2xl bg-white/80 border border-slate-200/80 shadow-sm">
+                                    <div class="text-[11px] text-slateMuted font-medium mb-1">Класс фурнитуры</div>
+                                    <div id="guideSpecMaterial" class="text-xs sm:text-sm font-bold text-slateDeep">Сталь AISI 316 / Анодирование</div>
+                                </div>
+                            </div>
+
+                            <!-- Практический совет главного технолога (Лайфхак) -->
+                            <div class="p-4 rounded-2xl bg-sky-50/70 border border-sky-150 flex items-start gap-3.5">
+                                <div class="w-8 h-8 rounded-xl bg-crystalCyan/20 text-crystalCyan flex items-center justify-center shrink-0 text-sm mt-0.5 font-bold">
+                                    💡
+                                </div>
+                                <div>
+                                    <div class="text-xs font-bold text-slateDeep mb-1">Совет главного инженера:</div>
+                                    <p id="guideEngineerTip" class="text-xs text-slate-600 leading-relaxed m-0">
+                                        Если планируете скрытый профиль в пол террасы, заложите монтажный зазор 120 мм в стяжке еще до укладки плитки. В нижней части профиля мы обязательно выводим дренажные каналы, чтобы дождевая вода свободно уходила наружу.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Кнопка действия -->
+                        <div class="pt-2 flex flex-col sm:flex-row items-center gap-3">
+                            <button onclick="requestGuideQuote()" class="w-full sm:w-auto flex-1 py-3.5 px-6 rounded-2xl bg-gradient-to-r from-slateDeep via-[#0d2a33] to-[#0EA5E9] text-white text-xs sm:text-sm font-bold hover:shadow-lg active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer">
+                                <span id="guideCtaText">Рассчитать остекление террасы</span>
+                                <i class="fas fa-arrow-right text-xs"></i>
+                            </button>
+                            <button onclick="openConciergeModal('Консультация главного инженера завода по выбору стекла')" class="w-full sm:w-auto py-3.5 px-5 rounded-2xl bg-white text-slateDeep border border-slate-200 text-xs font-semibold hover:bg-slate-50 transition-all flex items-center justify-center gap-2 cursor-pointer">
+                                <span>Задать вопрос инженеру</span>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Второй уровень экспертизы: Честное сравнение «Заводской стандарт» vs «Обычные мастерские» -->
+            <div class="glass-slab rounded-[2.5rem] p-6 sm:p-10 border border-white/80 shadow-lg bg-white/60">
+                <div class="text-center max-w-2xl mx-auto mb-8">
+                    <span class="text-xs uppercase tracking-[0.2em] text-crystalCyan font-bold block mb-2">Стандарты надежности</span>
+                    <h3 class="font-serif text-2xl sm:text-4xl font-normal text-slateDeep">
+                        Чем заводское стекло отличается от <span class="italic text-crystalCyan">рыночных аналогов</span>
+                    </h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                    
+                    <!-- Карточка 1: Стекло Optiwhite -->
+                    <div class="p-6 rounded-3xl bg-white/90 border border-slate-200/80 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="w-10 h-10 rounded-2xl bg-sky-100 text-crystalCyan flex items-center justify-center text-lg mb-4 font-bold">
+                                💎
+                            </div>
+                            <h4 class="font-serif text-lg font-bold text-slateDeep mb-2">Кристалл Optiwhite без зелени</h4>
+                            <p class="text-xs text-slateMuted leading-relaxed mb-4">
+                                Обычное флоат-стекло имеет выраженный зеленый бутылочный оттенок на срезе. Мы используем обесцвеченное стекло Pilkington Optiwhite с содержанием железа в 10 раз ниже нормы — оно пропускает 99.2% света и сохраняет истинные цвета интерьера.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+                            <span class="text-slateMuted">Светопропускание:</span>
+                            <span class="font-bold text-slateDeep">99.2% (кристальная чистота)</span>
+                        </div>
+                    </div>
+
+                    <!-- Карточка 2: 9-ступенчатая полировка кромки на ЧПУ -->
+                    <div class="p-6 rounded-3xl bg-white/90 border border-slate-200/80 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-lg mb-4 font-bold">
+                                ✨
+                            </div>
+                            <h4 class="font-serif text-lg font-bold text-slateDeep mb-2">Алмазная еврокромка 45° на ЧПУ</h4>
+                            <p class="text-xs text-slateMuted leading-relaxed mb-4">
+                                Кустарная ручная шлифовка оставляет микросколы и внутренние напряжения, из-за которых стекло может треснуть от перепада температур. На заводе кромка обрабатывается итальянскими алмазными фрезами в 9 проходов до гладкости хрусталя.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+                            <span class="text-slateMuted">Точность обработки:</span>
+                            <span class="font-bold text-slateDeep">0.1 мм (без микротрещин)</span>
+                        </div>
+                    </div>
+
+                    <!-- Карточка 3: Фурнитура морского класса AISI 316 -->
+                    <div class="p-6 rounded-3xl bg-white/90 border border-slate-200/80 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="w-10 h-10 rounded-2xl bg-cyan-100 text-[#0EA5E9] flex items-center justify-center text-lg mb-4 font-bold">
+                                ⚓
+                            </div>
+                            <h4 class="font-serif text-lg font-bold text-slateDeep mb-2">Морская сталь AISI 316</h4>
+                            <p class="text-xs text-slateMuted leading-relaxed mb-4">
+                                Дешевые силуминовые сплавы и нержавейка 201 темнеют и покрываются ржавчиной от влажности и морского воздуха уже через сезон. Наша фурнитура содержит 2.5% молибдена и анодированный слой 25 мкм — не ржавеет даже в душевых и на побережье.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+                            <span class="text-slateMuted">Коррозионная стойкость:</span>
+                            <span class="font-bold text-slateDeep">Класс С5 (морская среда)</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- СЕКЦИЯ КОНТАКТОВ С КАРТОЙ И СОЦСЕТЯМИ (ПОДВАЛ) -->
+    <!-- ============================================== -->
+    <div id="contacts-section" class="custom-contacts-section relative pt-16 pb-16 overflow-hidden w-full border-t border-slate-200/80 bg-[#F8FAFD]">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center mb-12">
+                <span class="text-xs uppercase tracking-[0.22em] text-crystalCyan font-bold block mb-2">Оконный завод • Контакты</span>
+                <h2 class="font-serif text-3xl md:text-5xl font-normal text-slateDeep mb-4">Свяжитесь <span class="italic text-crystalCyan">с нами</span></h2>
+                <div class="w-24 h-1.5 bg-gradient-to-r from-[#0EA5E9] to-[#10B981] mx-auto rounded-full shadow-sm"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                
+                <!-- ЛЕВАЯ КОЛОНКА (Контакты, единый номер, соцсети) -->
+                <div class="lg:col-span-5 space-y-5 flex flex-col justify-between">
+                    <!-- Единый телефон завода -->
+                    <div class="contact-card p-6 sm:p-7 rounded-3xl shadow-sm">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-100 to-sky-100 text-[#10B981] flex items-center justify-center text-xl shrink-0 shadow-sm border border-emerald-200/60"><i class="fas fa-phone-alt"></i></div>
+                            <div>
+                                <h3 class="text-slateMuted text-xs font-bold uppercase tracking-wider mb-1.5">Отдел продаж и консультаций</h3>
+                                <a href="tel:+79883244747" class="block text-2xl sm:text-3xl font-extrabold contact-page-link mb-1 text-slateDeep">+7 (988) 324-47-47</a>
+                                <p class="text-xs text-slateMuted m-0">Звонки, WhatsApp, Telegram • без выходных с 8:00 до 20:00</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Почта -->
+                    <div class="contact-card p-6 sm:p-7 rounded-3xl shadow-sm">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-sky-100 to-cyan-100 text-[#0EA5E9] flex items-center justify-center text-xl shrink-0 shadow-sm border border-sky-200/60"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <h3 class="text-slateMuted text-xs font-bold uppercase tracking-wider mb-1.5">Напишите нам</h3>
+                                <a href="mailto:oknazavod-gel@yandex.ru" class="text-lg md:text-xl font-bold contact-page-link break-all text-slateDeep">oknazavod-gel@yandex.ru</a>
+                                <p class="text-xs text-slateMuted mt-1 m-0">Отвечаем в течение 30 минут</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Соцсети -->
+                    <div class="bg-gradient-to-br from-slateDeep via-[#0d2a33] to-[#0f363f] p-6 sm:p-7 rounded-3xl text-white shadow-xl relative overflow-hidden group border border-white/20">
+                        <div class="absolute top-0 right-0 -mt-10 -mr-10 w-36 h-36 bg-[#0EA5E9] rounded-full opacity-25 blur-2xl group-hover:opacity-35 transition"></div>
+                        <div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-36 h-36 bg-[#10B981] rounded-full opacity-20 blur-2xl group-hover:opacity-30 transition"></div>
+                        <h3 class="font-bold text-base mb-4 relative z-10 text-white">Мы в мессенджерах и соцсетях</h3>
+                        <div class="grid grid-cols-5 gap-2.5 relative z-10">
+                            <a href="https://max.ru/u/f9LHodD0cOIkVXly5FD_THVWxFw_6wOcmvWKWEL5_QzxWZR56IT5G7hPU90" target="_blank" class="aspect-square bg-white/10 rounded-xl flex items-center justify-center hover:bg-white hover:scale-110 transition group/icon tilda-fixed-white" title="MAX Messenger">
+                                <img src="https://static.tildacdn.com/tild3733-3366-4138-a230-646561646262/_.png" alt="MAX" width="24" height="24" loading="lazy" decoding="async" class="w-6 h-6 object-contain filter brightness-0 invert group-hover/icon:filter-none">
+                            </a>
+                            <a href="https://wa.me/79883244747" target="_blank" class="aspect-square bg-white/10 rounded-xl flex items-center justify-center hover:bg-[#25D366] hover:scale-110 transition tilda-fixed-white" title="WhatsApp"><i class="fab fa-whatsapp text-2xl"></i></a>
+                            <a href="https://t.me/+79883244747" target="_blank" class="aspect-square bg-white/10 rounded-xl flex items-center justify-center hover:bg-[#229ED9] hover:scale-110 transition tilda-fixed-white" title="Telegram"><i class="fab fa-telegram-plane text-2xl"></i></a>
+                            <a href="https://vk.com/okonyzavod?from=groups" target="_blank" class="aspect-square bg-white/10 rounded-xl flex items-center justify-center hover:bg-[#0077FF] hover:scale-110 transition tilda-fixed-white" title="ВКонтакте"><i class="fab fa-vk text-2xl"></i></a>
+                            <a href="https://ok.ru/group/70000041226243" target="_blank" class="aspect-square bg-white/10 rounded-xl flex items-center justify-center hover:bg-[#F4731C] hover:scale-110 transition tilda-fixed-white" title="Одноклассники"><i class="fab fa-odnoklassniki text-2xl"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ПРАВАЯ КОЛОНКА: КАРТА -->
+                <div class="lg:col-span-7 h-full min-h-[460px] flex flex-col">
+                    <div class="relative w-full h-full min-h-[460px] rounded-[36px] shadow-2xl overflow-hidden border-4 border-white map-wrapper group flex-1 ring-2 ring-sky-300/40">
+                        <div class="absolute top-5 left-5 z-10 bg-white/95 backdrop-blur-md px-5 py-2.5 rounded-2xl shadow-md border border-sky-100 flex items-center gap-2.5">
+                            <div class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.7)]"></div>
+                            <span class="font-bold text-xs sm:text-sm text-slateDeep">Заходите к нам в гости</span>
+                        </div>
+                        <iframe src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=123841435812" loading="lazy" title="Оконный завод на Яндекс Картах" width="100%" height="460" frameborder="0" allowfullscreen="true" style="width: 100%; height: 100%; min-height: 460px; border: 0;"></iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- МЯГКИЙ СВЕТЛО-ЗЕЛЕНЫЙ И ГОЛУБОЙ ПОДВАЛ (КОПИРАЙТ) -->
+    <footer class="py-8 px-4 sm:px-8 bg-[#F8FAFD] border-t border-slate-200/80 font-sans text-slateDeep">
+        <div class="max-w-[1400px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+            <div class="flex flex-wrap items-center justify-center sm:justify-start gap-3">
+                <div class="w-8 h-8 shrink-0 flex items-center justify-center">
+                    <img id="footerBrandLogo" src="logo.webp" alt="Логотип Оконный завод Стекло" width="32" height="32" loading="lazy" decoding="async" class="w-full h-full object-contain brand-logo-spin">
+                </div>
+                <span class="font-sans text-sm font-black tracking-wider brand-3d-green">ОКОННЫЙ <span class="brand-3d-blue">ЗАВОД</span></span>
+                <span class="text-slate-400">|</span>
+                <span class="font-serif text-base font-bold tracking-widest text-slateDeep uppercase">СТЕКЛО</span>
+                <span class="text-slate-600">© 2026 Архитектурное стекло и конструкции под ключ.</span>
+            </div>
+            <div class="flex items-center gap-4 font-bold tracking-wide text-slateDeep">
+                <a href="tel:+79883244747" class="hover:text-[#16A685] transition-colors flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-[#10B981]"></span>
+                    <span>+7 (988) 324-47-47</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- === ЕДИНОЕ КОМПАКТНОЕ АРХИТЕКТУРНОЕ МОДАЛЬНОЕ ОКНО РАСЧЕТА === -->
+    <div id="conciergeModal" class="modal-overlay" onclick="if(event.target === this) closeConciergeModal()">
+        <div class="modal-architect-card" style="max-width: 440px !important; width: 100% !important; margin: auto !important;" onclick="event.stopPropagation()">
+            
+            <!-- Кнопка закрытия крестиком -->
+            <button onclick="closeConciergeModal()" type="button" class="modal-close-button" aria-label="Закрыть">✕</button>
+
+            <!-- Статус и надзаголовок -->
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                <span style="width: 8px; height: 8px; border-radius: 50%; background: #10B981; display: inline-block;"></span>
+                <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #10B981;">Оконный завод • Проектный отдел</span>
+            </div>
+
+            <h3 id="conciergeModalTitle" style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 26px; font-weight: 600; color: #0F172A; margin: 0 0 6px 0; line-height: 1.25;">
+                Рассчитать проект
+            </h3>
+            <p style="font-size: 12px; color: #64748B; margin: 0 0 18px 0; line-height: 1.5;">
+                Оставьте контакты и параметры — ведущий инженер завода подготовит расчет спецификации за 10–15 минут.
+            </p>
+
+            <form onsubmit="submitConciergeForm(event)" style="display: flex; flex-direction: column; gap: 12px; margin: 0;">
+                <div>
+                    <label style="display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #0F172A; margin-bottom: 4px;">Конструкция</label>
+                    <select id="modalCategorySelect" class="modal-input-field" style="cursor: pointer; font-weight: 500;">
+                        <option value="Стеклянные ограждения">Стеклянные ограждения</option>
+                        <option value="Стеклянные козырьки">Стеклянные козырьки</option>
+                        <option value="Душевые перегородки">Душевые перегородки</option>
+                        <option value="Лестничные перила">Лестничные перила</option>
+                        <option value="Межкомнатные перегородки">Межкомнатные перегородки</option>
+                        <option value="Безрамное остекление">Безрамное остекление</option>
+                        <option value="Комплексный проект">Комплексный проект остекления</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label style="display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #0F172A; margin-bottom: 4px;">Как к вам обращаться?</label>
+                    <input type="text" id="modalClientName" required placeholder="Иван" class="modal-input-field">
+                </div>
+
+                <div>
+                    <label style="display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #0F172A; margin-bottom: 4px;">Номер телефона</label>
+                    <input type="tel" id="modalClientPhone" required placeholder="+7 (___) ___-__-__" class="modal-input-field">
+                </div>
+
+                <div>
+                    <label style="display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #0F172A; margin-bottom: 4px;">Размеры или пожелания (необязательно)</label>
+                    <textarea id="modalClientDims" rows="2" placeholder="Примерные габариты, этаж или пожелания к стеклу..." class="modal-input-field" style="resize: none;"></textarea>
+                </div>
+
+                <button type="submit" id="conciergeSubmitBtn" class="modal-submit-button" style="margin-top: 4px;">
+                    <span>Получить расчет проекта</span>
+                    <span>→</span>
+                </button>
+
+                <div style="display: flex; align-items: center; justify-content: space-between; font-size: 11px; color: #94A3B8; padding-top: 4px;">
+                    <span>✓ Без навязчивых звонков</span>
+                    <a href="tel:+79883244747" style="color: #0EA5E9; text-decoration: none; font-weight: 600;">+7 (988) 324-47-47</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <!-- === ПЛАВАЮЩИЙ ИНЖЕНЕРНЫЙ ВИДЖЕТ СВЯЗИ === -->
+    <div id="martha-widget-wrapper">
+        
+        <!-- Всплывающий тултип инженерного отдела -->
+        <div id="widget-tooltip" class="transform transition-all duration-500 opacity-0 invisible translate-y-2 pointer-events-auto" style="position: absolute; right: 76px; bottom: 6px; width: 250px; background: rgba(255, 255, 255, 0.98); border-radius: 20px; padding: 12px 14px; border: 1px solid #E0F2FE; box-shadow: 0 18px 40px -10px rgba(15, 23, 42, 0.18);">
+            <button id="close-tooltip-btn" class="text-xs" style="position: absolute; top: 6px; right: 8px; background: none; border: none; font-size: 12px; color: #94A3B8; cursor: pointer;" aria-label="Закрыть">✕</button>
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, #0EA5E9, #10B981); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; box-shadow: 0 4px 10px rgba(14, 165, 233, 0.25);">
+                    <i data-lucide="message-square" width="18" height="18"></i>
+                </div>
+                <div>
+                    <p style="font-size: 12px; font-weight: 700; color: #0F172A; margin: 0;">Инженерный отдел</p>
+                    <p style="font-size: 11px; color: #64748B; margin: 0; line-height: 1.3;">Поможем с расчетом и подбором узлов примыкания 👋</p>
+                </div>
+            </div>
+            <div style="position: absolute; top: 50%; right: -6px; width: 12px; height: 12px; background: #ffffff; border-top: 1px solid #E0F2FE; border-right: 1px solid #E0F2FE; transform: rotate(45deg) translateY(-50%);"></div>
+        </div>
+
+        <!-- Выпадающие пункты меню виджета -->
+        <div id="widget-menu" class="flex flex-col items-end gap-3 mb-2">
+            <a href="tel:+79883244747" class="widget-menu-item group">
+                <span class="bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-md text-xs font-semibold text-slateDeep opacity-0 group-hover:opacity-100 transition-opacity border border-white">Позвонить</span>
+                <div class="w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center text-sky-600 hover:bg-sky-50 transition-colors border border-sky-100">
+                    <i data-lucide="phone" width="20" height="20"></i>
+                </div>
+            </a>
+            
+            <a href="https://wa.me/79883244747" target="_blank" class="widget-menu-item group" style="transition-delay: 0.05s;">
+                <span class="bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-md text-xs font-semibold text-slateDeep opacity-0 group-hover:opacity-100 transition-opacity border border-white">WhatsApp</span>
+                <div class="w-12 h-12 bg-[#25D366] rounded-full shadow-xl flex items-center justify-center text-white hover:brightness-110 transition-colors">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                </div>
+            </a>
+
+            <a href="https://max.ru/u/f9LHodD0cOIkVXly5FD_THVWxFw_6wOcmvWKWEL5_QzxWZR56IT5G7hPU90" target="_blank" class="widget-menu-item group" style="transition-delay: 0.15s;">
+                <span class="bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-md text-xs font-semibold text-slateDeep opacity-0 group-hover:opacity-100 transition-opacity border border-white">MAX</span>
+                <div class="w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center overflow-hidden hover:scale-105 transition-transform border border-sky-100">
+                    <img src="https://static.tildacdn.com/tild3036-6232-4835-b233-643362656538/_MAX.png" width="48" height="48" loading="lazy" decoding="async" class="w-full h-full object-cover" alt="MAX">
+                </div>
+            </a>
+
+            <button id="open-modal-widget-btn" class="widget-menu-item group" style="transition-delay: 0.2s;">
+                <span class="bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-md text-xs font-semibold text-slateDeep opacity-0 group-hover:opacity-100 transition-opacity border border-white">Задать вопрос инженеру</span>
+                <div class="w-12 h-12 bg-gradient-to-tr from-[#0EA5E9] to-[#10B981] rounded-full shadow-xl flex items-center justify-center text-white hover:scale-105 transition-transform">
+                    <i data-lucide="calculator" width="20" height="20"></i>
+                </div>
+            </button>
+        </div>
+
+        <!-- Главная плавающая кнопка виджета -->
+        <button id="main-widget-btn" class="relative w-16 h-16 bg-gradient-to-tr from-[#0EA5E9] to-[#10B981] rounded-full shadow-2xl flex items-center justify-center text-white hover:brightness-105 hover:scale-105 transition-all z-20 pointer-events-auto" aria-label="Открыть чат">
+            <div class="pulse-ring"></div>
+            <i data-lucide="message-circle" width="30" height="30" id="widget-icon-open"></i>
+            <i data-lucide="x" width="30" height="30" id="widget-icon-close" class="hidden"></i>
+            <span id="widget-badge" class="absolute top-0 right-0 w-4 h-4 bg-emerald-500 border-2 border-white rounded-full animate-pulse"></span>
+        </button>
+    </div>
+
+    <!-- СТЕКЛЯННОЕ УВЕДОМЛЕНИЕ (БЕЗ ALERT) -->
+    <div id="glassToast" class="glass-dock rounded-2xl p-4 border border-white shadow-2xl items-start gap-3.5 transition-all duration-300" style="position: fixed; top: 80px; right: 24px; z-index: 999999; max-width: 360px; width: calc(100% - 48px); display: none;">
+        <div class="w-9 h-9 rounded-xl bg-emerald-500/15 text-emerald-700 flex items-center justify-center shrink-0 font-bold" style="width: 36px; height: 36px; border-radius: 12px; background: rgba(16, 185, 129, 0.15); color: #047857; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">✓</div>
+        <div>
+            <div id="toastTitle" class="text-sm font-semibold text-slateDeep" style="font-weight: 600; font-size: 14px; color: #0F172A;">Запрос принят</div>
+            <div id="toastMessage" class="text-xs text-slateMuted mt-0.5 leading-relaxed" style="font-size: 12px; color: #64748B; margin-top: 2px; line-height: 1.4;">Инженер свяжется с вами в течение 10 минут.</div>
+        </div>
+    </div>
+
+    <script>
+        // 0. ИНТЕРАКТИВНОЕ ПРЕЛОМЛЕНИЕ «ЖИДКОГО СТЕКЛА» (LIQUID GLASS) НА КАПСУЛЕ С ЛОГОТИПОМ
+        const liquidBrandPlaque = document.getElementById('liquidBrandPlaque');
+        if (liquidBrandPlaque) {
+            let plaqueRect = null;
+            liquidBrandPlaque.addEventListener('mouseenter', () => {
+                plaqueRect = liquidBrandPlaque.getBoundingClientRect();
+            }, { passive: true });
+            liquidBrandPlaque.addEventListener('mousemove', (e) => {
+                if (!plaqueRect) plaqueRect = liquidBrandPlaque.getBoundingClientRect();
+                const x = ((e.clientX - plaqueRect.left) / plaqueRect.width) * 100;
+                const y = ((e.clientY - plaqueRect.top) / plaqueRect.height) * 100;
+                liquidBrandPlaque.style.setProperty('--lx', `${x}%`);
+                liquidBrandPlaque.style.setProperty('--ly', `${y}%`);
+            }, { passive: true });
+            liquidBrandPlaque.addEventListener('mouseleave', () => {
+                plaqueRect = null;
+                liquidBrandPlaque.style.setProperty('--lx', '30%');
+                liquidBrandPlaque.style.setProperty('--ly', '25%');
+            }, { passive: true });
+        }
+
+        // 0.1 ДИНАМИЧЕСКОЕ БЫСТРОЕ ВРАЩЕНИЕ ЛОГОТИПА ПРИ НАВЕДЕНИИ (2 быстрых оборота и мягкая остановка)
+        const mainBrandLogo = document.getElementById('mainBrandLogo');
+        let logoSpinAngle = 0;
+        let isLogoSpinning = false;
+
+        function triggerBrandLogoSpin() {
+            if (!mainBrandLogo || isLogoSpinning) return;
+            isLogoSpinning = true;
+            logoSpinAngle += 720; // 2 полных быстрых оборота вокруг своей оси
+            mainBrandLogo.classList.add('is-spinning');
+            mainBrandLogo.style.transition = 'transform 0.75s cubic-bezier(0.18, 0.89, 0.32, 1.15), filter 0.4s ease';
+            mainBrandLogo.style.transform = `rotate(${logoSpinAngle}deg) scale(1.12)`;
+
+            setTimeout(() => {
+                mainBrandLogo.style.transition = 'transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), filter 0.5s ease';
+                mainBrandLogo.style.transform = `rotate(${logoSpinAngle}deg) scale(1)`;
+                mainBrandLogo.classList.remove('is-spinning');
+                isLogoSpinning = false;
+            }, 750);
+        }
+
+        if (mainBrandLogo) {
+            mainBrandLogo.addEventListener('mouseenter', triggerBrandLogoSpin, { passive: true });
+            mainBrandLogo.addEventListener('click', triggerBrandLogoSpin, { passive: true });
+        }
+        if (liquidBrandPlaque) {
+            liquidBrandPlaque.addEventListener('mouseenter', triggerBrandLogoSpin, { passive: true });
+        }
+
+        // Вращение логотипа в подвале
+        const footerBrandLogo = document.getElementById('footerBrandLogo');
+        let footerSpinAngle = 0;
+        let isFooterSpinning = false;
+
+        function triggerFooterLogoSpin() {
+            if (!footerBrandLogo || isFooterSpinning) return;
+            isFooterSpinning = true;
+            footerSpinAngle += 720;
+            footerBrandLogo.classList.add('is-spinning');
+            footerBrandLogo.style.transition = 'transform 0.75s cubic-bezier(0.18, 0.89, 0.32, 1.15), filter 0.4s ease';
+            footerBrandLogo.style.transform = `rotate(${footerSpinAngle}deg) scale(1.15)`;
+
+            setTimeout(() => {
+                footerBrandLogo.style.transition = 'transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), filter 0.5s ease';
+                footerBrandLogo.style.transform = `rotate(${footerSpinAngle}deg) scale(1)`;
+                footerBrandLogo.classList.remove('is-spinning');
+                isFooterSpinning = false;
+            }, 750);
+        }
+
+        if (footerBrandLogo) {
+            footerBrandLogo.addEventListener('mouseenter', triggerFooterLogoSpin, { passive: true });
+            footerBrandLogo.addEventListener('click', triggerFooterLogoSpin, { passive: true });
+        }
+
+        // 1. ИНТЕРАКТИВНАЯ СДВИЖНАЯ СТЕКЛЯННАЯ СТВОРКА НА ПЕРВОМ ЭКРАНЕ (ОПТИМИЗИРОВАНО 60 FPS)
+        const heroStage = document.getElementById('heroStageContainer');
+        const slidingDoor = document.getElementById('slidingGlassDoor');
+        const doorHandle = document.getElementById('glassDoorHandle');
+        let isDraggingDoor = false;
+        let cachedHeroRect = null;
+        let doorRafId = null;
+
+        function startDoorDrag() {
+            isDraggingDoor = true;
+            if (heroStage) cachedHeroRect = heroStage.getBoundingClientRect();
+            if (slidingDoor) slidingDoor.style.willChange = 'width';
+        }
+
+        function stopDoorDrag() {
+            isDraggingDoor = false;
+            if (slidingDoor) slidingDoor.style.willChange = 'auto';
+        }
+
+        function updateDoorPosition(clientX) {
+            if (!heroStage || !slidingDoor) return;
+            if (!cachedHeroRect || cachedHeroRect.width === 0) {
+                cachedHeroRect = heroStage.getBoundingClientRect();
+            }
+            const offsetX = clientX - cachedHeroRect.left;
+            let rightWidthPercent = ((cachedHeroRect.width - offsetX) / cachedHeroRect.width) * 100;
+            rightWidthPercent = Math.max(24, Math.min(86, rightWidthPercent));
+            
+            if (doorRafId) cancelAnimationFrame(doorRafId);
+            doorRafId = requestAnimationFrame(() => {
+                slidingDoor.style.width = rightWidthPercent + '%';
+            });
+        }
+
+        if (doorHandle) {
+            doorHandle.addEventListener('mousedown', startDoorDrag);
+            window.addEventListener('mouseup', stopDoorDrag);
+            window.addEventListener('mousemove', (e) => {
+                if (!isDraggingDoor) return;
+                updateDoorPosition(e.clientX);
+            }, { passive: true });
+
+            // Поддержка сенсорного перетаскивания створки на смартфонах
+            doorHandle.addEventListener('touchstart', startDoorDrag, { passive: true });
+            window.addEventListener('touchend', stopDoorDrag);
+            window.addEventListener('touchmove', (e) => {
+                if (!isDraggingDoor || !e.touches[0]) return;
+                updateDoorPosition(e.touches[0].clientX);
+            }, { passive: true });
+        }
+
+        // Переключение фактуры стекла на главной сдвижной створке
+        const doorModes = {
+            optiwhite: { className: 'pane-optiwhite', label: 'Створка: Кристалл Optiwhite' },
+            fluted: { className: 'pane-fluted', label: 'Створка: Рифленое Moru' },
+            bronze: { className: 'pane-bronze', label: 'Створка: Тонированное Бронза' },
+            satin: { className: 'pane-satin', label: 'Створка: Матовый Сатин' }
+        };
+
+        function changeHeroDoorGlass(modeKey) {
+            const cfg = doorModes[modeKey];
+            slidingDoor.className = `${cfg.className} absolute top-0 bottom-0 right-0 border-l-[3px] border-white/95 shadow-[-25px_0_60px_rgba(20,30,40,0.25)] transition-colors duration-500 z-20 flex flex-col justify-between p-5 sm:p-8`;
+            document.getElementById('doorGlassLabel').textContent = cfg.label;
+
+            ['optiwhite', 'fluted', 'bronze', 'satin'].forEach(k => {
+                const btn = document.getElementById('hero-btn-' + k);
+                if (k === modeKey) {
+                    btn.className = 'py-2 px-1 rounded-xl text-[11px] font-semibold bg-slateDeep text-white transition-all';
+                } else {
+                    btn.className = 'py-2 px-1 rounded-xl text-[11px] font-medium bg-white/70 text-slateDeep hover:bg-white transition-all';
+                }
+            });
+        }
+
+        // 2. ИНЖЕНЕРНЫЙ НАВИГАТОР ПО СТЕКЛУ И КОНСТРУКТИВУ
+        const guideScenarios = {
+            terrace: {
+                category: 'Стеклянные ограждения',
+                image: 'assets/actual/01_railings.jpg',
+                photoBadge: 'Ограждения открытых террас и балконов',
+                photoTitle: 'Безрамное триплекс-ограждение со скрытым нижним профилем',
+                formulaBadge: 'ГОСТ 30698 • Класс защиты СМ4',
+                title: 'Закаленный триплекс 8+8 / 10+10 мм с алмазной кромкой',
+                desc: 'Для террас на высоте мы применяем многослойный триплекс из двух закаленных стекол. При экстремальном ударе стекло не осыпается, а остается на эластичной EVA-мембране, выдерживая вес нескольких человек.',
+                specGlass: 'Optiwhite Триплекс 10+10',
+                specMount: 'Скрытый профиль в стяжку',
+                specLoad: 'Порывы до 38 м/с (до 15 этажа)',
+                specMaterial: 'Сталь AISI 316 / Анодирование',
+                engineerTip: 'Если планируете скрытый профиль в пол террасы, заложите монтажный зазор 120 мм в стяжке еще до укладки плитки. В нижней части профиля мы обязательно выводим дренажные каналы, чтобы дождевая вода свободно уходила наружу.',
+                ctaText: 'Рассчитать остекление террасы'
+            },
+            stairs: {
+                category: 'Лестничные перила',
+                image: 'assets/actual/04_stairs.jpg',
+                photoBadge: 'Стеклянные перила и лестничные марши',
+                photoTitle: 'Парящие ограждения на точечных рутелях или мини-стойках',
+                formulaBadge: 'СНиП 2.01.07-85 • Нагрузка до 1.5 кН/м',
+                title: 'Ударопрочный триплекс 8+8 мм со светодиодным поручнем',
+                desc: 'Стеклянные перила крепятся в торец ступеней, не отнимая полезную ширину марша. Конструкция монолитна и не вибрирует благодаря прецизионным коннекторам из стали AISI 316.',
+                specGlass: 'Закаленный триплекс 8+8 мм',
+                specMount: 'Боковые рутели или Spigot',
+                specLoad: 'До 150 кг бокового давления на метр',
+                specMaterial: 'AISI 316 Black Matte / Сатин',
+                engineerTip: 'Для деревянных и бетонных ступеней важно предусмотреть надежную несущую закладную внутри марша. При чистовой отделке рутели крепятся через декоративные розетки, полностью маскируя технологические отверстия.',
+                ctaText: 'Рассчитать лестничные перила'
+            },
+            shower: {
+                category: 'Душевые перегородки',
+                image: 'assets/actual/03_shower.jpg',
+                photoBadge: 'Ванные комнаты и душевые зоны',
+                photoTitle: 'Беспороговые перегородки в строительном исполнении',
+                formulaBadge: 'ГОСТ Р 54171 • Безопасное закаленное стекло',
+                title: 'Закаленное стекло 8–10 мм с водоотталкивающим слоем Easy-Clean',
+                desc: 'Идеальная геометрия под ваш кафель без щелей. Стекло проходит гидрофобную нанообработку, поэтому капли воды скатываются, не оставляя белого известкового налета.',
+                specGlass: 'Закаленное Optiwhite 8–10 мм',
+                specMount: 'Тонкий зажимной профиль 15 мм',
+                specLoad: 'Стойкость к прямому удару лейкой',
+                specMaterial: 'Нержавеющая сталь (не темнеет)',
+                engineerTip: 'В зоне душевого трапа обязательно соблюдайте уклон плитки 1.5–2 см в сторону слива. Для беспорогового входа мы устанавливаем прозрачный силиконовый порожек высотой всего 5 мм — вода гарантированно не переливается в сухую зону.',
+                ctaText: 'Рассчитать душевую перегородку'
+            },
+            partitions: {
+                category: 'Межкомнатные перегородки',
+                image: 'assets/actual/06_frameless_portal.jpg',
+                photoBadge: 'Межкомнатные перегородки и порталы',
+                photoTitle: 'Раздвижные и стационарные стеклянные стены до 3.5 метров',
+                formulaBadge: 'Акустическая изоляция до 38 дБ',
+                title: 'Беспороговый верхний подвес со скрытыми доводчиками',
+                desc: 'Зонирование кухни, гостиной или кабинета без разрушения цельности напольного покрытия. Створки плавно и бесшумно скользят на скрытых роликовых каретках.',
+                specGlass: 'Акустический триплекс / Сатинат',
+                specMount: 'Верхний трек в силовой потолок',
+                specLoad: 'До 120 кг на створку',
+                specMaterial: 'Авиационный анодированный алюминий',
+                engineerTip: 'При натяжных или гипсокартонных потолках обязательно требуется смонтировать силовой брус или стальную трубу 60х40 мм к монолиту перекрытия ДО монтажа финишного потолка. На эту балку придется вся масса подвесных створок.',
+                ctaText: 'Рассчитать межкомнатную перегородку'
+            }
+        };
+
+        let currentGuideScenario = 'terrace';
+
+        function selectGuideScenario(key) {
+            const sc = guideScenarios[key];
+            if (!sc) return;
+            currentGuideScenario = key;
+
+            // Вкладки
+            ['terrace', 'stairs', 'shower', 'partitions'].forEach(k => {
+                const btn = document.getElementById('tab-' + k);
+                if (btn) {
+                    if (k === key) {
+                        btn.className = 'guide-tab p-3.5 sm:p-4 rounded-2xl text-left border transition-all duration-300 bg-slateDeep text-white border-slateDeep shadow-md cursor-pointer';
+                    } else {
+                        btn.className = 'guide-tab p-3.5 sm:p-4 rounded-2xl text-left border transition-all duration-300 bg-white/80 text-slateDeep border-slate-200/80 hover:bg-white cursor-pointer';
+                    }
+                }
+            });
+
+            // Фото с плавным переходом
+            const img = document.getElementById('guideMainImg');
+            if (img) {
+                img.style.opacity = '0.3';
+                setTimeout(() => {
+                    img.src = sc.image;
+                    img.alt = sc.photoTitle;
+                    img.style.opacity = '1';
+                }, 120);
+            }
+
+            const setT = (id, text) => { const el = document.getElementById(id); if (el) el.textContent = text; };
+            setT('guidePhotoBadge', sc.photoBadge);
+            setT('guidePhotoTitle', sc.photoTitle);
+            setT('guideFormulaBadge', sc.formulaBadge);
+            setT('guideTitle', sc.title);
+            setT('guideDesc', sc.desc);
+            setT('guideSpecGlass', sc.specGlass);
+            setT('guideSpecMount', sc.specMount);
+            setT('guideSpecLoad', sc.specLoad);
+            setT('guideSpecMaterial', sc.specMaterial);
+            setT('guideEngineerTip', sc.engineerTip);
+            setT('guideCtaText', sc.ctaText);
+        }
+
+        function requestGuideQuote() {
+            const sc = guideScenarios[currentGuideScenario] || guideScenarios.terrace;
+            openConciergeModal(sc.ctaText, sc.category);
+        }
+
+        // 3. МОДАЛЬНОЕ ОКНО И УВЕДОМЛЕНИЯ
+        function openConciergeModal(title, category) {
+            const titleEl = document.getElementById('conciergeModalTitle');
+            if (titleEl) titleEl.textContent = title || 'Рассчитать проект';
+            
+            if (category) {
+                const sel = document.getElementById('modalCategorySelect');
+                if (sel) {
+                    for (let i = 0; i < sel.options.length; i++) {
+                        const optVal = sel.options[i].value.toLowerCase();
+                        const catVal = category.toLowerCase();
+                        if (optVal.includes(catVal) || catVal.includes(optVal)) {
+                            sel.selectedIndex = i;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            const modal = document.getElementById('conciergeModal');
+            if (modal) {
+                modal.classList.add('is-open');
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeConciergeModal() {
+            const modal = document.getElementById('conciergeModal');
+            if (modal) {
+                modal.classList.remove('is-open');
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        }
+
+        function showToast(title, message) {
+            const toast = document.getElementById('glassToast');
+            if (!toast) return;
+            document.getElementById('toastTitle').textContent = title;
+            document.getElementById('toastMessage').textContent = message;
+            toast.style.display = 'flex';
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 5000);
+        }
+
+        // === ЕДИНЫЙ ЦЕНТР ОТПРАВКИ ЗАЯВОК (TELEGRAM + EMAIL) ===
+        const LEAD_CONFIG = {
+            targetEmail: 'oknazavod-gel@yandex.ru',
+            telegramBotToken: '8974134014:AAHtFBLiIZkq1fvSrS0AF-EkMeBx7EelH7U',
+            telegramChatId: '5960031372'
+        };
+
+        async function sendLeadData({ title, name, phone, details, extraFields = {} }) {
+            const cleanName = (name || '').trim() || 'Не указано';
+            const cleanPhone = (phone || '').trim();
+            const cleanDetails = (details || '').trim();
+
+            // 1. Параллельная отправка в Telegram
+            const sendTelegram = async () => {
+                try {
+                    let msg = `⚡ <b>${title}</b>\n\n`;
+                    msg += `👤 <b>Имя:</b> ${cleanName}\n`;
+                    msg += `📞 <b>Телефон:</b> ${cleanPhone}\n`;
+                    if (cleanDetails) msg += `💬 <b>Детали/Вопрос:</b> ${cleanDetails}\n`;
+                    for (const [k, v] of Object.entries(extraFields)) {
+                        if (v) msg += `📌 <b>${k}:</b> ${v}\n`;
+                    }
+                    await fetch(`https://api.telegram.org/bot${LEAD_CONFIG.telegramBotToken}/sendMessage`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            chat_id: LEAD_CONFIG.telegramChatId,
+                            text: msg,
+                            parse_mode: 'HTML'
+                        })
+                    });
+                } catch (err) {
+                    console.warn('Telegram send warning:', err);
+                }
+            };
+
+            // 2. Параллельная отправка на Email (через AJAX FormSubmit API без стороннего бэкенда)
+            const sendEmail = async () => {
+                try {
+                    const payload = {
+                        _subject: `⚡ ${title} — ${cleanName} (${cleanPhone})`,
+                        _template: 'table',
+                        _captcha: 'false',
+                        'Раздел сайта': title,
+                        'Имя клиента': cleanName,
+                        'Телефон': cleanPhone,
+                        'Детали / Пожелания': cleanDetails || '—',
+                        ...extraFields,
+                        'Время заявки': new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Moscow' })
+                    };
+
+                    await fetch(`https://formsubmit.co/ajax/${LEAD_CONFIG.targetEmail}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify(payload)
+                    });
+                } catch (err) {
+                    console.warn('Email send warning:', err);
+                }
+            };
+
+            // 3. Fallback на mail.php (если сайт развернут на хостинге с PHP)
+            const sendPhp = async () => {
+                try {
+                    await fetch('mail.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            title,
+                            name: cleanName,
+                            phone: cleanPhone,
+                            details: cleanDetails,
+                            ...extraFields
+                        })
+                    });
+                } catch (_) {}
+            };
+
+            // Запускаем отправку по всем каналам параллельно
+            await Promise.race([
+                Promise.allSettled([sendTelegram(), sendEmail(), sendPhp()]),
+                new Promise(res => setTimeout(res, 3500))
+            ]);
+        }
+
+        async function submitConciergeForm(e) {
+            e.preventDefault();
+            const form = e.target;
+            const submitBtn = document.getElementById('conciergeSubmitBtn') || form.querySelector('button[type="submit"]');
+            const origHtml = submitBtn ? submitBtn.innerHTML : '';
+            if (submitBtn) {
+                submitBtn.innerHTML = '<span>Отправка...</span>';
+                submitBtn.disabled = true;
+            }
+
+            const name = document.getElementById('modalClientName').value;
+            const phone = document.getElementById('modalClientPhone').value;
+            const dims = document.getElementById('modalClientDims').value;
+            const categoryEl = document.getElementById('modalCategorySelect');
+            const category = categoryEl ? categoryEl.value : 'Стеклянные конструкции';
+            const title = document.getElementById('conciergeModalTitle').textContent;
+            
+            closeConciergeModal();
+            showToast(
+                `${name || 'Спасибо'}, ваш запрос принят!`,
+                'Ведущий инженер завода свяжется с вами в течение 10 минут с готовым расчетом.'
+            );
+            
+            await sendLeadData({
+                title: `Запрос расчета: ${title}`,
+                name: name,
+                phone: phone,
+                details: dims || 'Не указаны',
+                extraFields: { 
+                    'Конструкция': category,
+                    'Тема': title 
+                }
+            });
+
+            if (submitBtn) {
+                submitBtn.innerHTML = origHtml;
+                submitBtn.disabled = false;
+            }
+            form.reset();
+        }
+
+        // 4. ИНИЦИАЛИЗАЦИЯ И ОБРАБОТЧИКИ
+        function initLucideIcons() {
+            if (window.lucide && typeof lucide.createIcons === 'function') {
+                lucide.createIcons();
+            }
+        }
+        window.addEventListener('load', initLucideIcons);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initLucideIcons();
+
+            // Инженерный виджет связи
+            const widgetMainBtn = document.getElementById('main-widget-btn');
+            const widgetMenu = document.getElementById('widget-menu');
+            const widgetTooltip = document.getElementById('widget-tooltip');
+            const widgetIconOpen = document.getElementById('widget-icon-open');
+            const widgetIconClose = document.getElementById('widget-icon-close');
+            const widgetBadge = document.getElementById('widget-badge');
+            const openModalBtn = document.getElementById('open-modal-widget-btn');
+            const tooltipCloseBtn = document.getElementById('close-tooltip-btn');
+
+            let isWidgetOpen = false;
+
+            // Показ тултипа через 5 секунд
+            setTimeout(() => {
+                if (!isWidgetOpen && widgetTooltip) {
+                    widgetTooltip.classList.remove('opacity-0', 'invisible', 'translate-y-2');
+                }
+            }, 5000);
+
+            if (tooltipCloseBtn && widgetTooltip) {
+                tooltipCloseBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    widgetTooltip.classList.add('opacity-0', 'invisible', 'translate-y-2');
+                    widgetTooltip.style.display = 'none';
+                });
+            }
+
+            function toggleWidget() {
+                isWidgetOpen = !isWidgetOpen;
+                if (widgetBadge) widgetBadge.style.display = 'none';
+
+                if (isWidgetOpen) {
+                    if (widgetMenu) widgetMenu.classList.add('widget-open');
+                    if (widgetIconOpen) widgetIconOpen.classList.add('hidden');
+                    if (widgetIconClose) widgetIconClose.classList.remove('hidden');
+                    if (widgetTooltip) widgetTooltip.classList.add('opacity-0', 'invisible');
+                } else {
+                    if (widgetMenu) widgetMenu.classList.remove('widget-open');
+                    if (widgetIconOpen) widgetIconOpen.classList.remove('hidden');
+                    if (widgetIconClose) widgetIconClose.classList.add('hidden');
+                }
+            }
+
+            if (widgetMainBtn) {
+                widgetMainBtn.addEventListener('click', toggleWidget);
+            }
+
+            if (openModalBtn) {
+                openModalBtn.addEventListener('click', function() {
+                    toggleWidget();
+                    openConciergeModal('Задать вопрос инженеру', 'Комплексный проект');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
