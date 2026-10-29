@@ -575,6 +575,447 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+    
+        /* === ЖЕСТКАЯ ФИКСАЦИЯ РАЗМЕРОВ ЛОГОТИПА (ГАРАНТИЯ 100% ПРОТИВ РАСТЯГИВАНИЯ) === */
+        #mainBrandLogo, img.brand-logo-spin {
+            width: 56px !important;
+            height: 56px !important;
+            max-width: 56px !important;
+            max-height: 56px !important;
+            object-fit: contain !important;
+            display: block !important;
+        }
+        #footerBrandLogo {
+            width: 36px !important;
+            height: 36px !important;
+            max-width: 36px !important;
+            max-height: 36px !important;
+            object-fit: contain !important;
+            display: block !important;
+        }
+        .brand-logo-fixed-box {
+            width: 56px !important;
+            height: 56px !important;
+            min-width: 56px !important;
+            min-height: 56px !important;
+            max-width: 56px !important;
+            max-height: 56px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            position: relative !important;
+        }
+
+        /* === БРЕНДОВЫЕ ЦВЕТА ЛОГОТИПА ОКОННЫЙ ЗАВОД (МЯТНО-ИЗУМРУДНЫЙ И НЕБЕСНО-ГОЛУБОЙ) === */
+        .brand-3d-green {
+            color: #16A685 !important;
+            text-shadow: 0 1px 2px rgba(22, 166, 133, 0.28), 0 0 14px rgba(255, 255, 255, 0.9);
+        }
+        .brand-3d-blue {
+            color: #38B0E3 !important;
+            text-shadow: 0 1px 2px rgba(56, 176, 227, 0.28), 0 0 14px rgba(255, 255, 255, 0.9);
+        }
+
+        /* === АКТИВНОЕ МИГАНИЕ И ПРИВЛЕЧЕНИЕ ВНИМАНИЯ К КНОПКЕ СВЯЗИ В ПРАВОМ НИЖНЕМ УГЛУ === */
+        @keyframes widgetAttentionBlink {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.85), 0 0 0 0 rgba(16, 185, 129, 0.75), 0 10px 30px rgba(15, 23, 42, 0.35);
+            }
+            25% {
+                transform: scale(1.12);
+                box-shadow: 0 0 0 16px rgba(14, 165, 233, 0), 0 0 28px 8px rgba(16, 185, 129, 0.85), 0 16px 42px rgba(14, 165, 233, 0.6);
+            }
+            45% {
+                transform: scale(1.03);
+                box-shadow: 0 0 0 26px rgba(14, 165, 233, 0), 0 0 35px 12px rgba(14, 165, 233, 0.8), 0 18px 46px rgba(16, 185, 129, 0.5);
+            }
+            60% {
+                transform: scale(1.08);
+                box-shadow: 0 0 0 34px rgba(14, 165, 233, 0), 0 0 24px 6px rgba(16, 185, 129, 0.7), 0 14px 38px rgba(14, 165, 233, 0.4);
+            }
+        }
+        .widget-attention-blink {
+            animation: widgetAttentionBlink 2.2s infinite ease-in-out !important;
+        }
+        .pulse-wave-cyan {
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            border: 2.5px solid #0EA5E9;
+            animation: pulseWaveExpand 2.4s infinite cubic-bezier(0.2, 0, 0.4, 1);
+            pointer-events: none;
+        }
+        .pulse-wave-mint {
+            position: absolute;
+            inset: -12px;
+            border-radius: 50%;
+            border: 2px solid #10B981;
+            animation: pulseWaveExpand 2.4s infinite cubic-bezier(0.2, 0, 0.4, 1) 0.8s;
+            pointer-events: none;
+        }
+        @keyframes pulseWaveExpand {
+            0% { transform: scale(0.85); opacity: 0.95; }
+            50% { opacity: 0.55; }
+            100% { transform: scale(1.8); opacity: 0; }
+        }
+
+    
+        /* === ЖЕСТКАЯ ФИКСАЦИЯ НИЖНЕГО ПЛАВАЮЩЕГО МЕНЮ (100% ГАРАНТИЯ ОТ ВСПЛЫТИЯ НАВЕРХ) === */
+        #floating-dock {
+            position: fixed !important;
+            bottom: 24px !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            -webkit-transform: translateX(-50%) !important;
+            width: 95% !important;
+            max-width: 780px !important;
+            z-index: 9990 !important;
+            margin: 0 !important;
+            top: auto !important;
+        }
+        @media (max-width: 640px) {
+            #floating-dock {
+                bottom: 12px !important;
+                width: 96% !important;
+            }
+        }
+
+        /* === ВЕРХНЯЯ ШАПКА: ЧЕТКОЕ ПОЗИЦИОНИРОВАНИЕ И АДАПТИВНОСТЬ БЕЗ НАЛОЖЕНИЙ === */
+        .site-top-header {
+            position: fixed !important;
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+            z-index: 40 !important;
+            pointer-events: none !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: flex-start !important;
+            box-sizing: border-box !important;
+        }
+        @media (min-width: 640px) {
+            .site-top-header {
+                top: 52px !important;
+                padding: 0 2rem !important;
+            }
+        }
+        @media (max-width: 639px) {
+            .site-top-header {
+                top: 76px !important;
+                padding: 0 0.75rem !important;
+            }
+        }
+
+    
+        /* === ГАРАНТИРОВАННОЕ ПОЗИЦИОНИРОВАНИЕ И ОТСТУПЫ ВСЕХ ЭЛЕМЕНТОВ САЙТА === */
+
+        /* 1. Верхняя темная планка контактов и соцсетей */
+        .site-top-bar {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            z-index: 50 !important;
+        }
+
+        /* 2. Верхняя стеклянная шапка бренда */
+        .site-top-header {
+            position: fixed !important;
+            left: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+            z-index: 40 !important;
+            pointer-events: none !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            box-sizing: border-box !important;
+        }
+        @media (min-width: 640px) {
+            .site-top-header {
+                top: 50px !important;
+                padding: 0 2rem !important;
+            }
+        }
+        @media (max-width: 639px) {
+            .site-top-header {
+                top: 74px !important;
+                padding: 0 0.75rem !important;
+            }
+        }
+
+        /* 3. Отступ главного экрана, чтобы шапка НИКОГДА не перекрывала контент */
+        #atelier-stage {
+            padding-top: 155px !important;
+            padding-bottom: 75px !important;
+            box-sizing: border-box !important;
+        }
+        @media (max-width: 639px) {
+            #atelier-stage {
+                padding-top: 155px !important;
+                padding-bottom: 60px !important;
+            }
+        }
+
+        /* 4. Нижнее меню навигации (100% защита от всплытия наверх) */
+        #floating-dock {
+            position: fixed !important;
+            bottom: 24px !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            -webkit-transform: translateX(-50%) !important;
+            width: 95% !important;
+            max-width: 780px !important;
+            z-index: 9990 !important;
+            margin: 0 !important;
+            top: auto !important;
+        }
+        @media (max-width: 640px) {
+            #floating-dock {
+                bottom: 12px !important;
+                width: 96% !important;
+            }
+        }
+
+    
+        /* === ПРЯМЫЕ CSS ПРАВИЛА ДЛЯ ИДЕАЛЬНОЙ ВЕРСТКИ ГЛАВНОГО ЭКРАНА И СТВОРКИ === */
+        
+        @media (max-width: 640px) {
+            
+            #doorGlassLabel {
+                display: none !important;
+            }
+            .hero-door-textures {
+                display: none !important;
+            }
+            #heroStageContainer h1 {
+                font-size: 1.85rem !important;
+                line-height: 1.18 !important;
+            }
+            #heroStageContainer p {
+                font-size: 0.85rem !important;
+                line-height: 1.4 !important;
+            }
+            .hero-catalog-top-badge {
+                display: none !important;
+            }
+            .hero-text-wrapper {
+                max-width: 74% !important;
+                padding-right: 8px !important;
+            }
+        }
+
+    
+        /* === НАСТОЯЩЕЕ АРХИТЕКТУРНОЕ СТЕКЛО ВЫВЕСКИ С ЛОГОТИПОМ (LIQUID OPTIWHITE GLASS) === */
+        .liquid-glass-brand {
+            position: relative !important;
+            overflow: hidden !important;
+            border-radius: 24px !important;
+            /* Полупрозрачное многослойное стекло с кристальным преломлением */
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.68) 0%,
+                rgba(240, 249, 255, 0.42) 42%,
+                rgba(236, 253, 245, 0.50) 100%
+            ) !important;
+            backdrop-filter: blur(18px) saturate(190%) contrast(105%) !important;
+            -webkit-backdrop-filter: blur(18px) saturate(190%) contrast(105%) !important;
+            /* Полированная еврокромка толстого архитектурного стекла (10 мм) */
+            border: 1.5px solid rgba(255, 255, 255, 0.88) !important;
+            box-shadow:
+                0 16px 36px -8px rgba(15, 65, 86, 0.20),
+                0 6px 16px rgba(16, 185, 129, 0.10),
+                inset 0 1.5px 2px 0 rgba(255, 255, 255, 1),
+                inset 0 -2px 4px 0 rgba(14, 165, 233, 0.18),
+                inset 1.5px 0 2px 0 rgba(255, 255, 255, 0.85),
+                inset -1.5px 0 2px 0 rgba(16, 185, 129, 0.15) !important;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, background 0.35s ease !important;
+        }
+
+        /* Диагональный блик света на поверхности стекла */
+        .liquid-glass-brand::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: -100% !important;
+            width: 200% !important;
+            height: 100% !important;
+            background: linear-gradient(
+                120deg,
+                transparent 35%,
+                rgba(255, 255, 255, 0.70) 50%,
+                rgba(56, 189, 248, 0.20) 53%,
+                transparent 65%
+            ) !important;
+            transform: skewX(-20deg) !important;
+            pointer-events: none !important;
+            transition: left 0.75s ease !important;
+            z-index: 2 !important;
+            opacity: 0.85 !important;
+        }
+        .liquid-glass-brand:hover::before {
+            left: 100% !important;
+        }
+        .liquid-glass-brand:hover {
+            transform: translateY(-2px) scale(1.015) !important;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.78) 0%,
+                rgba(240, 249, 255, 0.52) 42%,
+                rgba(236, 253, 245, 0.60) 100%
+            ) !important;
+            box-shadow:
+                0 22px 46px -10px rgba(15, 65, 86, 0.26),
+                0 8px 22px -4px rgba(53, 167, 220, 0.25),
+                inset 0 2px 3px rgba(255, 255, 255, 1),
+                inset 0 -2px 5px rgba(14, 165, 233, 0.25),
+                0 0 0 1.5px rgba(255, 255, 255, 1) !important;
+        }
+
+        /* === 4 ХРОМИРОВАННЫХ АРХИТЕКТУРНЫХ ДЕРЖАТЕЛЯ (РУТЕЛИ AISI 316) ПО УГЛАМ === */
+        .glass-corner-mount {
+            position: absolute !important;
+            width: 12px !important;
+            height: 12px !important;
+            border-radius: 50% !important;
+            background: radial-gradient(circle at 35% 35%, #FFFFFF 0%, #CBD5E1 45%, #94A3B8 80%, #64748B 100%) !important;
+            border: 1px solid rgba(255, 255, 255, 0.95) !important;
+            box-shadow: 
+                0 2px 4px rgba(15, 23, 42, 0.40),
+                0 0 0 1.5px rgba(255, 255, 255, 0.5),
+                0 0 0 2.5px rgba(56, 189, 248, 0.2),
+                inset 0 1px 1px #FFFFFF,
+                inset 0 -1px 1px rgba(0, 0, 0, 0.5) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            z-index: 25 !important;
+            pointer-events: none !important;
+        }
+        .glass-corner-mount .mount-core {
+            width: 4px !important;
+            height: 4px !important;
+            border-radius: 50% !important;
+            background: #475569 !important;
+            box-shadow: inset 0 1px 1.5px rgba(0, 0, 0, 0.8), 0 0.5px 0.5px rgba(255, 255, 255, 0.9) !important;
+            display: block !important;
+        }
+
+        /* Четкие координаты по всем 4 углам стеклянной вывески */
+        .mount-tl {
+            top: 7px !important;
+            left: 7px !important;
+            right: auto !important;
+            bottom: auto !important;
+        }
+        .mount-tr {
+            top: 7px !important;
+            right: 7px !important;
+            left: auto !important;
+            bottom: auto !important;
+        }
+        .mount-bl {
+            bottom: 7px !important;
+            left: 7px !important;
+            top: auto !important;
+            right: auto !important;
+        }
+        .mount-br {
+            bottom: 7px !important;
+            right: 7px !important;
+            top: auto !important;
+            left: auto !important;
+        }
+
+        @media (max-width: 639px) {
+            .glass-corner-mount {
+                width: 10px !important;
+                height: 10px !important;
+            }
+            .glass-corner-mount .mount-core {
+                width: 3px !important;
+                height: 3px !important;
+            }
+            .mount-tl { top: 5px !important; left: 5px !important; }
+            .mount-tr { top: 5px !important; right: 5px !important; }
+            .mount-bl { bottom: 5px !important; left: 5px !important; }
+            .mount-br { bottom: 5px !important; right: 5px !important; }
+        }
+
+    
+        /* === ПЛАВАЮЩИЙ ВИДЖЕТ СВЯЗИ: РАЗНОС С НИЖНИМ МЕНЮ НА МОБИЛЬНЫХ === */
+        #martha-widget-wrapper {
+            position: fixed !important;
+            bottom: 24px !important;
+            right: 24px !important;
+            z-index: 9995 !important;
+            pointer-events: none !important;
+        }
+        @media (max-width: 639px) {
+            #martha-widget-wrapper {
+                /* На мобильных поднимаем кнопку чата над нижним меню, чтобы они НЕ накладывались! */
+                bottom: 84px !important;
+                right: 14px !important;
+            }
+        }
+
+        /* === ИНТЕРАКТИВНАЯ СДВИЖНАЯ СТЕКЛЯННАЯ СТВОРКА (120 FPS ДРАГГИНГ) === */
+        
+        #glassDoorHandle {
+            touch-action: none !important;
+            user-select: none !important;
+            -webkit-user-select: none !important;
+            cursor: ew-resize !important;
+        }
+        @media (max-width: 640px) {
+            
+            #doorGlassLabel {
+                display: none !important;
+            }
+            .hero-door-textures {
+                display: none !important;
+            }
+        }
+
+        /* === КОНТРАСТ И ЧИТАЕМОСТЬ ТЕКСТА НА ГЛАВНОМ ЭКРАНЕ === */
+        #heroStageContainer h1 {
+            color: #FFFFFF !important;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 1px 3px rgba(0, 0, 0, 0.9) !important;
+        }
+        #heroStageContainer p {
+            color: #F8FAFC !important;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9) !important;
+            font-weight: 400 !important;
+        }
+        @media (max-width: 640px) {
+            #heroStageContainer h1 {
+                font-size: 1.85rem !important;
+                line-height: 1.18 !important;
+            }
+            #heroStageContainer p {
+                font-size: 0.85rem !important;
+                line-height: 1.4 !important;
+            }
+            .hero-text-wrapper {
+                max-width: 76% !important;
+                padding-right: 8px !important;
+            }
+            .hero-action-btns {
+                flex-direction: column !important;
+                align-items: stretch !important;
+                width: 100% !important;
+            }
+            .hero-action-btns > * {
+                width: 100% !important;
+                justify-content: center !important;
+                text-align: center !important;
+            }
+            .hero-cards-grid {
+                margin-top: 1rem !important;
+            }
+        }
+
     </style>
 </head>
 <body class="antialiased selection:bg-crystalCyan/20 selection:text-slateDeep pb-24">
@@ -752,7 +1193,7 @@
     <div class="sun-beam"></div>
 
     <!-- 1. ВЕРХНЯЯ ТЕМНАЯ ПОЛОСА: ВСЕ СОЦСЕТИ И ЕДИНЫЙ ТЕЛЕФОН -->
-    <div class="fixed top-0 left-0 w-full z-50 bg-[#0b131e]/95 backdrop-blur-md text-white py-2 border-b border-white/10 font-sans">
+    <div class="site-top-bar fixed top-0 left-0 w-full z-50 bg-[#0b131e]/95 backdrop-blur-md text-white py-2 border-b border-white/10 font-sans">
         <div class="max-w-[1900px] mx-auto px-4 sm:px-6 lg:px-12 flex flex-col sm:flex-row justify-between items-center gap-2">
             <!-- ЛЕВО: Соцсети -->
             <div class="flex items-center gap-6 w-full sm:w-auto justify-center sm:justify-start">
@@ -780,68 +1221,76 @@
     </div>
 
     <!-- 2. ОРИГИНАЛЬНАЯ ПРОСТРАНСТВЕННАЯ ШАПКА: ДВЕ НЕВЕСОМЫЕ СТЕКЛЯННЫЕ ПРИЗМЫ -->
-    <header class="fixed top-[74px] sm:top-14 left-4 right-4 sm:left-8 sm:right-8 z-40 flex items-start justify-between pointer-events-none">
-        <!-- Левая капсула с эффектом ЖИДКОГО СТЕКЛА и чистым логотипом (без внутренней стеклянной плашки) -->
-        <a href="#atelier-stage" id="liquidBrandPlaque" class="pointer-events-auto liquid-glass-brand px-4 py-2.5 sm:px-6 sm:py-3.5 flex items-center gap-3.5 sm:gap-4 group relative">
-            <span class="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-white via-slate-200 to-slate-500 border border-white shadow-sm absolute top-2 left-2 z-20"></span>
-            <span class="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-white via-slate-200 to-slate-500 border border-white shadow-sm absolute top-2 right-2 z-20"></span>
-            <span class="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-white via-slate-200 to-slate-500 border border-white shadow-sm absolute bottom-2 left-2 z-20"></span>
-            <span class="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-white via-slate-200 to-slate-500 border border-white shadow-sm absolute bottom-2 right-2 z-20"></span>
-            <div class="w-12 h-12 sm:w-14 sm:h-14 shrink-0 flex items-center justify-center relative z-10">
-                <img id="mainBrandLogo" src="logo.webp" alt="Оконный завод Стекло" width="56" height="56" decoding="async" class="w-full h-full object-contain brand-logo-spin">
+    <header class="site-top-header fixed z-40 flex items-start justify-between pointer-events-none">
+        <!-- Левая капсула с эффектом ЖИДКОГО СТЕКЛА и чистым логотипом (Увеличенная и просторная) -->
+        <a href="#atelier-stage" id="liquidBrandPlaque" class="pointer-events-auto liquid-glass-brand px-4 py-3 sm:px-7 sm:py-3.5 flex items-center gap-3 sm:gap-4 group relative max-w-[75%] sm:max-w-none" style="padding-left: 20px; padding-right: 22px;">
+            <!-- 4 архитектурных дистанционных держателя (хромированные рутели AISI 316 по углам стекла) -->
+            <span class="glass-corner-mount mount-tl" title="Дистанционный держатель"><span class="mount-core"></span></span>
+            <span class="glass-corner-mount mount-tr" title="Дистанционный держатель"><span class="mount-core"></span></span>
+            <span class="glass-corner-mount mount-bl" title="Дистанционный держатель"><span class="mount-core"></span></span>
+            <span class="glass-corner-mount mount-br" title="Дистанционный держатель"><span class="mount-core"></span></span>
+            <div class="brand-logo-fixed-box shrink-0 flex items-center justify-center relative z-10" style="width: 56px; height: 56px; min-width: 56px; max-width: 56px;">
+                <img id="mainBrandLogo" src="logo.webp" alt="Оконный завод Стекло" width="56" height="56" decoding="async" class="brand-logo-spin" style="width: 56px; height: 56px; max-width: 56px; max-height: 56px; object-fit: contain; display: block;">
             </div>
             <div class="pr-2 relative z-10">
-                <div class="flex flex-wrap items-center gap-x-2 gap-y-0.5 leading-none">
-                    <span class="font-sans text-sm sm:text-base font-black tracking-wider brand-3d-green">ОКОННЫЙ</span>
-                    <span class="font-sans text-sm sm:text-base font-black tracking-wider brand-3d-blue">ЗАВОД</span>
-                    <span class="text-slate-400/80 font-light text-base">|</span>
-                    <span class="font-serif text-base sm:text-lg font-bold tracking-[0.14em] text-slateDeep uppercase drop-shadow-[0_1px_2px_rgba(255,255,255,0.95)]">Стекло</span>
+                <div class="flex flex-wrap items-center gap-x-2.5 gap-y-1 leading-none">
+                    <span class="font-sans text-base sm:text-xl font-black tracking-wider brand-3d-green">ОКОННЫЙ</span>
+                    <span class="font-sans text-base sm:text-xl font-black tracking-wider brand-3d-blue">ЗАВОД</span>
+                    <span class="text-slate-400 font-light text-base sm:text-xl">|</span>
+                    <span class="font-serif text-lg sm:text-2xl font-bold tracking-[0.14em] text-slateDeep uppercase drop-shadow-[0_1px_2px_rgba(255,255,255,0.95)]">Стекло</span>
                 </div>
-                <div class="flex items-center gap-2 mt-1">
-                    <span class="w-1.5 h-1.5 rounded-full bg-[#199E82]"></span>
-                    <span class="text-[10px] uppercase tracking-[0.15em] text-slateDeep/80 font-medium block">Архитектурные стеклянные конструкции</span>
+                <div class="flex items-center gap-2 mt-1.5">
+                    <span class="w-2 h-2 rounded-full bg-[#16A685] animate-pulse"></span>
+                    <span class="text-[11px] sm:text-xs uppercase tracking-[0.16em] text-slateDeep font-semibold block">Архитектурные стеклянные конструкции</span>
                 </div>
             </div>
         </a>
 
-        <!-- Правая стеклянная капсула прямого контакта (ЕДИНЫЙ НОМЕР: +7 988 324 47 47) -->
-        <div class="pointer-events-auto flex items-center gap-2 sm:gap-2.5">
-            <a href="tel:+79883244747" class="glass-dock rounded-2xl px-3.5 sm:px-4 py-3 flex items-center gap-2.5 hover:bg-white/95 transition-all shadow-md">
-                <span class="w-2 h-2 rounded-full bg-[#199E82] animate-pulse shrink-0"></span>
-                <span class="text-xs sm:text-sm font-semibold tracking-wide text-slateDeep whitespace-nowrap">+7 988 324 47 47</span>
+        <!-- Правая стеклянная капсула прямого контакта (Идеальная адаптивность без переполнения) -->
+        <div class="pointer-events-auto flex items-center gap-2 sm:gap-3 shrink-0">
+            <!-- Десктопная полная кнопка с номером -->
+            <a href="tel:+79883244747" class="hidden sm:flex glass-dock rounded-2xl px-4 sm:px-5 py-3 sm:py-3.5 items-center gap-2.5 hover:bg-white transition-all shadow-md">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#16A685] animate-pulse shrink-0"></span>
+                <span class="text-xs sm:text-base font-bold tracking-wide text-slateDeep whitespace-nowrap">+7 988 324 47 47</span>
             </a>
-            <button onclick="openConciergeModal('Индивидуальный расчет проекта по вашим размерам')" class="hidden sm:flex glass-dock rounded-2xl px-4 sm:px-5 py-3 text-xs sm:text-sm font-medium text-slateDeep hover:bg-slateDeep hover:text-white transition-all duration-300 items-center gap-2.5 group">
-                <span class="w-2 h-2 rounded-full bg-[#35A7DC] group-hover:bg-white transition-colors"></span>
+            <!-- Мобильная компактная круглая кнопка звонка -->
+            <a href="tel:+79883244747" class="flex sm:hidden glass-dock w-11 h-11 rounded-full items-center justify-center text-slateDeep hover:bg-white transition-all shadow-md" aria-label="Позвонить на завод">
+                <span class="w-2 h-2 rounded-full bg-[#16A685] animate-pulse absolute top-1 right-1"></span>
+                <i class="fas fa-phone-alt text-[#16A685] text-sm"></i>
+            </a>
+            <!-- Кнопка заявки -->
+            <button onclick="openConciergeModal('Индивидуальный расчет проекта по вашим размерам')" class="hidden sm:flex glass-dock rounded-2xl px-4 sm:px-5 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold text-slateDeep hover:bg-slateDeep hover:text-white transition-all duration-300 items-center gap-2.5 group shadow-md">
+                <span class="w-2.5 h-2.5 rounded-full bg-[#38B0E3] group-hover:bg-white transition-colors"></span>
                 <span>Обсудить проект</span>
             </button>
         </div>
     </header>
 
     <!-- НИЖНЯЯ ПЛАВАЮЩАЯ СТЕКЛЯННАЯ ЛИНЗА-НАВИГАЦИЯ (В стиле Spatial Architecture) -->
-    <nav class="fixed bottom-5 left-1/2 -translate-x-1/2 z-40 w-[96%] max-w-2xl">
-        <div class="glass-dock rounded-full p-1.5 sm:p-2 flex items-center justify-between gap-1 overflow-x-auto no-scrollbar">
-            <a href="#atelier-stage" class="px-3 sm:px-3.5 py-2 rounded-full text-xs font-medium text-slateDeep hover:bg-white/80 transition-all whitespace-nowrap">
+    <nav id="floating-dock" class="fixed z-40" style="position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); -webkit-transform: translateX(-50%); width: 95%; max-width: 780px; z-index: 9990; margin: 0; top: auto;">
+        <div class="glass-dock rounded-full p-2 sm:p-2.5 flex items-center justify-between gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar shadow-2xl border-2 border-white/95">
+            <a href="#atelier-stage" class="px-3.5 sm:px-4.5 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-semibold text-slateDeep hover:bg-white/90 transition-all whitespace-nowrap">
                 Инсталляция
             </a>
-            <a href="#six-directions" class="px-3 sm:px-3.5 py-2 rounded-full text-xs font-medium text-slateDeep hover:bg-white/80 transition-all whitespace-nowrap flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-crystalCyan"></span>
+            <a href="#six-directions" class="px-3.5 sm:px-4.5 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-semibold text-slateDeep hover:bg-white/90 transition-all whitespace-nowrap flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-[#0EA5E9]"></span>
                 <span>6 направлений</span>
             </a>
-            <a href="#glass-guide" class="px-3 sm:px-3.5 py-2 rounded-full text-xs font-medium text-slateDeep hover:bg-white/80 transition-all whitespace-nowrap">
+            <a href="#glass-guide" class="px-3.5 sm:px-4.5 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-semibold text-slateDeep hover:bg-white/90 transition-all whitespace-nowrap">
                 Гид по стеклу
             </a>
-            <a href="#contacts-section" class="px-3 sm:px-3.5 py-2 rounded-full text-xs font-semibold text-slateDeep hover:bg-white/80 transition-all whitespace-nowrap flex items-center gap-1.5">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse"></span>
+            <a href="#contacts-section" class="px-3.5 sm:px-4.5 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-semibold text-slateDeep hover:bg-white/90 transition-all whitespace-nowrap flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
                 <span>Контакты</span>
             </a>
-            <button onclick="openConciergeModal('Рассчитать проект по моим размерам')" class="px-3.5 sm:px-5 py-2 rounded-full bg-gradient-to-r from-slateDeep to-[#0d2a33] text-white text-xs font-medium hover:from-[#0EA5E9] hover:to-[#10B981] transition-all whitespace-nowrap shadow-sm">
+            <button onclick="openConciergeModal('Рассчитать проект по моим размерам')" class="px-5 sm:px-7 py-2.5 sm:py-3.5 rounded-full bg-gradient-to-r from-[#0EA5E9] to-[#10B981] text-white text-xs sm:text-sm font-bold hover:brightness-105 transition-all whitespace-nowrap shadow-md">
                 Рассчитать проект
             </button>
         </div>
     </nav>
 
     <!-- ПЕРВЫЙ ЭКРАН: ПАНОРАМНАЯ СТЕКЛЯННАЯ ИНСТАЛЛЯЦИЯ С ЖИВОЙ СДВИЖНОЙ СТВОРКОЙ -->
-    <section id="atelier-stage" class="relative min-h-screen pt-44 sm:pt-36 pb-12 px-3 sm:px-8 flex flex-col justify-between">
+    <section id="atelier-stage" class="relative min-h-screen pt-36 sm:pt-40 lg:pt-44 pb-16 sm:pb-20 px-4 sm:px-8 lg:px-12 flex flex-col justify-between">
         <div class="max-w-[1400px] w-full mx-auto flex-1 flex flex-col">
             
             <!-- Главная архитектурная сцена (Интерактивное окно с передвижным стеклянным полотном: гладкие 120 FPS) -->
@@ -866,7 +1315,7 @@
                 <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(56,189,248,0.18),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(52,211,153,0.18),transparent_60%)] pointer-events-none"></div>
 
                 <!-- Плавающий бейдж перехода к каталогу -->
-                <div class="absolute top-4 right-4 sm:top-6 sm:right-6 z-30 pointer-events-auto">
+                <div class="hero-catalog-top-badge absolute top-4 right-4 sm:top-6 sm:right-6 z-30 pointer-events-auto hidden sm:block">
                     <a href="#six-directions" class="glass-dock rounded-2xl px-4 py-2.5 text-xs font-semibold text-slateDeep hover:bg-white flex items-center gap-2.5 shadow-xl border border-white transition-all group">
                         <span class="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-ping"></span>
                         <span class="tracking-wide">Каталог 6 направлений ↓</span>
@@ -874,7 +1323,7 @@
                 </div>
 
                 <!-- ИНТЕРАКТИВНАЯ СДВИЖНАЯ СТЕКЛЯННАЯ СТВОРКА (120 FPS идеальная плавность!) -->
-                <div id="slidingGlassDoor" class="pane-optiwhite absolute top-0 bottom-0 right-0 w-[52%] sm:w-[48%] border-l-[3px] border-white/95 shadow-[-25px_0_60px_rgba(20,30,40,0.25)] transition-colors duration-500 z-20 flex flex-col justify-between p-5 sm:p-8">
+                <div id="slidingGlassDoor" class="pane-optiwhite absolute top-0 bottom-0 right-0 w-[28%] sm:w-[36%] lg:w-[44%] xl:w-[45%] border-l-[3px] border-white/95 shadow-[-25px_0_60px_rgba(20,30,40,0.25)] transition-colors duration-500 z-20 flex flex-col justify-between p-4 sm:p-6 lg:p-8">
                     
                     <!-- Верхняя направляющая каретка и штамп стекла -->
                     <div class="flex items-center justify-between border-b border-white/40 pb-3">
@@ -900,7 +1349,7 @@
                     </div>
 
                     <!-- Нижний блок внутри стеклянной створки: переключение фактуры на лету -->
-                    <div class="ml-auto max-w-xs w-full glass-dock rounded-2xl p-3.5 border border-white">
+                    <div class="hero-door-textures ml-auto max-w-xs w-full glass-dock rounded-2xl p-3.5 border border-white">
                         <div class="text-[11px] font-medium text-slateMuted mb-2 flex items-center justify-between">
                             <span>Преломление створки:</span>
                             <span class="text-slateDeep font-semibold">4 фактуры</span>
@@ -922,31 +1371,31 @@
                     </div>
                 </div>
 
-                <!-- Контент поверх архитектурной сцены (реагирует на прохождение стеклянной створки сверху) -->
-                <div class="relative z-10 p-6 sm:p-12 lg:p-16 flex flex-col justify-between h-full flex-1 pointer-events-none">
+                <!-- Контент поверх архитектурной сцены (Свободное адаптивное позиционирование с комфортными отступами) -->
+                <div class="relative z-10 p-6 sm:p-10 lg:p-14 flex flex-col justify-between h-full flex-1 pointer-events-none">
                     
-                    <div class="max-w-2xl space-y-5 mt-4 sm:mt-8">
-                        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/85 backdrop-blur-md text-xs font-medium text-slateDeep shadow-sm border border-cyan-100">
-                            <span class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
+                    <div class="hero-text-wrapper max-w-xl lg:max-w-[54%] xl:max-w-[56%] space-y-4 sm:space-y-6 mt-2 sm:mt-6 lg:pr-6 pointer-events-auto">
+                        <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/90 backdrop-blur-md text-xs sm:text-sm font-semibold text-slateDeep shadow-sm border border-cyan-100/80">
+                            <span class="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-pulse"></span>
                             <span>Проектирование, закалка и чистый монтаж под ключ</span>
                         </div>
 
-                        <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal text-white leading-[1.03] tracking-tight drop-shadow-sm">
+                        <h1 class="font-serif text-3xl sm:text-5xl lg:text-[3.25rem] xl:text-[3.75rem] font-normal text-white leading-[1.14] sm:leading-[1.1] tracking-tight drop-shadow-md">
                             Пространство, <br>
-                            ограненное <span class="italic font-normal text-[#BEE3DB]">светом и стеклом</span>
+                            ограненное <span class="italic font-normal text-[#7DD3FC]">светом и стеклом</span>
                         </h1>
 
-                        <p class="text-sm sm:text-lg text-white/90 font-light leading-relaxed max-w-xl drop-shadow-xs">
+                        <p class="text-sm sm:text-base lg:text-lg text-white/95 font-light leading-relaxed max-w-lg drop-shadow-sm">
                             Создаем невесомые архитектурные конструкции без громоздкого металла: от парящих лестничных перил и фасадных козырьков до герметичных душевых, межкомнатных перегородок и панорамного безрамного остекления.
                         </p>
 
-                        <div class="pt-2 flex flex-wrap items-center gap-3.5 pointer-events-auto">
-                            <button onclick="openConciergeModal('Получить расчет проекта и эскиз узлов')" class="px-7 py-4 rounded-2xl bg-white text-slateDeep font-medium text-sm sm:text-base hover:bg-gradient-to-r hover:from-white hover:to-[#BEE3DB] transition-all duration-300 shadow-xl flex items-center gap-3 group">
+                        <div class="hero-action-btns pt-2 sm:pt-4 flex flex-wrap items-center gap-3 sm:gap-4 pointer-events-auto">
+                            <button onclick="openConciergeModal('Получить расчет проекта и эскиз узлов')" class="px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl bg-white text-slateDeep font-semibold text-sm sm:text-base hover:bg-gradient-to-r hover:from-white hover:to-[#BEE3DB] transition-all duration-300 shadow-xl flex items-center gap-2.5 group">
                                 <span>Рассчитать проект по размерам</span>
                                 <span class="w-6 h-6 rounded-full bg-slateDeep text-white flex items-center justify-center text-xs group-hover:translate-x-1 transition-transform">→</span>
                             </button>
-                            <a href="#six-directions" class="px-6 py-4 rounded-2xl bg-slateDeep/75 hover:bg-slateDeep text-white backdrop-blur-md border border-white/35 text-sm sm:text-base font-medium transition-all flex items-center gap-2.5">
-                                <span class="w-2.5 h-2.5 rounded-full bg-crystalCyan"></span>
+                            <a href="#six-directions" class="px-5 sm:px-6 py-3.5 sm:py-4 rounded-2xl glass-dock text-slateDeep font-semibold text-sm sm:text-base hover:bg-white transition-all duration-300 shadow-lg flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-[#0EA5E9]"></span>
                                 <span>Каталог 6 направлений ↓</span>
                             </a>
                         </div>
@@ -962,7 +1411,7 @@
             </div>
 
             <!-- 6 СТЕКЛЯННЫХ ЛАМЕЛЕЙ ПОД СЦЕНОЙ: Быстрый переход ко всем 6 направлениям -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-3.5 -mt-6 relative z-30 px-3 sm:px-8">
+            <div class="hero-cards-grid grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-3.5 mt-4 sm:-mt-6 relative z-30 px-3 sm:px-8">
                 <a href="#dir-railings" class="glass-slab glass-sheen rounded-2xl p-4 hover:-translate-y-1.5 transition-all duration-300 group">
                     <span class="text-[10px] font-mono text-crystalCyan font-semibold block">01 / ЭКСТЕРЬЕР И АТРИУМ</span>
                     <span class="font-serif text-lg sm:text-xl font-semibold text-slateDeep block mt-1 group-hover:text-crystalCyan transition-colors">Стеклянные ограждения</span>
@@ -1592,13 +2041,16 @@
     <!-- МЯГКИЙ СВЕТЛО-ЗЕЛЕНЫЙ И ГОЛУБОЙ ПОДВАЛ (КОПИРАЙТ) -->
     <footer class="py-8 px-4 sm:px-8 bg-[#F8FAFD] border-t border-slate-200/80 font-sans text-slateDeep">
         <div class="max-w-[1400px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-            <div class="flex flex-wrap items-center justify-center sm:justify-start gap-3">
-                <div class="w-8 h-8 shrink-0 flex items-center justify-center">
-                    <img id="footerBrandLogo" src="logo.webp" alt="Логотип Оконный завод Стекло" width="32" height="32" loading="lazy" decoding="async" class="w-full h-full object-contain brand-logo-spin">
+            <div class="flex flex-wrap items-center justify-center sm:justify-start gap-3.5">
+                <div class="shrink-0 flex items-center justify-center" style="width: 36px; height: 36px; min-width: 36px; max-width: 36px;">
+                    <img id="footerBrandLogo" src="logo.webp" alt="Логотип Оконный завод Стекло" width="36" height="36" loading="lazy" decoding="async" class="brand-logo-spin" style="width: 36px; height: 36px; max-width: 36px; max-height: 36px; object-fit: contain; display: block;">
                 </div>
-                <span class="font-sans text-sm font-black tracking-wider brand-3d-green">ОКОННЫЙ <span class="brand-3d-blue">ЗАВОД</span></span>
+                <div class="flex items-center gap-1.5 leading-none">
+                    <span class="font-sans text-base font-black tracking-wider brand-3d-green">ОКОННЫЙ</span>
+                    <span class="font-sans text-base font-black tracking-wider brand-3d-blue">ЗАВОД</span>
+                </div>
                 <span class="text-slate-400">|</span>
-                <span class="font-serif text-base font-bold tracking-widest text-slateDeep uppercase">СТЕКЛО</span>
+                <span class="font-serif text-lg font-bold tracking-widest text-slateDeep uppercase">СТЕКЛО</span>
                 <span class="text-slate-600">© 2026 Архитектурное стекло и конструкции под ключ.</span>
             </div>
             <div class="flex items-center gap-4 font-bold tracking-wide text-slateDeep">
@@ -1723,12 +2175,15 @@
             </button>
         </div>
 
-        <!-- Главная плавающая кнопка виджета -->
-        <button id="main-widget-btn" class="relative w-16 h-16 bg-gradient-to-tr from-[#0EA5E9] to-[#10B981] rounded-full shadow-2xl flex items-center justify-center text-white hover:brightness-105 hover:scale-105 transition-all z-20 pointer-events-auto" aria-label="Открыть чат">
+        <!-- Главная плавающая кнопка виджета (АКТИВНОЕ МИГАНИЕ И ПРИВЛЕЧЕНИЕ ВНИМАНИЯ) -->
+        <button id="main-widget-btn" class="widget-attention-blink relative w-16 h-16 sm:w-18 sm:h-18 bg-gradient-to-tr from-[#0EA5E9] to-[#10B981] rounded-full shadow-2xl flex items-center justify-center text-white hover:brightness-105 hover:scale-105 transition-all z-20 pointer-events-auto" aria-label="Открыть чат" style="width: 68px; height: 68px; min-width: 68px; min-height: 68px;">
+            <span class="pulse-wave-cyan"></span>
+            <span class="pulse-wave-mint"></span>
             <div class="pulse-ring"></div>
-            <i data-lucide="message-circle" width="30" height="30" id="widget-icon-open"></i>
-            <i data-lucide="x" width="30" height="30" id="widget-icon-close" class="hidden"></i>
-            <span id="widget-badge" class="absolute top-0 right-0 w-4 h-4 bg-emerald-500 border-2 border-white rounded-full animate-pulse"></span>
+            <i data-lucide="message-circle" width="32" height="32" id="widget-icon-open"></i>
+            <i data-lucide="x" width="32" height="32" id="widget-icon-close" class="hidden"></i>
+            <span id="widget-badge" class="absolute top-0 right-0 w-4 h-4 bg-emerald-400 border-2 border-white rounded-full animate-ping"></span>
+            <span class="absolute top-0 right-0 w-4 h-4 bg-emerald-500 border-2 border-white rounded-full"></span>
         </button>
     </div>
 
@@ -1818,81 +2273,87 @@
             footerBrandLogo.addEventListener('click', triggerFooterLogoSpin, { passive: true });
         }
 
-        // 1. ИНТЕРАКТИВНАЯ СДВИЖНАЯ СТЕКЛЯННАЯ СТВОРКА НА ПЕРВОМ ЭКРАНЕ (ОПТИМИЗИРОВАНО 60 FPS)
+        // 1. ИНТЕРАКТИВНАЯ СДВИЖНАЯ СТЕКЛЯННАЯ СТВОРКА НА ПЕРВОМ ЭКРАНЕ (ИДЕАЛЬНЫЙ ТАЧ И МЫШЬ)
         const heroStage = document.getElementById('heroStageContainer');
         const slidingDoor = document.getElementById('slidingGlassDoor');
         const doorHandle = document.getElementById('glassDoorHandle');
         let isDraggingDoor = false;
-        let cachedHeroRect = null;
-        let doorRafId = null;
-
-        function startDoorDrag() {
-            isDraggingDoor = true;
-            if (heroStage) cachedHeroRect = heroStage.getBoundingClientRect();
-            if (slidingDoor) slidingDoor.style.willChange = 'width';
-        }
-
-        function stopDoorDrag() {
-            isDraggingDoor = false;
-            if (slidingDoor) slidingDoor.style.willChange = 'auto';
-        }
 
         function updateDoorPosition(clientX) {
             if (!heroStage || !slidingDoor) return;
-            if (!cachedHeroRect || cachedHeroRect.width === 0) {
-                cachedHeroRect = heroStage.getBoundingClientRect();
-            }
-            const offsetX = clientX - cachedHeroRect.left;
-            let rightWidthPercent = ((cachedHeroRect.width - offsetX) / cachedHeroRect.width) * 100;
-            rightWidthPercent = Math.max(24, Math.min(86, rightWidthPercent));
+            const rect = heroStage.getBoundingClientRect();
+            if (!rect || rect.width === 0) return;
+            const offsetX = clientX - rect.left;
+            let rightWidthPercent = ((rect.width - offsetX) / rect.width) * 100;
+            const minW = window.innerWidth < 640 ? 12 : 18;
+            const maxW = window.innerWidth < 640 ? 90 : 86;
+            rightWidthPercent = Math.max(minW, Math.min(maxW, rightWidthPercent));
             
-            if (doorRafId) cancelAnimationFrame(doorRafId);
-            doorRafId = requestAnimationFrame(() => {
-                slidingDoor.style.width = rightWidthPercent + '%';
-            });
+            slidingDoor.style.setProperty('width', rightWidthPercent + '%', 'important');
+        }
+
+        function onDoorDragStart(e) {
+            isDraggingDoor = true;
+            document.body.style.userSelect = 'none';
+            document.body.style.webkitUserSelect = 'none';
+            document.body.style.cursor = 'ew-resize';
+            if (slidingDoor) slidingDoor.style.willChange = 'width';
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            updateDoorPosition(clientX);
+            if (e.cancelable) e.preventDefault();
+        }
+
+        function onDoorDragMove(e) {
+            if (!isDraggingDoor) return;
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            updateDoorPosition(clientX);
+            if (e.cancelable && e.touches) e.preventDefault();
+        }
+
+        function onDoorDragEnd() {
+            if (!isDraggingDoor) return;
+            isDraggingDoor = false;
+            document.body.style.userSelect = '';
+            document.body.style.webkitUserSelect = '';
+            document.body.style.cursor = '';
+            if (slidingDoor) slidingDoor.style.willChange = 'auto';
         }
 
         if (doorHandle) {
-            doorHandle.addEventListener('mousedown', startDoorDrag);
-            window.addEventListener('mouseup', stopDoorDrag);
-            window.addEventListener('mousemove', (e) => {
-                if (!isDraggingDoor) return;
-                updateDoorPosition(e.clientX);
-            }, { passive: true });
-
-            // Поддержка сенсорного перетаскивания створки на смартфонах
-            doorHandle.addEventListener('touchstart', startDoorDrag, { passive: true });
-            window.addEventListener('touchend', stopDoorDrag);
-            window.addEventListener('touchmove', (e) => {
-                if (!isDraggingDoor || !e.touches[0]) return;
-                updateDoorPosition(e.touches[0].clientX);
-            }, { passive: true });
+            doorHandle.addEventListener('mousedown', onDoorDragStart);
+            doorHandle.addEventListener('touchstart', onDoorDragStart, { passive: false });
+        }
+        if (slidingDoor) {
+            // Разрешаем захват и перетаскивание по всей левой границе створки
+            slidingDoor.addEventListener('mousedown', (e) => {
+                const r = slidingDoor.getBoundingClientRect();
+                if (e.clientX <= r.left + 50) {
+                    onDoorDragStart(e);
+                }
+            });
+            slidingDoor.addEventListener('touchstart', (e) => {
+                const r = slidingDoor.getBoundingClientRect();
+                if (e.touches && e.touches[0].clientX <= r.left + 50) {
+                    onDoorDragStart(e);
+                }
+            }, { passive: false });
         }
 
-        // Переключение фактуры стекла на главной сдвижной створке
-        const doorModes = {
-            optiwhite: { className: 'pane-optiwhite', label: 'Створка: Кристалл Optiwhite' },
-            fluted: { className: 'pane-fluted', label: 'Створка: Рифленое Moru' },
-            bronze: { className: 'pane-bronze', label: 'Створка: Тонированное Бронза' },
-            satin: { className: 'pane-satin', label: 'Створка: Матовый Сатин' }
-        };
+        window.addEventListener('mousemove', onDoorDragMove, { passive: false });
+        window.addEventListener('mouseup', onDoorDragEnd);
+        window.addEventListener('touchmove', onDoorDragMove, { passive: false });
+        window.addEventListener('touchend', onDoorDragEnd);
+        window.addEventListener('touchcancel', onDoorDragEnd);
 
-        function changeHeroDoorGlass(modeKey) {
-            const cfg = doorModes[modeKey];
-            slidingDoor.className = `${cfg.className} absolute top-0 bottom-0 right-0 border-l-[3px] border-white/95 shadow-[-25px_0_60px_rgba(20,30,40,0.25)] transition-colors duration-500 z-20 flex flex-col justify-between p-5 sm:p-8`;
-            document.getElementById('doorGlassLabel').textContent = cfg.label;
-
-            ['optiwhite', 'fluted', 'bronze', 'satin'].forEach(k => {
-                const btn = document.getElementById('hero-btn-' + k);
-                if (k === modeKey) {
-                    btn.className = 'py-2 px-1 rounded-xl text-[11px] font-semibold bg-slateDeep text-white transition-all';
-                } else {
-                    btn.className = 'py-2 px-1 rounded-xl text-[11px] font-medium bg-white/70 text-slateDeep hover:bg-white transition-all';
-                }
+        // Клик/тап по сцене для быстрого перемещения створки
+        if (heroStage) {
+            heroStage.addEventListener('click', (e) => {
+                if (e.target.closest('button, a, #glassDoorHandle, .hero-door-textures, .glass-slab')) return;
+                updateDoorPosition(e.clientX);
             });
         }
 
-        // 2. ИНЖЕНЕРНЫЙ НАВИГАТОР ПО СТЕКЛУ И КОНСТРУКТИВУ
+        // 2./ 2. ИНЖЕНЕРНЫЙ НАВИГАТОР ПО СТЕКЛУ И КОНСТРУКТИВУ
         const guideScenarios = {
             terrace: {
                 category: 'Стеклянные ограждения',
