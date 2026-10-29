@@ -1442,6 +1442,147 @@
             }
         }
 
+    
+        /* ==========================================================================
+           КОМПЛЕКСНЫЕ ИСПРАВЛЕНИЯ: ОТСТУПЫ, ТЕКСТУРЫ СТЕКЛА, ЛОГОТИП И ПОДВАЛ
+           ========================================================================== */
+
+        /* 1. Богатые, эффектные фактуры стекла на створке */
+        .pane-optiwhite {
+            background: linear-gradient(115deg, rgba(255, 255, 255, 0.32) 0%, rgba(220, 245, 255, 0.10) 50%, rgba(255, 255, 255, 0.26) 100%) !important;
+            backdrop-filter: blur(2.5px) brightness(1.05) contrast(1.03) !important;
+            -webkit-backdrop-filter: blur(2.5px) brightness(1.05) contrast(1.03) !important;
+        }
+        .pane-fluted {
+            background: repeating-linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0.65) 0px,
+                rgba(255, 255, 255, 0.12) 6px,
+                rgba(170, 220, 240, 0.60) 14px,
+                rgba(255, 255, 255, 0.35) 20px
+            ) !important;
+            backdrop-filter: blur(14px) saturate(150%) contrast(1.1) !important;
+            -webkit-backdrop-filter: blur(14px) saturate(150%) contrast(1.1) !important;
+        }
+        .pane-bronze {
+            background: linear-gradient(135deg, rgba(165, 105, 50, 0.60) 0%, rgba(115, 65, 25, 0.50) 100%) !important;
+            backdrop-filter: blur(3px) sepia(65%) contrast(1.15) brightness(0.92) !important;
+            -webkit-backdrop-filter: blur(3px) sepia(65%) contrast(1.15) brightness(0.92) !important;
+        }
+        .pane-satin {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.84) 0%, rgba(230, 242, 250, 0.72) 100%) !important;
+            backdrop-filter: blur(28px) saturate(135%) brightness(1.06) !important;
+            -webkit-backdrop-filter: blur(28px) saturate(135%) brightness(1.06) !important;
+        }
+
+        /* 2. Отступы логотипа: ОКОННЫЙ [пробел] ЗАВОД [пробел] | [пробел] Стекло */
+        .brand-title-row {
+            display: flex !important;
+            align-items: center !important;
+            gap: 0 !important;
+        }
+        .brand-title-green {
+            margin-right: 5px !important;
+        }
+        .brand-title-blue {
+            margin-right: 8px !important;
+            font-size: inherit !important;
+        }
+        .brand-title-divider {
+            margin: 0 8px !important;
+            opacity: 0.55 !important;
+        }
+        .brand-title-serif {
+            margin-left: 4px !important;
+        }
+
+        /* 3. ДЕСКТОП: Увеличенное расстояние между плашкой и фотографией главного экрана */
+        @media (min-width: 640px) {
+            .site-top-header {
+                top: 48px !important;
+            }
+            #atelier-stage {
+                padding-top: 172px !important;
+                padding-bottom: 60px !important;
+            }
+        }
+
+        /* 4. МОБИЛЬНАЯ ВЕРСИЯ: Идеальное разделение и никакого наложения */
+        @media (max-width: 639px) {
+            /* Шапка и отступ от фото */
+            .site-top-bar {
+                padding: 4px 8px !important;
+            }
+            .site-top-header {
+                top: 48px !important;
+                height: 36px !important;
+                padding: 0 10px !important;
+            }
+            #liquidBrandPlaque {
+                height: 34px !important;
+                min-height: 34px !important;
+                max-height: 34px !important;
+                padding: 3px 10px 3px 7px !important;
+            }
+            
+            /* Дистанция между плашкой и фотографией (никаких наложений!) */
+            #atelier-stage {
+                padding-top: 104px !important;
+                padding-bottom: 24px !important;
+            }
+            #heroStageContainer {
+                min-height: 520px !important;
+            }
+
+            /* Внутренний контейнер контента: снизу резервируем 86px под панель кнопок фактур */
+            .hero-content-inner {
+                padding: 14px 14px 86px 14px !important;
+            }
+            .hero-text-wrapper {
+                max-width: 70% !important;
+            }
+            .hero-text-wrapper h1 {
+                font-size: 1.5rem !important;
+                line-height: 1.15 !important;
+            }
+            .hero-text-wrapper p {
+                font-size: 0.78rem !important;
+                line-height: 1.35 !important;
+            }
+
+            /* Панель фактур на телефоне: четко внизу в своей зоне, не заходя на надписи */
+            .hero-door-textures {
+                position: absolute !important;
+                bottom: 10px !important;
+                left: 10px !important;
+                right: 10px !important;
+                max-width: none !important;
+                width: auto !important;
+                padding: 7px 10px !important;
+                border-radius: 14px !important;
+                background: rgba(255, 255, 255, 0.92) !important;
+                backdrop-filter: blur(20px) !important;
+                -webkit-backdrop-filter: blur(20px) !important;
+                box-shadow: 0 4px 20px rgba(15, 23, 42, 0.16) !important;
+                border: 1px solid rgba(255, 255, 255, 0.98) !important;
+                z-index: 35 !important;
+            }
+            .hero-door-textures button {
+                padding: 6px 2px !important;
+                font-size: 10px !important;
+                border-radius: 8px !important;
+            }
+
+            /* Выравнивание шрифта логотипа в подвале (одинаковый размер слов) */
+            .footer-brand-title span {
+                font-size: 13px !important;
+                line-height: 1 !important;
+            }
+            .brand-3d-blue {
+                font-size: inherit !important;
+            }
+        }
+
     </style>
 </head>
 <body class="antialiased selection:bg-crystalCyan/20 selection:text-slateDeep pb-24">
@@ -1649,7 +1790,7 @@
     <!-- 2. ОРИГИНАЛЬНАЯ ПРОСТРАНСТВЕННАЯ ШАПКА: ДВЕ НЕВЕСОМЫЕ СТЕКЛЯННЫЕ ПРИЗМЫ -->
     <header class="site-top-header fixed z-40 flex items-start justify-between pointer-events-none">
         <!-- Левая капсула с эффектом ЖИДКОГО СТЕКЛА и чистым логотипом (Увеличенная и просторная) -->
-        <a href="#atelier-stage" id="liquidBrandPlaque" class="pointer-events-auto liquid-glass-brand px-3 py-1.5 sm:px-7 sm:py-3.5 flex items-center gap-2 sm:gap-4 group relative shrink-0">
+        <a href="#atelier-stage" id="liquidBrandPlaque" class="pointer-events-auto liquid-glass-brand px-3 py-1.5 sm:px-6 sm:py-3 flex items-center gap-2.5 sm:gap-4 group relative shrink-0">
             <!-- 4 архитектурных дистанционных держателя (хромированные рутели AISI 316 по углам стекла) -->
             <span class="glass-corner-mount mount-tl" title="Дистанционный держатель"><span class="mount-core"></span></span>
             <span class="glass-corner-mount mount-tr" title="Дистанционный держатель"><span class="mount-core"></span></span>
@@ -1659,11 +1800,12 @@
                 <img id="mainBrandLogo" src="logo.webp" alt="Оконный завод Стекло" width="56" height="56" decoding="async" class="brand-logo-spin" >
             </div>
             <div class="pr-2 relative z-10">
-                <div class="brand-title-row flex items-center gap-x-1.5 sm:gap-x-2.5 leading-none">
-                    <span class="brand-title-green font-sans text-[11px] sm:text-xl font-black tracking-wider brand-3d-green">ОКОННЫЙ</span>
-                    <span class="brand-title-blue font-sans text-[11px] sm:text-xl font-black tracking-wider brand-3d-blue">ЗАВОД</span>
-                    <span class="brand-title-divider text-slate-400 font-light text-[11px] sm:text-xl">|</span>
-                    <span class="brand-title-serif font-serif text-[12px] sm:text-2xl font-bold tracking-[0.08em] sm:tracking-[0.14em] text-slateDeep uppercase drop-shadow-[0_1px_2px_rgba(255,255,255,0.95)]">Стекло</span>
+                <div class="brand-title-row flex items-center leading-none">
+                    <span class="brand-title-green font-sans text-xs sm:text-xl font-black tracking-wider brand-3d-green">ОКОННЫЙ</span>
+                    <span class="brand-title-space">&nbsp;</span>
+                    <span class="brand-title-blue font-sans text-xs sm:text-xl font-black tracking-wider brand-3d-blue">ЗАВОД</span>
+                    <span class="brand-title-divider text-slate-400 font-light text-xs sm:text-xl mx-2 sm:mx-3">|</span>
+                    <span class="brand-title-serif font-serif text-sm sm:text-2xl font-bold tracking-[0.1em] sm:tracking-[0.14em] text-slateDeep uppercase drop-shadow-[0_1px_2px_rgba(255,255,255,0.95)]">Стекло</span>
                 </div>
                 <div class="hidden sm:flex items-center gap-2 mt-1.5">
                     <span class="w-2 h-2 rounded-full bg-[#16A685] animate-pulse"></span>
@@ -1702,9 +1844,7 @@
                 <span class="w-2 h-2 rounded-full bg-[#0EA5E9]"></span>
                 <span>6 направлений</span>
             </a>
-            <a href="#glass-guide" class="px-3.5 sm:px-4.5 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-semibold text-slateDeep hover:bg-white/90 transition-all whitespace-nowrap">
-                Гид по стеклу
-            </a>
+            
             <a href="#contacts-section" class="px-3.5 sm:px-4.5 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-semibold text-slateDeep hover:bg-white/90 transition-all whitespace-nowrap flex items-center gap-2">
                 <span class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
                 <span>Контакты</span>
@@ -1803,7 +1943,7 @@
                 </div>
 
                 <!-- Контент поверх архитектурной сцены (Свободное адаптивное позиционирование с комфортными отступами) -->
-                <div class="relative z-10 p-6 sm:p-10 lg:p-14 flex flex-col justify-between h-full flex-1 pointer-events-none">
+                <div class="hero-content-inner relative z-10 p-5 sm:p-10 lg:p-14 flex flex-col justify-between h-full flex-1 pointer-events-none">
                     
                     <div class="hero-text-wrapper max-w-xl lg:max-w-[54%] xl:max-w-[56%] space-y-4 sm:space-y-6 mt-2 sm:mt-6 lg:pr-6 pointer-events-auto">
                         <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/90 backdrop-blur-md text-xs sm:text-sm font-semibold text-slateDeep shadow-sm border border-cyan-100/80">
@@ -1825,7 +1965,7 @@
                                 <span>Рассчитать проект по размерам</span>
                                 <span class="w-6 h-6 rounded-full bg-slateDeep text-white flex items-center justify-center text-xs group-hover:translate-x-1 transition-transform">→</span>
                             </button>
-                            <a href="#six-directions" class="px-5 sm:px-6 py-3.5 sm:py-4 rounded-2xl glass-dock text-slateDeep font-semibold text-sm sm:text-base hover:bg-white transition-all duration-300 shadow-lg flex items-center gap-2">
+                        <a href="#six-directions" class="hidden sm:inline-flex glass-dock rounded-2xl px-6 sm:px-8 py-3.5 sm:py-4 text-xs sm:text-sm font-semibold text-slateDeep hover:bg-white transition-all duration-300 items-center gap-2.5 shadow-xl border border-white group">
                                 <span class="w-2.5 h-2.5 rounded-full bg-[#0EA5E9]"></span>
                                 <span>Каталог 6 направлений ↓</span>
                             </a>
@@ -2188,213 +2328,7 @@
     <!-- ======================================================== -->
     <!-- ИНЖЕНЕРНЫЙ ГИД И ИНТЕРАКТИВНЫЙ НАВИГАТОР ПО СТЕКЛУ       -->
     <!-- ======================================================== -->
-    <section id="glass-guide" class="py-14 sm:py-24 px-4 sm:px-8">
-        <div class="max-w-[1400px] mx-auto space-y-10">
-            
-            <!-- Заглавная стеклянная панель: Интерактивный конфигуратор задачи -->
-            <div class="glass-slab rounded-[2.5rem] p-6 sm:p-12 border border-white/80 shadow-xl bg-white/70">
-                
-                <!-- Шапка блока -->
-                <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-8 gap-4">
-                    <div>
-                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-crystalCyan/15 text-xs font-bold text-crystalCyan uppercase tracking-[0.18em] mb-3">
-                            <span class="w-2 h-2 rounded-full bg-crystalCyan animate-pulse"></span>
-                            Инженерный навигатор • Экспертиза завода
-                        </div>
-                        <h2 class="font-serif text-3xl sm:text-5xl font-normal text-slateDeep leading-tight">
-                            Какое решение подойдет <span class="italic text-crystalCyan">для вашей задачи?</span>
-                        </h2>
-                    </div>
-                    <p class="text-xs sm:text-sm text-slateMuted max-w-md">
-                        Выберите тип зоны — инженерная система подскажет рекомендуемую толщину стекла, тип закалки, безопасную фурнитуру и практический совет главного технолога.
-                    </p>
-                </div>
-
-                <!-- Кнопки выбора сценария / типа помещения -->
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 mb-8" id="guideScenarioTabs">
-                    <button onclick="selectGuideScenario('terrace')" id="tab-terrace" class="guide-tab p-3.5 sm:p-4 rounded-2xl text-left border transition-all duration-300 bg-slateDeep text-white border-slateDeep shadow-md cursor-pointer">
-                        <div class="text-lg sm:text-xl mb-1.5">🏡</div>
-                        <div class="text-xs sm:text-sm font-bold leading-snug">Терраса и балкон</div>
-                        <div class="text-[11px] opacity-75 mt-0.5">Ветровые нагрузки и вид</div>
-                    </button>
-                    <button onclick="selectGuideScenario('stairs')" id="tab-stairs" class="guide-tab p-3.5 sm:p-4 rounded-2xl text-left border transition-all duration-300 bg-white/80 text-slateDeep border-slate-200/80 hover:bg-white cursor-pointer">
-                        <div class="text-lg sm:text-xl mb-1.5">🪜</div>
-                        <div class="text-xs sm:text-sm font-bold leading-snug">Лестничный марш</div>
-                        <div class="text-[11px] opacity-75 mt-0.5">Жесткость и поручни</div>
-                    </button>
-                    <button onclick="selectGuideScenario('shower')" id="tab-shower" class="guide-tab p-3.5 sm:p-4 rounded-2xl text-left border transition-all duration-300 bg-white/80 text-slateDeep border-slate-200/80 hover:bg-white cursor-pointer">
-                        <div class="text-lg sm:text-xl mb-1.5">🚿</div>
-                        <div class="text-xs sm:text-sm font-bold leading-snug">Ванная и душевая</div>
-                        <div class="text-[11px] opacity-75 mt-0.5">Влага и антикапля</div>
-                    </button>
-                    <button onclick="selectGuideScenario('partitions')" id="tab-partitions" class="guide-tab p-3.5 sm:p-4 rounded-2xl text-left border transition-all duration-300 bg-white/80 text-slateDeep border-slate-200/80 hover:bg-white cursor-pointer">
-                        <div class="text-lg sm:text-xl mb-1.5">🚪</div>
-                        <div class="text-xs sm:text-sm font-bold leading-snug">Межкомнатные зоны</div>
-                        <div class="text-[11px] opacity-75 mt-0.5">Шумоизоляция и подвес</div>
-                    </button>
-                </div>
-
-                <!-- Главная интерактивная карточка сценария: Фото + Характеристики + Лайфхак -->
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
-                    
-                    <!-- Превью реального проекта с бейджем -->
-                    <div class="lg:col-span-6 relative min-h-[320px] sm:min-h-[420px] rounded-3xl overflow-hidden border border-white shadow-lg bg-slate-900 group">
-                        <img 
-                            id="guideMainImg"
-                            src="assets/actual/01_railings.jpg" 
-                            alt="Решение по остеклению"
-                            class="w-full h-full object-cover transition-opacity duration-300 select-none"
-                        >
-                        <div class="absolute inset-0 bg-gradient-to-t from-slateDeep/85 via-slateDeep/20 to-transparent pointer-events-none"></div>
-                        
-                        <!-- Плавающий бейдж на фото -->
-                        <div class="absolute bottom-5 left-5 right-5 text-white">
-                            <span id="guidePhotoBadge" class="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-semibold tracking-wider uppercase mb-2 border border-white/30">
-                                Ограждения открытых террас и балконов
-                            </span>
-                            <h3 id="guidePhotoTitle" class="font-serif text-xl sm:text-2xl font-bold leading-snug text-white">
-                                Безрамное триплекс-ограждение со скрытым нижним профилем
-                            </h3>
-                        </div>
-                    </div>
-
-                    <!-- Инженерная спецификация и совет технолога -->
-                    <div class="lg:col-span-6 flex flex-col justify-between space-y-5">
-                        
-                        <div>
-                            <div class="flex items-center justify-between mb-3">
-                                <span id="guideFormulaBadge" class="px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200/80">
-                                    ГОСТ 30698 • Класс защиты СМ4
-                                </span>
-                                <span class="text-xs font-mono text-slateMuted">Заводской стандарт</span>
-                            </div>
-
-                            <h3 id="guideTitle" class="font-serif text-2xl sm:text-3xl font-semibold text-slateDeep mb-3">
-                                Закаленный триплекс 8+8 / 10+10 мм с алмазной кромкой
-                            </h3>
-
-                            <p id="guideDesc" class="text-xs sm:text-sm text-slateMuted leading-relaxed mb-5">
-                                Для террас на высоте мы применяем многослойный триплекс из двух закаленных стекол. При экстремальном ударе стекло не осыпается, а остается на эластичной EVA-мембране, выдерживая вес нескольких человек.
-                            </p>
-
-                            <!-- Блок ключевых параметров -->
-                            <div id="guideSpecsGrid" class="grid grid-cols-2 gap-3 mb-5">
-                                <div class="p-3.5 rounded-2xl bg-white/80 border border-slate-200/80 shadow-sm">
-                                    <div class="text-[11px] text-slateMuted font-medium mb-1">Рекомендуемое стекло</div>
-                                    <div id="guideSpecGlass" class="text-xs sm:text-sm font-bold text-slateDeep">Optiwhite Триплекс 10+10</div>
-                                </div>
-                                <div class="p-3.5 rounded-2xl bg-white/80 border border-slate-200/80 shadow-sm">
-                                    <div class="text-[11px] text-slateMuted font-medium mb-1">Тип крепежа</div>
-                                    <div id="guideSpecMount" class="text-xs sm:text-sm font-bold text-slateDeep">Скрытый профиль в стяжку</div>
-                                </div>
-                                <div class="p-3.5 rounded-2xl bg-white/80 border border-slate-200/80 shadow-sm">
-                                    <div class="text-[11px] text-slateMuted font-medium mb-1">Ветроустойчивость</div>
-                                    <div id="guideSpecLoad" class="text-xs sm:text-sm font-bold text-slateDeep">Порывы до 38 м/с (до 15 этажа)</div>
-                                </div>
-                                <div class="p-3.5 rounded-2xl bg-white/80 border border-slate-200/80 shadow-sm">
-                                    <div class="text-[11px] text-slateMuted font-medium mb-1">Класс фурнитуры</div>
-                                    <div id="guideSpecMaterial" class="text-xs sm:text-sm font-bold text-slateDeep">Сталь AISI 316 / Анодирование</div>
-                                </div>
-                            </div>
-
-                            <!-- Практический совет главного технолога (Лайфхак) -->
-                            <div class="p-4 rounded-2xl bg-sky-50/70 border border-sky-150 flex items-start gap-3.5">
-                                <div class="w-8 h-8 rounded-xl bg-crystalCyan/20 text-crystalCyan flex items-center justify-center shrink-0 text-sm mt-0.5 font-bold">
-                                    💡
-                                </div>
-                                <div>
-                                    <div class="text-xs font-bold text-slateDeep mb-1">Совет главного инженера:</div>
-                                    <p id="guideEngineerTip" class="text-xs text-slate-600 leading-relaxed m-0">
-                                        Если планируете скрытый профиль в пол террасы, заложите монтажный зазор 120 мм в стяжке еще до укладки плитки. В нижней части профиля мы обязательно выводим дренажные каналы, чтобы дождевая вода свободно уходила наружу.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Кнопка действия -->
-                        <div class="pt-2 flex flex-col sm:flex-row items-center gap-3">
-                            <button onclick="requestGuideQuote()" class="w-full sm:w-auto flex-1 py-3.5 px-6 rounded-2xl bg-gradient-to-r from-slateDeep via-[#0d2a33] to-[#0EA5E9] text-white text-xs sm:text-sm font-bold hover:shadow-lg active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer">
-                                <span id="guideCtaText">Рассчитать остекление террасы</span>
-                                <i class="fas fa-arrow-right text-xs"></i>
-                            </button>
-                            <button onclick="openConciergeModal('Консультация главного инженера завода по выбору стекла')" class="w-full sm:w-auto py-3.5 px-5 rounded-2xl bg-white text-slateDeep border border-slate-200 text-xs font-semibold hover:bg-slate-50 transition-all flex items-center justify-center gap-2 cursor-pointer">
-                                <span>Задать вопрос инженеру</span>
-                            </button>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- Второй уровень экспертизы: Честное сравнение «Заводской стандарт» vs «Обычные мастерские» -->
-            <div class="glass-slab rounded-[2.5rem] p-6 sm:p-10 border border-white/80 shadow-lg bg-white/60">
-                <div class="text-center max-w-2xl mx-auto mb-8">
-                    <span class="text-xs uppercase tracking-[0.2em] text-crystalCyan font-bold block mb-2">Стандарты надежности</span>
-                    <h3 class="font-serif text-2xl sm:text-4xl font-normal text-slateDeep">
-                        Чем заводское стекло отличается от <span class="italic text-crystalCyan">рыночных аналогов</span>
-                    </h3>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-                    
-                    <!-- Карточка 1: Стекло Optiwhite -->
-                    <div class="p-6 rounded-3xl bg-white/90 border border-slate-200/80 shadow-sm flex flex-col justify-between">
-                        <div>
-                            <div class="w-10 h-10 rounded-2xl bg-sky-100 text-crystalCyan flex items-center justify-center text-lg mb-4 font-bold">
-                                💎
-                            </div>
-                            <h4 class="font-serif text-lg font-bold text-slateDeep mb-2">Кристалл Optiwhite без зелени</h4>
-                            <p class="text-xs text-slateMuted leading-relaxed mb-4">
-                                Обычное флоат-стекло имеет выраженный зеленый бутылочный оттенок на срезе. Мы используем обесцвеченное стекло Pilkington Optiwhite с содержанием железа в 10 раз ниже нормы — оно пропускает 99.2% света и сохраняет истинные цвета интерьера.
-                            </p>
-                        </div>
-                        <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-                            <span class="text-slateMuted">Светопропускание:</span>
-                            <span class="font-bold text-slateDeep">99.2% (кристальная чистота)</span>
-                        </div>
-                    </div>
-
-                    <!-- Карточка 2: 9-ступенчатая полировка кромки на ЧПУ -->
-                    <div class="p-6 rounded-3xl bg-white/90 border border-slate-200/80 shadow-sm flex flex-col justify-between">
-                        <div>
-                            <div class="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-lg mb-4 font-bold">
-                                ✨
-                            </div>
-                            <h4 class="font-serif text-lg font-bold text-slateDeep mb-2">Алмазная еврокромка 45° на ЧПУ</h4>
-                            <p class="text-xs text-slateMuted leading-relaxed mb-4">
-                                Кустарная ручная шлифовка оставляет микросколы и внутренние напряжения, из-за которых стекло может треснуть от перепада температур. На заводе кромка обрабатывается итальянскими алмазными фрезами в 9 проходов до гладкости хрусталя.
-                            </p>
-                        </div>
-                        <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-                            <span class="text-slateMuted">Точность обработки:</span>
-                            <span class="font-bold text-slateDeep">0.1 мм (без микротрещин)</span>
-                        </div>
-                    </div>
-
-                    <!-- Карточка 3: Фурнитура морского класса AISI 316 -->
-                    <div class="p-6 rounded-3xl bg-white/90 border border-slate-200/80 shadow-sm flex flex-col justify-between">
-                        <div>
-                            <div class="w-10 h-10 rounded-2xl bg-cyan-100 text-[#0EA5E9] flex items-center justify-center text-lg mb-4 font-bold">
-                                ⚓
-                            </div>
-                            <h4 class="font-serif text-lg font-bold text-slateDeep mb-2">Морская сталь AISI 316</h4>
-                            <p class="text-xs text-slateMuted leading-relaxed mb-4">
-                                Дешевые силуминовые сплавы и нержавейка 201 темнеют и покрываются ржавчиной от влажности и морского воздуха уже через сезон. Наша фурнитура содержит 2.5% молибдена и анодированный слой 25 мкм — не ржавеет даже в душевых и на побережье.
-                            </p>
-                        </div>
-                        <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-                            <span class="text-slateMuted">Коррозионная стойкость:</span>
-                            <span class="font-bold text-slateDeep">Класс С5 (морская среда)</span>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    </section>
+    
 
     <!-- ============================================== -->
     <!-- СЕКЦИЯ КОНТАКТОВ С КАРТОЙ И СОЦСЕТЯМИ (ПОДВАЛ) -->
@@ -2476,9 +2410,9 @@
                 <div class="shrink-0 flex items-center justify-center" style="width: 36px; height: 36px; min-width: 36px; max-width: 36px;">
                     <img id="footerBrandLogo" src="logo.webp" alt="Логотип Оконный завод Стекло" width="36" height="36" loading="lazy" decoding="async" class="brand-logo-spin" style="width: 36px; height: 36px; max-width: 36px; max-height: 36px; object-fit: contain; display: block;">
                 </div>
-                <div class="flex items-center gap-1.5 leading-none">
-                    <span class="font-sans text-base font-black tracking-wider brand-3d-green">ОКОННЫЙ</span>
-                    <span class="font-sans text-base font-black tracking-wider brand-3d-blue">ЗАВОД</span>
+                <div class="footer-brand-title flex items-center gap-1.5 leading-none">
+                    <span class="font-sans text-sm sm:text-base font-black tracking-wider brand-3d-green">ОКОННЫЙ</span>
+                    <span class="font-sans text-sm sm:text-base font-black tracking-wider brand-3d-blue">ЗАВОД</span>
                 </div>
                 <span class="text-slate-400">|</span>
                 <span class="font-serif text-lg font-bold tracking-widest text-slateDeep uppercase">СТЕКЛО</span>
@@ -2709,17 +2643,29 @@
         function changeHeroDoorGlass(type) {
             const door = document.getElementById('slidingGlassDoor');
             const label = document.getElementById('doorGlassLabel');
+            const nameEl = document.getElementById('hero-texture-name');
             if (!door) return;
 
             // Снимаем все классы фактур и вешаем выбранный
             door.classList.remove('pane-optiwhite', 'pane-fluted', 'pane-bronze', 'pane-satin');
             door.classList.add('pane-' + type);
 
+            // Добавляем эффект быстрого свечения створки при смене стекла
+            door.style.transition = 'background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.3s ease';
+            door.style.borderColor = (type === 'bronze') ? '#F59E0B' : (type === 'fluted' ? '#38BDF8' : '#FFFFFF');
+
             const labels = {
                 optiwhite: 'Створка: Кристалл Optiwhite',
                 fluted: 'Створка: Рифленое Moru',
                 bronze: 'Створка: Тонированное Бронза',
                 satin: 'Створка: Матовое Сатинат'
+            };
+
+            const shortNames = {
+                optiwhite: 'Optiwhite',
+                fluted: 'Рифленое',
+                bronze: 'Бронза',
+                satin: 'Сатинат'
             };
 
             const colors = {
@@ -2730,7 +2676,11 @@
             };
 
             if (label) {
-                label.innerHTML = `<span class="w-1.5 h-1.5 rounded-full" style="background-color: ${colors[type] || '#38BDF8'};"></span><span>${labels[type] || 'Створка: Стекло'}</span>`;
+                label.innerHTML = `<span class="w-2 h-2 rounded-full" style="background-color: ${colors[type] || '#38BDF8'}; box-shadow: 0 0 6px ${colors[type] || '#38BDF8'};"></span><span>${labels[type] || 'Створка: Стекло'}</span>`;
+            }
+
+            if (nameEl) {
+                nameEl.textContent = shortNames[type] || type;
             }
 
             // Переключаем визуальные стили 4 кнопок
@@ -2739,9 +2689,9 @@
                 const b = document.getElementById('hero-btn-' + t);
                 if (!b) return;
                 if (t === type) {
-                    b.className = 'py-2 px-1 rounded-xl text-[11px] font-semibold bg-gradient-to-r from-slateDeep to-[#0d2e33] text-white shadow-sm transition-all border border-cyan-400/30';
+                    b.className = 'py-2 px-2.5 rounded-xl text-[11px] sm:text-xs font-bold bg-[#0F172A] text-white shadow-md transition-all border border-cyan-400';
                 } else {
-                    b.className = 'py-2 px-1 rounded-xl text-[11px] font-medium bg-white/70 text-slateDeep hover:bg-white transition-all border border-transparent';
+                    b.className = 'py-2 px-2.5 rounded-xl text-[11px] sm:text-xs font-semibold bg-white/90 text-slate-800 hover:bg-white transition-all border border-slate-200/60';
                 }
             });
         }
