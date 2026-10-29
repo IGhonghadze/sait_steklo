@@ -1583,6 +1583,213 @@
             }
         }
 
+    
+        /* ==========================================================================
+           ИДЕАЛЬНЫЙ СТИЛЬ: ПЛАШКА ВЫШЕ И КРУПНЕЕ, ВНИЗУ НИКАКИХ НАЛОЖЕНИЙ
+           ========================================================================== */
+        
+        /* 1. Десктопная шапка */
+        @media (min-width: 640px) {
+            .site-top-bar {
+                display: block !important;
+                position: fixed !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: 42px !important;
+                z-index: 50 !important;
+            }
+            .site-top-header {
+                top: 50px !important;
+                padding: 0 2rem !important;
+            }
+            #atelier-stage {
+                padding-top: 175px !important;
+                padding-bottom: 70px !important;
+            }
+            #heroDoorTexturesBar {
+                bottom: 24px !important;
+                right: 24px !important;
+                width: 320px !important;
+            }
+        }
+
+        /* 2. Мобильная версия: плашка поднята на самый верх, видна полностью! */
+        @media (max-width: 639px) {
+            /* Верхняя полоса на мобильном скрыта — телефон уже есть в плашке! */
+            .site-top-bar {
+                display: none !important;
+            }
+            /* Шапка поднята на САМЫЙ ВЕРХ экрана */
+            .site-top-header {
+                top: 10px !important;
+                left: 0 !important;
+                right: 0 !important;
+                padding: 0 10px !important;
+                z-index: 50 !important;
+                display: flex !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+            }
+
+            /* Плашка логотипа: крупная, полноценная, поднятая высоко, видна на 100%! */
+            #liquidBrandPlaque {
+                padding: 6px 14px 6px 10px !important;
+                border-radius: 16px !important;
+                gap: 10px !important;
+                max-width: calc(100% - 56px) !important;
+                height: auto !important;
+                min-height: 48px !important;
+                backdrop-filter: blur(16px) !important;
+                -webkit-backdrop-filter: blur(16px) !important;
+                box-shadow: 0 4px 20px rgba(15, 23, 42, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
+                border: 1.5px solid rgba(255, 255, 255, 0.9) !important;
+            }
+            .brand-logo-fixed-box {
+                width: 38px !important;
+                height: 38px !important;
+                min-width: 38px !important;
+                max-width: 38px !important;
+            }
+            #mainBrandLogo {
+                width: 38px !important;
+                height: 38px !important;
+                max-width: 38px !important;
+                max-height: 38px !important;
+            }
+            .brand-title-green, .brand-title-blue {
+                font-size: 13px !important;
+                letter-spacing: 0.04em !important;
+            }
+            .brand-title-serif {
+                font-size: 14px !important;
+                letter-spacing: 0.08em !important;
+            }
+            .brand-subtitle-container {
+                display: flex !important;
+            }
+            .brand-subtitle-text {
+                font-size: 8px !important;
+                letter-spacing: 0.08em !important;
+            }
+            .glass-corner-mount {
+                width: 7px !important;
+                height: 7px !important;
+            }
+            .mount-tl { top: 3.5px !important; left: 3.5px !important; }
+            .mount-tr { top: 3.5px !important; right: 3.5px !important; }
+            .mount-bl { bottom: 3.5px !important; left: 3.5px !important; }
+            .mount-br { bottom: 3.5px !important; right: 3.5px !important; }
+
+            /* Правая круглая кнопка звонка */
+            .site-top-header a[aria-label="Позвонить на завод"] {
+                width: 44px !important;
+                height: 44px !important;
+                min-width: 44px !important;
+                min-height: 44px !important;
+            }
+
+            /* Первый экран: отступ сверху обеспечивает зазор между плашкой и фото */
+            #atelier-stage {
+                padding-top: 86px !important;
+                padding-bottom: 74px !important;
+            }
+            #heroStageContainer {
+                min-height: 490px !important;
+                border-radius: 1.5rem !important;
+            }
+
+            /* Панель фактур на телефоне: расположена вверху справа над створкой! */
+            /* Таким образом она НИКОГДА не пересекается с нижними кнопками меню и виджетом! */
+            #heroDoorTexturesBar {
+                top: 10px !important;
+                right: 10px !important;
+                bottom: auto !important;
+                left: auto !important;
+                max-width: 250px !important;
+                width: auto !important;
+                padding: 6px 8px !important;
+                border-radius: 14px !important;
+                background: rgba(255, 255, 255, 0.94) !important;
+                backdrop-filter: blur(20px) !important;
+                -webkit-backdrop-filter: blur(20px) !important;
+                box-shadow: 0 4px 18px rgba(15, 23, 42, 0.22) !important;
+                border: 1px solid rgba(255, 255, 255, 0.98) !important;
+                z-index: 35 !important;
+            }
+            #heroDoorTexturesBar button {
+                padding: 6px 3px !important;
+                font-size: 10px !important;
+                border-radius: 8px !important;
+            }
+
+            /* ВНИЗУ ЭКРАНА: Раздельные непересекающиеся зоны для меню и виджета связи */
+            #floating-dock {
+                bottom: 12px !important;
+                left: 10px !important;
+                right: 66px !important;
+                width: auto !important;
+                max-width: none !important;
+                transform: none !important;
+                -webkit-transform: none !important;
+                z-index: 9990 !important;
+            }
+            #floating-dock .glass-dock {
+                padding: 4px 6px !important;
+                justify-content: space-around !important;
+                gap: 4px !important;
+            }
+            #floating-dock a, #floating-dock button {
+                padding: 6px 8px !important;
+                font-size: 10.5px !important;
+            }
+
+            /* Кнопка попапа связи: строго в правом нижнем углу, рядом с меню, а не поверх! */
+            #martha-widget-wrapper {
+                bottom: 12px !important;
+                right: 10px !important;
+                z-index: 9995 !important;
+            }
+            #main-widget-btn {
+                width: 44px !important;
+                height: 44px !important;
+                min-width: 44px !important;
+                min-height: 44px !important;
+                max-width: 44px !important;
+                max-height: 44px !important;
+            }
+        }
+
+    
+        /* === ТОЧНАЯ ПОДГОНКА МОБИЛЬНЫХ ЭЛЕМЕНТОВ ДЛЯ 100% ЧИСТОТЫ === */
+        @media (max-width: 639px) {
+            #floating-dock {
+                bottom: 14px !important;
+                left: 12px !important;
+                right: 72px !important;
+                width: auto !important;
+                max-width: calc(100% - 84px) !important;
+            }
+            #floating-dock .glass-dock {
+                padding: 6px 12px !important;
+                gap: 8px !important;
+                justify-content: space-around !important;
+            }
+            #martha-widget-wrapper {
+                bottom: 12px !important;
+                right: 12px !important;
+            }
+            #heroDoorTexturesBar {
+                top: 12px !important;
+                right: 12px !important;
+                max-width: 260px !important;
+            }
+            .hero-text-wrapper {
+                padding-top: 10px !important;
+                max-width: 64% !important;
+            }
+        }
+
     </style>
 </head>
 <body class="antialiased selection:bg-crystalCyan/20 selection:text-slateDeep pb-24">
@@ -1760,7 +1967,7 @@
     <div class="sun-beam"></div>
 
     <!-- 1. ВЕРХНЯЯ ТЕМНАЯ ПОЛОСА: ВСЕ СОЦСЕТИ И ЕДИНЫЙ ТЕЛЕФОН -->
-    <div class="site-top-bar fixed top-0 left-0 w-full z-50 bg-[#0b131e]/95 backdrop-blur-md text-white py-2 border-b border-white/10 font-sans">
+    <div class="site-top-bar hidden sm:block fixed top-0 left-0 w-full z-50 bg-[#0b131e]/95 backdrop-blur-md text-white py-2 border-b border-white/10 font-sans">
         <div class="max-w-[1900px] mx-auto px-4 sm:px-6 lg:px-12 flex flex-col sm:flex-row justify-between items-center gap-2">
             <!-- ЛЕВО: Соцсети -->
             <div class="flex items-center gap-6 w-full sm:w-auto justify-center sm:justify-start">
@@ -1790,26 +1997,26 @@
     <!-- 2. ОРИГИНАЛЬНАЯ ПРОСТРАНСТВЕННАЯ ШАПКА: ДВЕ НЕВЕСОМЫЕ СТЕКЛЯННЫЕ ПРИЗМЫ -->
     <header class="site-top-header fixed z-40 flex items-start justify-between pointer-events-none">
         <!-- Левая капсула с эффектом ЖИДКОГО СТЕКЛА и чистым логотипом (Увеличенная и просторная) -->
-        <a href="#atelier-stage" id="liquidBrandPlaque" class="pointer-events-auto liquid-glass-brand px-3 py-1.5 sm:px-6 sm:py-3 flex items-center gap-2.5 sm:gap-4 group relative shrink-0">
+        <a href="#atelier-stage" id="liquidBrandPlaque" class="pointer-events-auto liquid-glass-brand px-4 py-2.5 sm:px-6 sm:py-3.5 flex items-center gap-3 sm:gap-4 group relative shrink-0">
             <!-- 4 архитектурных дистанционных держателя (хромированные рутели AISI 316 по углам стекла) -->
             <span class="glass-corner-mount mount-tl" title="Дистанционный держатель"><span class="mount-core"></span></span>
             <span class="glass-corner-mount mount-tr" title="Дистанционный держатель"><span class="mount-core"></span></span>
             <span class="glass-corner-mount mount-bl" title="Дистанционный держатель"><span class="mount-core"></span></span>
             <span class="glass-corner-mount mount-br" title="Дистанционный держатель"><span class="mount-core"></span></span>
             <div class="brand-logo-fixed-box shrink-0 flex items-center justify-center relative z-10">
-                <img id="mainBrandLogo" src="logo.webp" alt="Оконный завод Стекло" width="56" height="56" decoding="async" class="brand-logo-spin" >
+                <img id="mainBrandLogo" src="logo.webp" alt="Оконный завод Стекло" width="46" height="46" decoding="async" class="brand-logo-spin">
             </div>
             <div class="pr-2 relative z-10">
                 <div class="brand-title-row flex items-center leading-none">
-                    <span class="brand-title-green font-sans text-xs sm:text-xl font-black tracking-wider brand-3d-green">ОКОННЫЙ</span>
-                    <span class="brand-title-space">&nbsp;</span>
-                    <span class="brand-title-blue font-sans text-xs sm:text-xl font-black tracking-wider brand-3d-blue">ЗАВОД</span>
-                    <span class="brand-title-divider text-slate-400 font-light text-xs sm:text-xl mx-2 sm:mx-3">|</span>
-                    <span class="brand-title-serif font-serif text-sm sm:text-2xl font-bold tracking-[0.1em] sm:tracking-[0.14em] text-slateDeep uppercase drop-shadow-[0_1px_2px_rgba(255,255,255,0.95)]">Стекло</span>
+                    <span class="brand-title-green font-sans text-sm sm:text-xl font-black tracking-wider brand-3d-green">ОКОННЫЙ</span>
+                    <span class="inline-block w-2"></span>
+                    <span class="brand-title-blue font-sans text-sm sm:text-xl font-black tracking-wider brand-3d-blue">ЗАВОД</span>
+                    <span class="text-slate-400 font-light text-sm sm:text-xl mx-2.5 sm:mx-3">|</span>
+                    <span class="brand-title-serif font-serif text-base sm:text-2xl font-bold tracking-[0.1em] sm:tracking-[0.14em] text-slateDeep uppercase drop-shadow-[0_1px_2px_rgba(255,255,255,0.95)]">Стекло</span>
                 </div>
-                <div class="hidden sm:flex items-center gap-2 mt-1.5">
+                <div class="brand-subtitle-container flex items-center gap-2 mt-1 sm:mt-1.5">
                     <span class="w-2 h-2 rounded-full bg-[#16A685] animate-pulse"></span>
-                    <span class="brand-subtitle-text text-xs uppercase tracking-[0.16em] text-slateDeep font-semibold block">Архитектурные стеклянные конструкции</span>
+                    <span class="brand-subtitle-text text-[10px] sm:text-xs uppercase tracking-[0.14em] sm:tracking-[0.16em] text-slateDeep font-semibold block">Архитектурные стеклянные конструкции</span>
                 </div>
             </div>
         </a>
@@ -1849,7 +2056,7 @@
                 <span class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
                 <span>Контакты</span>
             </a>
-            <button onclick="openConciergeModal('Рассчитать проект по моим размерам')" class="px-5 sm:px-7 py-2.5 sm:py-3.5 rounded-full bg-gradient-to-r from-[#0EA5E9] to-[#10B981] text-white text-xs sm:text-sm font-bold hover:brightness-105 transition-all whitespace-nowrap shadow-md">
+            <button onclick="openConciergeModal('Рассчитать проект по моим размерам')" class="hidden sm:inline-block px-5 sm:px-7 py-2.5 sm:py-3.5 rounded-full bg-gradient-to-r from-[#0EA5E9] to-[#10B981] text-white text-xs sm:text-sm font-bold hover:brightness-105 transition-all whitespace-nowrap shadow-md">
                 Рассчитать проект
             </button>
         </div>
@@ -1918,25 +2125,26 @@
                 </div>
 
                 <!-- Панель переключения 4 фактур створки (Всегда удобна и доступна на ПК и телефоне) -->
-                <div class="hero-door-textures absolute bottom-3 right-3 sm:bottom-6 sm:right-6 z-30 glass-dock rounded-2xl p-2.5 sm:p-3.5 border border-white/95 shadow-2xl pointer-events-auto max-w-[calc(100%-24px)] sm:max-w-xs">
+                <!-- Панель переключения 4 фактур створки (Всегда удобна и доступна, не наезжает на кнопки) -->
+                <div id="heroDoorTexturesBar" class="hero-door-textures absolute z-30 glass-dock rounded-2xl p-2 sm:p-3 border border-white/95 shadow-2xl pointer-events-auto">
                     <div class="text-[10px] sm:text-[11px] font-medium text-slateDeep mb-1.5 flex items-center justify-between gap-3">
                         <span class="flex items-center gap-1.5">
-                            <span class="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse"></span>
-                            <span>Преломление створки:</span>
+                            <span class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
+                            <span class="font-semibold">Фактура створки:</span>
                         </span>
                         <span id="hero-texture-name" class="font-bold text-slateDeep">Optiwhite</span>
                     </div>
                     <div class="grid grid-cols-4 gap-1 sm:gap-1.5">
-                        <button onclick="changeHeroDoorGlass('optiwhite')" id="hero-btn-optiwhite" class="py-1.5 sm:py-2 px-1.5 sm:px-2 rounded-xl text-[10px] sm:text-[11px] font-semibold bg-gradient-to-r from-slateDeep to-[#0d2e33] text-white shadow-sm transition-all border border-cyan-400/30">
+                        <button type="button" onclick="changeHeroDoorGlass('optiwhite')" id="hero-btn-optiwhite" class="py-2 px-2 rounded-xl text-[10.5px] sm:text-xs font-bold bg-[#0F172A] text-white shadow-md transition-all border border-cyan-400">
                             Optiwhite
                         </button>
-                        <button onclick="changeHeroDoorGlass('fluted')" id="hero-btn-fluted" class="py-1.5 sm:py-2 px-1.5 sm:px-2 rounded-xl text-[10px] sm:text-[11px] font-medium bg-white/70 text-slateDeep hover:bg-white transition-all border border-transparent">
+                        <button type="button" onclick="changeHeroDoorGlass('fluted')" id="hero-btn-fluted" class="py-2 px-2 rounded-xl text-[10.5px] sm:text-xs font-semibold bg-white/90 text-slate-800 hover:bg-white transition-all border border-slate-200/80">
                             Рифленое
                         </button>
-                        <button onclick="changeHeroDoorGlass('bronze')" id="hero-btn-bronze" class="py-1.5 sm:py-2 px-1.5 sm:px-2 rounded-xl text-[10px] sm:text-[11px] font-medium bg-white/70 text-slateDeep hover:bg-white transition-all border border-transparent">
+                        <button type="button" onclick="changeHeroDoorGlass('bronze')" id="hero-btn-bronze" class="py-2 px-2 rounded-xl text-[10.5px] sm:text-xs font-semibold bg-white/90 text-slate-800 hover:bg-white transition-all border border-slate-200/80">
                             Бронза
                         </button>
-                        <button onclick="changeHeroDoorGlass('satin')" id="hero-btn-satin" class="py-1.5 sm:py-2 px-1.5 sm:px-2 rounded-xl text-[10px] sm:text-[11px] font-medium bg-white/70 text-slateDeep hover:bg-white transition-all border border-transparent">
+                        <button type="button" onclick="changeHeroDoorGlass('satin')" id="hero-btn-satin" class="py-2 px-2 rounded-xl text-[10.5px] sm:text-xs font-semibold bg-white/90 text-slate-800 hover:bg-white transition-all border border-slate-200/80">
                             Сатин
                         </button>
                     </div>
@@ -1946,7 +2154,7 @@
                 <div class="hero-content-inner relative z-10 p-5 sm:p-10 lg:p-14 flex flex-col justify-between h-full flex-1 pointer-events-none">
                     
                     <div class="hero-text-wrapper max-w-xl lg:max-w-[54%] xl:max-w-[56%] space-y-4 sm:space-y-6 mt-2 sm:mt-6 lg:pr-6 pointer-events-auto">
-                        <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/90 backdrop-blur-md text-xs sm:text-sm font-semibold text-slateDeep shadow-sm border border-cyan-100/80">
+                        <div class="hidden sm:inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/90 backdrop-blur-md text-xs sm:text-sm font-semibold text-slateDeep shadow-sm border border-cyan-100/80">
                             <span class="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-pulse"></span>
                             <span>Проектирование, закалка и чистый монтаж под ключ</span>
                         </div>
@@ -2646,26 +2854,41 @@
             const nameEl = document.getElementById('hero-texture-name');
             if (!door) return;
 
-            // Снимаем все классы фактур и вешаем выбранный
             door.classList.remove('pane-optiwhite', 'pane-fluted', 'pane-bronze', 'pane-satin');
             door.classList.add('pane-' + type);
 
-            // Добавляем эффект быстрого свечения створки при смене стекла
-            door.style.transition = 'background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.3s ease';
-            door.style.borderColor = (type === 'bronze') ? '#F59E0B' : (type === 'fluted' ? '#38BDF8' : '#FFFFFF');
+            door.style.transition = 'background 0.3s ease, backdrop-filter 0.3s ease, -webkit-backdrop-filter 0.3s ease';
 
-            const labels = {
-                optiwhite: 'Створка: Кристалл Optiwhite',
-                fluted: 'Створка: Рифленое Moru',
-                bronze: 'Створка: Тонированное Бронза',
-                satin: 'Створка: Матовое Сатинат'
-            };
+            if (type === 'fluted') {
+                door.style.background = 'repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.72) 0px, rgba(255, 255, 255, 0.15) 6px, rgba(170, 220, 240, 0.65) 14px, rgba(255, 255, 255, 0.35) 20px)';
+                door.style.backdropFilter = 'blur(14px) saturate(160%) contrast(1.15)';
+                door.style.webkitBackdropFilter = 'blur(14px) saturate(160%) contrast(1.15)';
+            } else if (type === 'bronze') {
+                door.style.background = 'linear-gradient(135deg, rgba(175, 110, 50, 0.65) 0%, rgba(120, 70, 25, 0.55) 100%)';
+                door.style.backdropFilter = 'blur(3px) sepia(70%) contrast(1.2) brightness(0.92)';
+                door.style.webkitBackdropFilter = 'blur(3px) sepia(70%) contrast(1.2) brightness(0.92)';
+            } else if (type === 'satin') {
+                door.style.background = 'linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(235, 245, 252, 0.78) 100%)';
+                door.style.backdropFilter = 'blur(30px) saturate(140%) brightness(1.08)';
+                door.style.webkitBackdropFilter = 'blur(30px) saturate(140%) brightness(1.08)';
+            } else {
+                door.style.background = 'linear-gradient(115deg, rgba(255, 255, 255, 0.32) 0%, rgba(220, 245, 255, 0.10) 50%, rgba(255, 255, 255, 0.26) 100%)';
+                door.style.backdropFilter = 'blur(2.5px) brightness(1.05)';
+                door.style.webkitBackdropFilter = 'blur(2.5px) brightness(1.05)';
+            }
 
             const shortNames = {
                 optiwhite: 'Optiwhite',
                 fluted: 'Рифленое',
                 bronze: 'Бронза',
                 satin: 'Сатинат'
+            };
+
+            const labels = {
+                optiwhite: 'Створка: Кристалл Optiwhite',
+                fluted: 'Створка: Рифленое Moru',
+                bronze: 'Створка: Тонированное Бронза',
+                satin: 'Створка: Матовое Сатинат'
             };
 
             const colors = {
@@ -2683,19 +2906,34 @@
                 nameEl.textContent = shortNames[type] || type;
             }
 
-            // Переключаем визуальные стили 4 кнопок
-            const btnTypes = ['optiwhite', 'fluted', 'bronze', 'satin'];
-            btnTypes.forEach(t => {
+            ['optiwhite', 'fluted', 'bronze', 'satin'].forEach(t => {
                 const b = document.getElementById('hero-btn-' + t);
                 if (!b) return;
                 if (t === type) {
-                    b.className = 'py-2 px-2.5 rounded-xl text-[11px] sm:text-xs font-bold bg-[#0F172A] text-white shadow-md transition-all border border-cyan-400';
+                    b.className = 'py-2 px-2 rounded-xl text-[10.5px] sm:text-xs font-bold bg-[#0F172A] text-white shadow-md transition-all border border-cyan-400';
                 } else {
-                    b.className = 'py-2 px-2.5 rounded-xl text-[11px] sm:text-xs font-semibold bg-white/90 text-slate-800 hover:bg-white transition-all border border-slate-200/60';
+                    b.className = 'py-2 px-2 rounded-xl text-[10.5px] sm:text-xs font-semibold bg-white/90 text-slate-800 hover:bg-white transition-all border border-slate-200/80';
                 }
             });
         }
         window.changeHeroDoorGlass = changeHeroDoorGlass;
+
+        // Навешиваем слушатели на кнопки для 100% срабатывания на любых тач-экранах
+        document.addEventListener('DOMContentLoaded', () => {
+            ['optiwhite', 'fluted', 'bronze', 'satin'].forEach(t => {
+                const btn = document.getElementById('hero-btn-' + t);
+                if (btn) {
+                    btn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        changeHeroDoorGlass(t);
+                    });
+                    btn.addEventListener('touchend', (e) => {
+                        e.stopPropagation();
+                        changeHeroDoorGlass(t);
+                    });
+                }
+            });
+        });
 
         // 1. ИНТЕРАКТИВНАЯ СДВИЖНАЯ СТЕКЛЯННАЯ СТВОРКА НА ПЕРВОМ ЭКРАНЕ (ИДЕАЛЬНЫЙ ТАЧ И МЫШЬ)
         const heroStage = document.getElementById('heroStageContainer');
