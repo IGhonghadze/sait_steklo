@@ -783,12 +783,8 @@
         
         @media (max-width: 640px) {
             
-            #doorGlassLabel {
-                display: none !important;
-            }
-            .hero-door-textures {
-                display: none !important;
-            }
+            /* Mobile textures visible */
+            .hero-door-textures { display: block !important; }
             #heroStageContainer h1 {
                 font-size: 1.85rem !important;
                 line-height: 1.18 !important;
@@ -970,12 +966,8 @@
         }
         @media (max-width: 640px) {
             
-            #doorGlassLabel {
-                display: none !important;
-            }
-            .hero-door-textures {
-                display: none !important;
-            }
+            /* Mobile textures visible */
+            .hero-door-textures { display: block !important; }
         }
 
         /* === КОНТРАСТ И ЧИТАЕМОСТЬ ТЕКСТА НА ГЛАВНОМ ЭКРАНЕ === */
@@ -1013,6 +1005,303 @@
             }
             .hero-cards-grid {
                 margin-top: 1rem !important;
+            }
+        }
+
+    
+        /* ==========================================================================
+           АДАПТИВНАЯ МОБИЛЬНАЯ ВЕРСИЯ: ИЗЯЩНЫЙ ЛОГОТИП, КОМПАКТНАЯ КНОПКА СВЯЗИ, 
+           ПОЛНАЯ ВИДИМОСТЬ ФОТО И ГЛАВНОГО ЭКРАНА
+           ========================================================================== */
+        
+        /* Десктопные размеры логотипа по умолчанию */
+        .brand-logo-fixed-box {
+            width: 54px;
+            height: 54px;
+            min-width: 54px;
+            max-width: 54px;
+        }
+        #mainBrandLogo {
+            width: 54px;
+            height: 54px;
+            max-width: 54px;
+            max-height: 54px;
+            object-fit: contain;
+            display: block;
+        }
+
+        @media (max-width: 639px) {
+            /* 1. Верхняя информационная полоса (делаем компактной в 1 строку или аккуратный блок) */
+            .site-top-bar {
+                padding-top: 3px !important;
+                padding-bottom: 3px !important;
+            }
+            .site-top-bar .text-xs, .site-top-bar .text-sm {
+                font-size: 11px !important;
+            }
+            .site-top-header {
+                top: 42px !important;
+                padding: 0 10px !important;
+            }
+
+            /* 2. Изящное стекло для логотипа: миниатюрное, аккуратное, не перекрывает экран */
+            #liquidBrandPlaque {
+                padding: 4px 10px 4px 8px !important;
+                border-radius: 14px !important;
+                gap: 7px !important;
+                max-width: 80% !important;
+                backdrop-filter: blur(14px) !important;
+                -webkit-backdrop-filter: blur(14px) !important;
+                box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+            }
+            .brand-logo-fixed-box {
+                width: 30px !important;
+                height: 30px !important;
+                min-width: 30px !important;
+                max-width: 30px !important;
+            }
+            #mainBrandLogo {
+                width: 30px !important;
+                height: 30px !important;
+                max-width: 30px !important;
+                max-height: 30px !important;
+            }
+            .brand-title-text, .brand-3d-blue {
+                font-size: 12px !important;
+                letter-spacing: 0.04em !important;
+            }
+            .brand-subtitle-text {
+                font-size: 7.5px !important;
+                letter-spacing: 0.05em !important;
+            }
+            #liquidBrandPlaque .font-serif {
+                font-size: 14px !important;
+                letter-spacing: 0.08em !important;
+            }
+            #liquidBrandPlaque .font-light {
+                font-size: 11px !important;
+            }
+
+            /* 4 миниатюрных угловых хромированных держателя стекла */
+            .glass-corner-mount {
+                width: 6px !important;
+                height: 6px !important;
+            }
+            .glass-corner-mount .mount-core {
+                width: 2px !important;
+                height: 2px !important;
+            }
+            .mount-tl { top: 3px !important; left: 3px !important; }
+            .mount-tr { top: 3px !important; right: 3px !important; }
+            .mount-bl { bottom: 3px !important; left: 3px !important; }
+            .mount-br { bottom: 3px !important; right: 3px !important; }
+
+            /* 3. Компактная деликатная кнопка попапа связи (не перекрывает контент) */
+            #martha-widget-wrapper {
+                bottom: 78px !important;
+                right: 12px !important;
+            }
+            #main-widget-btn {
+                width: 46px !important;
+                height: 46px !important;
+                min-width: 46px !important;
+                min-height: 46px !important;
+                max-width: 46px !important;
+                max-height: 46px !important;
+                box-shadow: 0 4px 14px rgba(14, 165, 233, 0.45) !important;
+            }
+            #main-widget-btn svg, #main-widget-btn i {
+                width: 20px !important;
+                height: 20px !important;
+            }
+            /* Отключаем гигантские раздувающиеся волны на мобильном, чтобы не заливать экран */
+            .pulse-wave-cyan, .pulse-wave-mint {
+                display: none !important;
+            }
+            @keyframes widgetBlinkMobile {
+                0%, 100% {
+                    transform: scale(1);
+                    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.4);
+                }
+                50% {
+                    transform: scale(1.05);
+                    box-shadow: 0 4px 18px rgba(16, 185, 129, 0.6);
+                }
+            }
+            .widget-attention-blink {
+                animation: widgetBlinkMobile 2s infinite ease-in-out !important;
+            }
+
+            /* 4. Главный экран: комфортный отступ и полная видимость архитектурного фото */
+            #atelier-stage {
+                padding-top: 96px !important;
+                padding-bottom: 40px !important;
+                min-height: calc(100vh - 40px) !important;
+            }
+            #heroStageContainer {
+                min-height: 480px !important;
+                border-radius: 1.5rem !important;
+            }
+            #heroBgImage {
+                display: block !important;
+                opacity: 1 !important;
+                filter: none !important;
+            }
+            #heroStageContainer h1 {
+                font-size: 1.6rem !important;
+                line-height: 1.15 !important;
+            }
+            #heroStageContainer p {
+                font-size: 0.8rem !important;
+                line-height: 1.35 !important;
+                color: #FFFFFF !important;
+                text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85) !important;
+            }
+            .hero-text-wrapper {
+                max-width: 72% !important;
+                padding-top: 12px !important;
+            }
+            .hero-door-textures {
+                padding: 6px !important;
+                border-radius: 12px !important;
+            }
+            .hero-door-textures button {
+                padding: 4px 2px !important;
+                font-size: 9px !important;
+                border-radius: 8px !important;
+            }
+            #slidingGlassDoor {
+                width: 30% !important;
+            }
+            #doorGlassLabel {
+                font-size: 9px !important;
+                padding: 2px 6px !important;
+            }
+        }
+
+    
+        /* === ИДЕАЛЬНЫЙ АДАПТИВ ДЛЯ ТЕЛЕФОНОВ: ШАПКА, ЛОГОТИП, СТВОРКА, КНОПКА СВЯЗИ === */
+        @media (max-width: 639px) {
+            .site-top-bar {
+                padding: 4px 8px !important;
+            }
+            .site-top-header {
+                top: 58px !important;
+                padding: 0 10px !important;
+                display: flex !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                width: 100% !important;
+            }
+            #liquidBrandPlaque {
+                padding: 5px 10px 5px 8px !important;
+                border-radius: 14px !important;
+                gap: 8px !important;
+                max-width: calc(100% - 56px) !important;
+                backdrop-filter: blur(14px) !important;
+                -webkit-backdrop-filter: blur(14px) !important;
+            }
+            .brand-logo-fixed-box, #mainBrandLogo {
+                width: 30px !important;
+                height: 30px !important;
+                min-width: 30px !important;
+                max-width: 30px !important;
+            }
+            .brand-title-text, .brand-3d-blue {
+                font-size: 12px !important;
+            }
+            .brand-subtitle-text {
+                font-size: 7.5px !important;
+                letter-spacing: 0.04em !important;
+            }
+            #liquidBrandPlaque .font-serif {
+                font-size: 14px !important;
+            }
+
+            /* 4 хромированных рутеля по углам */
+            .glass-corner-mount {
+                width: 6px !important;
+                height: 6px !important;
+            }
+            .mount-tl { top: 3px !important; left: 3px !important; }
+            .mount-tr { top: 3px !important; right: 3px !important; }
+            .mount-bl { bottom: 3px !important; left: 3px !important; }
+            .mount-br { bottom: 3px !important; right: 3px !important; }
+
+            /* Главный экран и фото */
+            #atelier-stage {
+                padding-top: 114px !important;
+                padding-bottom: 24px !important;
+            }
+            #heroStageContainer {
+                min-height: 490px !important;
+                border-radius: 1.5rem !important;
+            }
+            #heroBgImage {
+                display: block !important;
+                opacity: 1 !important;
+                object-fit: cover !important;
+            }
+            .hero-text-wrapper {
+                max-width: 68% !important;
+                padding-top: 8px !important;
+            }
+            .hero-text-wrapper h1 {
+                font-size: 1.6rem !important;
+                line-height: 1.15 !important;
+            }
+
+            /* Створка и бейдж */
+            #slidingGlassDoor {
+                width: 32% !important;
+            }
+            #doorGlassLabel {
+                display: flex !important;
+                font-size: 8.5px !important;
+                padding: 2px 6px !important;
+            }
+
+            /* Панель фактур на телефоне (внизу сцены) */
+            .hero-door-textures {
+                display: block !important;
+                bottom: 8px !important;
+                right: 8px !important;
+                left: 8px !important;
+                max-width: none !important;
+                width: auto !important;
+                padding: 6px 8px !important;
+                border-radius: 12px !important;
+                backdrop-filter: blur(16px) !important;
+                -webkit-backdrop-filter: blur(16px) !important;
+                background: rgba(255, 255, 255, 0.88) !important;
+                border: 1px solid rgba(255, 255, 255, 0.95) !important;
+            }
+            .hero-door-textures button {
+                padding: 5px 2px !important;
+                font-size: 9.5px !important;
+                border-radius: 7px !important;
+            }
+
+            /* Попап-кнопка связи: аккуратная, не перекрывает экран */
+            #martha-widget-wrapper {
+                bottom: 74px !important;
+                right: 12px !important;
+            }
+            #main-widget-btn {
+                width: 48px !important;
+                height: 48px !important;
+                min-width: 48px !important;
+                min-height: 48px !important;
+                max-width: 48px !important;
+                max-height: 48px !important;
+                box-shadow: 0 4px 14px rgba(14, 165, 233, 0.45) !important;
+            }
+            #main-widget-btn svg, #main-widget-btn i {
+                width: 22px !important;
+                height: 22px !important;
+            }
+            .pulse-wave-cyan, .pulse-wave-mint {
+                display: none !important;
             }
         }
 
@@ -1229,19 +1518,19 @@
             <span class="glass-corner-mount mount-tr" title="Дистанционный держатель"><span class="mount-core"></span></span>
             <span class="glass-corner-mount mount-bl" title="Дистанционный держатель"><span class="mount-core"></span></span>
             <span class="glass-corner-mount mount-br" title="Дистанционный держатель"><span class="mount-core"></span></span>
-            <div class="brand-logo-fixed-box shrink-0 flex items-center justify-center relative z-10" style="width: 56px; height: 56px; min-width: 56px; max-width: 56px;">
-                <img id="mainBrandLogo" src="logo.webp" alt="Оконный завод Стекло" width="56" height="56" decoding="async" class="brand-logo-spin" style="width: 56px; height: 56px; max-width: 56px; max-height: 56px; object-fit: contain; display: block;">
+            <div class="brand-logo-fixed-box shrink-0 flex items-center justify-center relative z-10">
+                <img id="mainBrandLogo" src="logo.webp" alt="Оконный завод Стекло" width="56" height="56" decoding="async" class="brand-logo-spin" >
             </div>
             <div class="pr-2 relative z-10">
                 <div class="flex flex-wrap items-center gap-x-2.5 gap-y-1 leading-none">
-                    <span class="font-sans text-base sm:text-xl font-black tracking-wider brand-3d-green">ОКОННЫЙ</span>
+                    <span class="brand-title-text font-sans text-xs sm:text-xl font-black tracking-wider brand-3d-green">ОКОННЫЙ</span>
                     <span class="font-sans text-base sm:text-xl font-black tracking-wider brand-3d-blue">ЗАВОД</span>
                     <span class="text-slate-400 font-light text-base sm:text-xl">|</span>
                     <span class="font-serif text-lg sm:text-2xl font-bold tracking-[0.14em] text-slateDeep uppercase drop-shadow-[0_1px_2px_rgba(255,255,255,0.95)]">Стекло</span>
                 </div>
                 <div class="flex items-center gap-2 mt-1.5">
                     <span class="w-2 h-2 rounded-full bg-[#16A685] animate-pulse"></span>
-                    <span class="text-[11px] sm:text-xs uppercase tracking-[0.16em] text-slateDeep font-semibold block">Архитектурные стеклянные конструкции</span>
+                    <span class="brand-subtitle-text text-[8px] sm:text-xs uppercase tracking-[0.08em] sm:tracking-[0.16em] text-slateDeep font-semibold block">Архитектурные стеклянные конструкции</span>
                 </div>
             </div>
         </a>
@@ -1254,7 +1543,7 @@
                 <span class="text-xs sm:text-base font-bold tracking-wide text-slateDeep whitespace-nowrap">+7 988 324 47 47</span>
             </a>
             <!-- Мобильная компактная круглая кнопка звонка -->
-            <a href="tel:+79883244747" class="flex sm:hidden glass-dock w-11 h-11 rounded-full items-center justify-center text-slateDeep hover:bg-white transition-all shadow-md" aria-label="Позвонить на завод">
+            <a href="tel:+79883244747" class="flex sm:hidden glass-dock rounded-full items-center justify-center text-slateDeep hover:bg-white transition-all shadow-md" style="width: 44px; height: 44px; min-width: 44px; min-height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; position: relative;" aria-label="Позвонить на завод">
                 <span class="w-2 h-2 rounded-full bg-[#16A685] animate-pulse absolute top-1 right-1"></span>
                 <i class="fas fa-phone-alt text-[#16A685] text-sm"></i>
             </a>
@@ -1299,19 +1588,19 @@
                 <!-- Фоновая архитектурная панорама (LCP — приоритетная предзагрузка) -->
                 <img 
                     id="heroBgImage" 
-                    src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=85" 
-                    onerror="this.src='https://placehold.co/1600x900/EAE6DF/1E252B?text=Architectural+Glass+Space'"
-                    alt="Светлая архитектура и стеклянные конструкции" 
-                    width="1800"
-                    height="1000"
-                    fetchpriority="high"
-                    loading="eager"
-                    decoding="async"
+                    src="bezramka.webp" 
+                    onerror="this.src='assets/actual/06_frameless_portal.jpg'"
+                    alt="Панорамное архитектурное стекло и конструкции" 
+                    width="1920" 
+                    height="1080" 
+                    fetchpriority="high" 
+                    loading="eager" 
+                    decoding="async" 
                     class="absolute inset-0 w-full h-full object-cover object-center scale-105 transition-transform duration-1000"
                 >
 
                 <!-- Мягкая кристаллическая вуаль в нежных полупрозрачных тонах логотипа (циан и изумруд) -->
-                <div class="absolute inset-0 bg-gradient-to-r from-slateDeep/65 via-slateDeep/25 to-slateDeep/35 pointer-events-none"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-slateDeep/40 via-slateDeep/10 to-slateDeep/20 pointer-events-none"></div>
                 <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(56,189,248,0.18),transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(52,211,153,0.18),transparent_60%)] pointer-events-none"></div>
 
                 <!-- Плавающий бейдж перехода к каталогу -->
@@ -1348,26 +1637,31 @@
                         </span>
                     </div>
 
-                    <!-- Нижний блок внутри стеклянной створки: переключение фактуры на лету -->
-                    <div class="hero-door-textures ml-auto max-w-xs w-full glass-dock rounded-2xl p-3.5 border border-white">
-                        <div class="text-[11px] font-medium text-slateMuted mb-2 flex items-center justify-between">
+                    
+                </div>
+
+                <!-- Панель переключения 4 фактур створки (Всегда удобна и доступна на ПК и телефоне) -->
+                <div class="hero-door-textures absolute bottom-3 right-3 sm:bottom-6 sm:right-6 z-30 glass-dock rounded-2xl p-2.5 sm:p-3.5 border border-white/95 shadow-2xl pointer-events-auto max-w-[calc(100%-24px)] sm:max-w-xs">
+                    <div class="text-[10px] sm:text-[11px] font-medium text-slateDeep mb-1.5 flex items-center justify-between gap-3">
+                        <span class="flex items-center gap-1.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse"></span>
                             <span>Преломление створки:</span>
-                            <span class="text-slateDeep font-semibold">4 фактуры</span>
-                        </div>
-                        <div class="grid grid-cols-4 gap-1.5">
-                            <button onclick="changeHeroDoorGlass('optiwhite')" id="hero-btn-optiwhite" class="py-2 px-1 rounded-xl text-[11px] font-semibold bg-gradient-to-r from-slateDeep to-[#0d2e33] text-white shadow-sm transition-all">
-                                Optiwhite
-                            </button>
-                            <button onclick="changeHeroDoorGlass('fluted')" id="hero-btn-fluted" class="py-2 px-1 rounded-xl text-[11px] font-medium bg-white/70 text-slateDeep hover:bg-white transition-all">
-                                Рифленое
-                            </button>
-                            <button onclick="changeHeroDoorGlass('bronze')" id="hero-btn-bronze" class="py-2 px-1 rounded-xl text-[11px] font-medium bg-white/70 text-slateDeep hover:bg-white transition-all">
-                                Бронза
-                            </button>
-                            <button onclick="changeHeroDoorGlass('satin')" id="hero-btn-satin" class="py-2 px-1 rounded-xl text-[11px] font-medium bg-white/70 text-slateDeep hover:bg-white transition-all">
-                                Сатин
-                            </button>
-                        </div>
+                        </span>
+                        <span id="hero-texture-name" class="font-bold text-slateDeep">Optiwhite</span>
+                    </div>
+                    <div class="grid grid-cols-4 gap-1 sm:gap-1.5">
+                        <button onclick="changeHeroDoorGlass('optiwhite')" id="hero-btn-optiwhite" class="py-1.5 sm:py-2 px-1.5 sm:px-2 rounded-xl text-[10px] sm:text-[11px] font-semibold bg-gradient-to-r from-slateDeep to-[#0d2e33] text-white shadow-sm transition-all border border-cyan-400/30">
+                            Optiwhite
+                        </button>
+                        <button onclick="changeHeroDoorGlass('fluted')" id="hero-btn-fluted" class="py-1.5 sm:py-2 px-1.5 sm:px-2 rounded-xl text-[10px] sm:text-[11px] font-medium bg-white/70 text-slateDeep hover:bg-white transition-all border border-transparent">
+                            Рифленое
+                        </button>
+                        <button onclick="changeHeroDoorGlass('bronze')" id="hero-btn-bronze" class="py-1.5 sm:py-2 px-1.5 sm:px-2 rounded-xl text-[10px] sm:text-[11px] font-medium bg-white/70 text-slateDeep hover:bg-white transition-all border border-transparent">
+                            Бронза
+                        </button>
+                        <button onclick="changeHeroDoorGlass('satin')" id="hero-btn-satin" class="py-1.5 sm:py-2 px-1.5 sm:px-2 rounded-xl text-[10px] sm:text-[11px] font-medium bg-white/70 text-slateDeep hover:bg-white transition-all border border-transparent">
+                            Сатин
+                        </button>
                     </div>
                 </div>
 
@@ -2272,6 +2566,49 @@
             footerBrandLogo.addEventListener('mouseenter', triggerFooterLogoSpin, { passive: true });
             footerBrandLogo.addEventListener('click', triggerFooterLogoSpin, { passive: true });
         }
+
+        
+        // 1.1 ПЕРЕКЛЮЧЕНИЕ ФАКТУР СТЕКЛА НА СТВОРКЕ (Optiwhite, Рифленое, Бронза, Сатин)
+        function changeHeroDoorGlass(type) {
+            const door = document.getElementById('slidingGlassDoor');
+            const label = document.getElementById('doorGlassLabel');
+            if (!door) return;
+
+            // Снимаем все классы фактур и вешаем выбранный
+            door.classList.remove('pane-optiwhite', 'pane-fluted', 'pane-bronze', 'pane-satin');
+            door.classList.add('pane-' + type);
+
+            const labels = {
+                optiwhite: 'Створка: Кристалл Optiwhite',
+                fluted: 'Створка: Рифленое Moru',
+                bronze: 'Створка: Тонированное Бронза',
+                satin: 'Створка: Матовое Сатинат'
+            };
+
+            const colors = {
+                optiwhite: '#38BDF8',
+                fluted: '#2DD4BF',
+                bronze: '#F59E0B',
+                satin: '#E2E8F0'
+            };
+
+            if (label) {
+                label.innerHTML = `<span class="w-1.5 h-1.5 rounded-full" style="background-color: ${colors[type] || '#38BDF8'};"></span><span>${labels[type] || 'Створка: Стекло'}</span>`;
+            }
+
+            // Переключаем визуальные стили 4 кнопок
+            const btnTypes = ['optiwhite', 'fluted', 'bronze', 'satin'];
+            btnTypes.forEach(t => {
+                const b = document.getElementById('hero-btn-' + t);
+                if (!b) return;
+                if (t === type) {
+                    b.className = 'py-2 px-1 rounded-xl text-[11px] font-semibold bg-gradient-to-r from-slateDeep to-[#0d2e33] text-white shadow-sm transition-all border border-cyan-400/30';
+                } else {
+                    b.className = 'py-2 px-1 rounded-xl text-[11px] font-medium bg-white/70 text-slateDeep hover:bg-white transition-all border border-transparent';
+                }
+            });
+        }
+        window.changeHeroDoorGlass = changeHeroDoorGlass;
 
         // 1. ИНТЕРАКТИВНАЯ СДВИЖНАЯ СТЕКЛЯННАЯ СТВОРКА НА ПЕРВОМ ЭКРАНЕ (ИДЕАЛЬНЫЙ ТАЧ И МЫШЬ)
         const heroStage = document.getElementById('heroStageContainer');
