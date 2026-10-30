@@ -1649,15 +1649,14 @@
                 border-radius: 1.5rem !important;
             }
 
-            /* Панель фактур на телефоне: расположена вверху справа над створкой! */
-            /* Таким образом она НИКОГДА не пересекается с нижними кнопками меню и виджетом! */
+            /* Панель фактур на телефоне: аккуратно внизу картинки во всю ширину */
             #heroDoorTexturesBar {
-                top: 10px !important;
-                right: 10px !important;
-                bottom: auto !important;
-                left: auto !important;
-                max-width: 250px !important;
-                width: auto !important;
+                bottom: 12px !important;
+                left: 12px !important;
+                right: 12px !important;
+                top: auto !important;
+                max-width: none !important;
+                width: calc(100% - 24px) !important;
                 padding: 6px 8px !important;
                 border-radius: 14px !important;
                 background: rgba(255, 255, 255, 0.94) !important;
@@ -1671,6 +1670,9 @@
                 padding: 6px 3px !important;
                 font-size: 10px !important;
                 border-radius: 8px !important;
+            }
+            .hero-content-inner {
+                padding-bottom: 88px !important;
             }
 
             /* ВНИЗУ ЭКРАНА: Раздельные непересекающиеся зоны для меню и виджета связи */
@@ -1730,9 +1732,12 @@
                 right: 12px !important;
             }
             #heroDoorTexturesBar {
-                top: 12px !important;
+                bottom: 12px !important;
+                left: 12px !important;
                 right: 12px !important;
-                max-width: 260px !important;
+                top: auto !important;
+                max-width: none !important;
+                width: calc(100% - 24px) !important;
             }
             .hero-text-wrapper {
                 padding-top: 10px !important;
@@ -2162,7 +2167,7 @@
                 <!-- Вторая строка: подзаголовок ровно под первой строкой -->
                 <div class="brand-subtitle-row flex items-center mt-1">
                     <span class="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse shrink-0"></span>
-                    <span class="brand-subtitle-text uppercase font-semibold text-slateDeep block">Архитектурные стеклянные конструкции</span>
+                    <span class="brand-subtitle-text uppercase font-semibold text-slateDeep block">Производство и монтаж стеклянных конструкций</span>
                 </div>
             </div>
         </a>
@@ -2180,9 +2185,9 @@
                 <i class="fas fa-phone-alt text-[#16A685] text-sm"></i>
             </a>
             <!-- Кнопка заявки -->
-            <button onclick="openConciergeModal('Индивидуальный расчет проекта по вашим размерам')" class="hidden sm:flex glass-dock rounded-2xl px-4 sm:px-5 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold text-slateDeep hover:bg-slateDeep hover:text-white transition-all duration-300 items-center gap-2.5 group shadow-md">
+            <button onclick="openConciergeModal('Расчет стоимости по вашим размерам')" class="hidden sm:flex glass-dock rounded-2xl px-4 sm:px-5 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold text-slateDeep hover:bg-slateDeep hover:text-white transition-all duration-300 items-center gap-2.5 group shadow-md">
                 <span class="w-2.5 h-2.5 rounded-full bg-[#38B0E3] group-hover:bg-white transition-colors"></span>
-                <span>Обсудить проект</span>
+                <span>Рассчитать стоимость</span>
             </button>
         </div>
     </header>
@@ -2191,19 +2196,19 @@
     <nav id="floating-dock" class="fixed z-40" style="position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); -webkit-transform: translateX(-50%); width: 95%; max-width: 780px; z-index: 9990; margin: 0; top: auto;">
         <div class="glass-dock rounded-full p-2 sm:p-2.5 flex items-center justify-between gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar shadow-2xl border-2 border-white/95">
             <a href="#atelier-stage" class="px-3.5 sm:px-4.5 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-semibold text-slateDeep hover:bg-white/90 transition-all whitespace-nowrap">
-                Инсталляция
+                Главная
             </a>
             <a href="#six-directions" class="px-3.5 sm:px-4.5 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-semibold text-slateDeep hover:bg-white/90 transition-all whitespace-nowrap flex items-center gap-2">
                 <span class="w-2 h-2 rounded-full bg-[#0EA5E9]"></span>
-                <span>6 направлений</span>
+                <span>Каталог</span>
             </a>
             
             <a href="#contacts-section" class="px-3.5 sm:px-4.5 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-semibold text-slateDeep hover:bg-white/90 transition-all whitespace-nowrap flex items-center gap-2">
                 <span class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
                 <span>Контакты</span>
             </a>
-            <button onclick="openConciergeModal('Рассчитать проект по моим размерам')" class="hidden sm:inline-block px-5 sm:px-7 py-2.5 sm:py-3.5 rounded-full bg-gradient-to-r from-[#0EA5E9] to-[#10B981] text-white text-xs sm:text-sm font-bold hover:brightness-105 transition-all whitespace-nowrap shadow-md">
-                Рассчитать проект
+            <button onclick="openConciergeModal('Расчет стоимости по вашим размерам')" class="hidden sm:inline-block px-5 sm:px-7 py-2.5 sm:py-3.5 rounded-full bg-gradient-to-r from-[#0EA5E9] to-[#10B981] text-white text-xs sm:text-sm font-bold hover:brightness-105 transition-all whitespace-nowrap shadow-md">
+                Рассчитать стоимость
             </button>
         </div>
     </nav>
@@ -2237,7 +2242,7 @@
                 <div class="hero-catalog-top-badge absolute top-4 right-4 sm:top-6 sm:right-6 z-30 pointer-events-auto hidden sm:block">
                     <a href="#six-directions" class="glass-dock rounded-2xl px-4 py-2.5 text-xs font-semibold text-slateDeep hover:bg-white flex items-center gap-2.5 shadow-xl border border-white transition-all group">
                         <span class="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-ping"></span>
-                        <span class="tracking-wide">Каталог 6 направлений ↓</span>
+                        <span class="tracking-wide">Смотреть каталог ↓</span>
                     </a>
                 </div>
 
@@ -2248,9 +2253,9 @@
                     <div class="flex items-center justify-between border-b border-white/40 pb-3">
                         <span id="doorGlassLabel" class="text-[11px] uppercase tracking-[0.2em] text-white font-semibold bg-slateDeep/45 backdrop-blur-md px-3 py-1 rounded-full border border-white/30 flex items-center gap-1.5">
                             <span class="w-1.5 h-1.5 rounded-full bg-[#38BDF8]"></span>
-                            <span>Створка: Кристалл Optiwhite</span>
+                            <span>Створка: Прозрачное Optiwhite</span>
                         </span>
-                        <span class="text-[10px] font-mono text-white/90 hidden sm:inline">ЕВРОКРОМКА • ЗАКАЛКА EN 12150</span>
+                        <span class="text-[10px] font-mono text-white/90 hidden sm:inline">ЗАКАЛЕННОЕ СТЕКЛО • БЕЗОПАСНАЯ КРОМКА</span>
                     </div>
 
                     <!-- Вертикальная ручка-штанга на самом краю стекла (в нежных цветах логотипа: циан + мята) -->
@@ -2276,13 +2281,13 @@
                     <div class="text-[10px] sm:text-[11px] font-medium text-slateDeep mb-1.5 flex items-center justify-between gap-3">
                         <span class="flex items-center gap-1.5">
                             <span class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></span>
-                            <span class="font-semibold">Фактура створки:</span>
+                            <span class="font-semibold">Вид стекла:</span>
                         </span>
                         <span id="hero-texture-name" class="font-bold text-slateDeep">Optiwhite</span>
                     </div>
                     <div class="grid grid-cols-4 gap-1 sm:gap-1.5">
                         <button type="button" onclick="changeHeroDoorGlass('optiwhite')" id="hero-btn-optiwhite" class="py-2 px-2 rounded-xl text-[10.5px] sm:text-xs font-bold bg-[#0F172A] text-white shadow-md transition-all border border-cyan-400">
-                            Optiwhite
+                            Прозрачное
                         </button>
                         <button type="button" onclick="changeHeroDoorGlass('fluted')" id="hero-btn-fluted" class="py-2 px-2 rounded-xl text-[10.5px] sm:text-xs font-semibold bg-white/90 text-slate-800 hover:bg-white transition-all border border-slate-200/80">
                             Рифленое
@@ -2291,7 +2296,7 @@
                             Бронза
                         </button>
                         <button type="button" onclick="changeHeroDoorGlass('satin')" id="hero-btn-satin" class="py-2 px-2 rounded-xl text-[10.5px] sm:text-xs font-semibold bg-white/90 text-slate-800 hover:bg-white transition-all border border-slate-200/80">
-                            Сатин
+                            Матовое
                         </button>
                     </div>
                 </div>
@@ -2302,26 +2307,26 @@
                     <div class="hero-text-wrapper max-w-xl lg:max-w-[54%] xl:max-w-[56%] space-y-4 sm:space-y-6 mt-2 sm:mt-6 lg:pr-6 pointer-events-auto">
                         <div class="hidden sm:inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/90 backdrop-blur-md text-xs sm:text-sm font-semibold text-slateDeep shadow-sm border border-cyan-100/80">
                             <span class="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-pulse"></span>
-                            <span>Проектирование, закалка и чистый монтаж под ключ</span>
+                            <span>Собственное производство • Закалка • Монтаж под ключ</span>
                         </div>
 
                         <h1 class="font-serif text-3xl sm:text-5xl lg:text-[3.25rem] xl:text-[3.75rem] font-normal text-white leading-[1.14] sm:leading-[1.1] tracking-tight drop-shadow-md">
-                            Пространство, <br>
-                            ограненное <span class="italic font-normal text-[#7DD3FC]">светом и стеклом</span>
+                            Стеклянные конструкции <br>
+                            <span class="italic font-normal text-[#7DD3FC]">на заказ по вашим размерам</span>
                         </h1>
 
                         <p class="text-sm sm:text-base lg:text-lg text-white/95 font-light leading-relaxed max-w-lg drop-shadow-sm">
-                            Создаем невесомые архитектурные конструкции без громоздкого металла: от парящих лестничных перил и фасадных козырьков до герметичных душевых, межкомнатных перегородок и панорамного безрамного остекления.
+                            Изготавливаем и устанавливаем стеклянные перегородки, ограждения, душевые, козырьки и безрамное остекление. Прочное закаленное стекло, надежная фурнитура, быстрый замер и монтаж под ключ.
                         </p>
 
                         <div class="hero-action-btns pt-2 sm:pt-4 flex flex-wrap items-center gap-3 sm:gap-4 pointer-events-auto">
-                            <button onclick="openConciergeModal('Получить расчет проекта и эскиз узлов')" class="px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl bg-white text-slateDeep font-semibold text-sm sm:text-base hover:bg-gradient-to-r hover:from-white hover:to-[#BEE3DB] transition-all duration-300 shadow-xl flex items-center gap-2.5 group">
-                                <span>Рассчитать проект по размерам</span>
+                            <button onclick="openConciergeModal('Бесплатный расчет стоимости конструкции')" class="px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl bg-white text-slateDeep font-semibold text-sm sm:text-base hover:bg-gradient-to-r hover:from-white hover:to-[#BEE3DB] transition-all duration-300 shadow-xl flex items-center gap-2.5 group">
+                                <span>Рассчитать стоимость</span>
                                 <span class="w-6 h-6 rounded-full bg-slateDeep text-white flex items-center justify-center text-xs group-hover:translate-x-1 transition-transform">→</span>
                             </button>
                         <a href="#six-directions" class="hidden sm:inline-flex glass-dock rounded-2xl px-6 sm:px-8 py-3.5 sm:py-4 text-xs sm:text-sm font-semibold text-slateDeep hover:bg-white transition-all duration-300 items-center gap-2.5 shadow-xl border border-white group">
                                 <span class="w-2.5 h-2.5 rounded-full bg-[#0EA5E9]"></span>
-                                <span>Каталог 6 направлений ↓</span>
+                                <span>Смотреть каталог ↓</span>
                             </a>
                         </div>
                     </div>
@@ -2329,7 +2334,7 @@
                     <!-- Подсказка внизу сцены -->
                     <div class="hidden sm:flex items-center gap-3 text-xs text-white/85 pt-8">
                         <span class="w-8 h-[1px] bg-white/60"></span>
-                        <span>Потяните створку за двухцветную ручку, чтобы оценить чистоту и оптические свойства кристального стекла</span>
+                        <span>Потяните створку за ручку влево или вправо, чтобы оценить прозрачность стекла</span>
                     </div>
                 </div>
 
@@ -2338,34 +2343,34 @@
             <!-- 6 СТЕКЛЯННЫХ ЛАМЕЛЕЙ ПОД СЦЕНОЙ: Быстрый переход ко всем 6 направлениям -->
             <div class="hero-cards-grid grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-3.5 mt-4 sm:-mt-6 relative z-30 px-3 sm:px-8">
                 <a href="#dir-railings" class="glass-slab glass-sheen rounded-2xl p-4 hover:-translate-y-1.5 transition-all duration-300 group">
-                    <span class="text-[10px] font-mono text-crystalCyan font-semibold block">01 / ЭКСТЕРЬЕР И АТРИУМ</span>
+                    <span class="text-[10px] font-mono text-crystalCyan font-semibold block">01 / ОГРАЖДЕНИЯ</span>
                     <span class="font-serif text-lg sm:text-xl font-semibold text-slateDeep block mt-1 group-hover:text-crystalCyan transition-colors">Стеклянные ограждения</span>
-                    <span class="text-[11px] text-slateMuted block mt-1">Скрытый профиль • Триплекс</span>
+                    <span class="text-[11px] text-slateMuted block mt-1">Для балконов, террас и крыш</span>
                 </a>
                 <a href="#dir-canopies" class="glass-slab glass-sheen rounded-2xl p-4 hover:-translate-y-1.5 transition-all duration-300 group">
-                    <span class="text-[10px] font-mono text-crystalCyan font-semibold block">02 / ВХОДНЫЕ ГРУППЫ</span>
+                    <span class="text-[10px] font-mono text-crystalCyan font-semibold block">02 / КОЗЫРЬКИ</span>
                     <span class="font-serif text-lg sm:text-xl font-semibold text-slateDeep block mt-1 group-hover:text-crystalCyan transition-colors">Стеклянные козырьки</span>
-                    <span class="text-[11px] text-slateMuted block mt-1">Ванты и консоли • AISI 316</span>
+                    <span class="text-[11px] text-slateMuted block mt-1">Над входом и крыльцом</span>
                 </a>
                 <a href="#dir-showers" class="glass-slab glass-sheen rounded-2xl p-4 hover:-translate-y-1.5 transition-all duration-300 group">
-                    <span class="text-[10px] font-mono text-crystalCyan font-semibold block">03 / SPA И ВАННЫЕ</span>
+                    <span class="text-[10px] font-mono text-crystalCyan font-semibold block">03 / ДУШЕВЫЕ</span>
                     <span class="font-serif text-lg sm:text-xl font-semibold text-slateDeep block mt-1 group-hover:text-crystalCyan transition-colors">Душевые перегородки</span>
-                    <span class="text-[11px] text-slateMuted block mt-1">Walk-In • Покрытие Anti-Drop</span>
+                    <span class="text-[11px] text-slateMuted block mt-1">Точно в размер, без протечек</span>
                 </a>
                 <a href="#dir-stairs" class="glass-slab glass-sheen rounded-2xl p-4 hover:-translate-y-1.5 transition-all duration-300 group">
-                    <span class="text-[10px] font-mono text-crystalCyan font-semibold block">04 / МАРШИ И ВТОРОЙ СВЕТ</span>
-                    <span class="font-serif text-lg sm:text-xl font-semibold text-slateDeep block mt-1 group-hover:text-crystalCyan transition-colors">Лестничные перила</span>
-                    <span class="text-[11px] text-slateMuted block mt-1">Торец марша • Рутели ⌀50 мм</span>
+                    <span class="text-[10px] font-mono text-crystalCyan font-semibold block">04 / ЛЕСТНИЦЫ</span>
+                    <span class="font-serif text-lg sm:text-xl font-semibold text-slateDeep block mt-1 group-hover:text-crystalCyan transition-colors">Перила для лестниц</span>
+                    <span class="text-[11px] text-slateMuted block mt-1">Прочный закаленный триплекс</span>
                 </a>
                 <a href="#dir-interior" class="glass-slab glass-sheen rounded-2xl p-4 hover:-translate-y-1.5 transition-all duration-300 group">
-                    <span class="text-[10px] font-mono text-crystalCyan font-semibold block">05 / ЗОНИРОВАНИЕ СВЕТОМ</span>
+                    <span class="text-[10px] font-mono text-crystalCyan font-semibold block">05 / ПЕРЕГОРОДКИ</span>
                     <span class="font-serif text-lg sm:text-xl font-semibold text-slateDeep block mt-1 group-hover:text-crystalCyan transition-colors">Межкомнатные перегородки</span>
-                    <span class="text-[11px] text-slateMuted block mt-1">Soft-Close • Без порога на полу</span>
+                    <span class="text-[11px] text-slateMuted block mt-1">Раздвижные, без порога на полу</span>
                 </a>
                 <a href="#dir-frameless" class="glass-slab glass-sheen rounded-2xl p-4 hover:-translate-y-1.5 transition-all duration-300 group">
-                    <span class="text-[10px] font-mono text-crystalCyan font-semibold block">06 / ВЕРАНДЫ И ТЕРРАСЫ</span>
+                    <span class="text-[10px] font-mono text-crystalCyan font-semibold block">06 / ТЕРРАСЫ</span>
                     <span class="font-serif text-lg sm:text-xl font-semibold text-slateDeep block mt-1 group-hover:text-crystalCyan transition-colors">Безрамное остекление</span>
-                    <span class="text-[11px] text-slateMuted block mt-1">Створки книжкой • 100% проем</span>
+                    <span class="text-[11px] text-slateMuted block mt-1">Для веранд, беседок и террас</span>
                 </a>
             </div>
 
@@ -2381,13 +2386,13 @@
             <!-- Заголовок экспозиции -->
             <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-slateDeep/10 pb-8">
                 <div>
-                    <span class="text-xs uppercase tracking-[0.22em] text-crystalCyan font-semibold block mb-2">Архитектурная коллекция • 6 направлений</span>
+                    <span class="text-xs uppercase tracking-[0.22em] text-crystalCyan font-semibold block mb-2">Каталог продукции • Наше производство</span>
                     <h2 class="font-serif text-4xl sm:text-6xl font-normal text-slateDeep leading-none">
-                        Шесть граней <span class="italic text-crystalCyan">безупречного остекления</span>
+                        Стеклянные конструкции <span class="italic text-crystalCyan">для дома и бизнеса</span>
                     </h2>
                 </div>
                 <p class="text-sm sm:text-base text-slateMuted max-w-md font-light">
-                    Выберите нужное направление, чтобы изучить формулу стекла, варианты крепления и получить точную смету по вашим размерам.
+                    Выберите нужный раздел, чтобы узнать подробности и бесплатно получить расчет стоимости по вашим размерам.
                 </p>
             </div>
 
@@ -2420,24 +2425,24 @@
                         </div>
 
                         <div class="absolute bottom-5 left-5 right-5 text-white">
-                            <h3 class="font-serif text-3xl sm:text-4xl font-normal">Стеклянные ограждения террас, балконов и атриумов</h3>
+                            <h3 class="font-serif text-3xl sm:text-4xl font-normal">Стеклянные ограждения для балконов и террас</h3>
                         </div>
                     </div>
 
                     <div class="pt-6 px-2 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
                         <div class="space-y-3 max-w-xl">
                             <p class="text-sm text-slateMuted leading-relaxed">
-                                Полностью прозрачные барьеры безопасности без вертикальных стоек. Монтаж в скрытый зажимной профиль в пол, на точечные рутели или мини-стойки из морской нержавеющей стали AISI 316.
+                                Прозрачные ограждения без лишних стоек и рам. Не перекрывают панорамный вид и надежно защищают от падения. Монтируются в скрытый профиль в полу или на точечные крепления из нержавеющей стали.
                             </p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="text-xs px-3 py-1 rounded-lg bg-white/75 border border-white text-slateDeep">Выдерживают до 300 кг/м</span>
-                                <span class="text-xs px-3 py-1 rounded-lg bg-white/75 border border-white text-slateDeep">Свободный край или поручень</span>
-                                <span class="text-xs px-3 py-1 rounded-lg bg-white/75 border border-white text-slateDeep">Optiwhite / Бронза / Графит</span>
+                                <span class="text-xs px-3 py-1 rounded-lg bg-white/75 border border-white text-slateDeep">Нагрузка до 300 кг/м</span>
+                                <span class="text-xs px-3 py-1 rounded-lg bg-white/75 border border-white text-slateDeep">С поручнем или без него</span>
+                                <span class="text-xs px-3 py-1 rounded-lg bg-white/75 border border-white text-slateDeep">Прозрачное, матовое или тонированное</span>
                             </div>
                         </div>
                         <div class="shrink-0 flex items-center justify-end border-t sm:border-t-0 pt-4 sm:pt-0 border-slateDeep/10">
                             <button onclick="openConciergeModal('Стеклянные ограждения — расчет проекта', 'Стеклянные ограждения')" class="px-6 py-3.5 rounded-xl bg-slateDeep text-white text-xs font-semibold hover:bg-crystalCyan transition-colors shadow-sm flex items-center gap-2">
-                                <span>Рассчитать проект</span>
+                                <span>Рассчитать стоимость</span>
                                 <span>→</span>
                             </button>
                         </div>
@@ -2465,22 +2470,22 @@
                                 <span>02 • Стеклянные козырьки</span>
                             </span>
                             <span class="px-3 py-1.5 rounded-full bg-slateDeep/70 text-white backdrop-blur-md text-xs border border-white/20">
-                                Снеговая нагрузка до 450 кг/м²
+                                Выдерживают снег до 450 кг/м²
                             </span>
                         </div>
 
                         <div class="absolute bottom-5 left-5 right-5 text-white">
-                            <h3 class="font-serif text-3xl sm:text-4xl font-normal">Стеклянные козырьки на вантах и консолях</h3>
+                            <h3 class="font-serif text-3xl sm:text-4xl font-normal">Стеклянные козырьки и навесы над входом</h3>
                         </div>
                     </div>
 
                     <div class="pt-6 px-2 flex flex-col justify-between gap-5">
                         <p class="text-sm text-slateMuted leading-relaxed">
-                            Статусная защита входной группы от дождя, сосулек и снега, не затеняющая фасад здания. Изготавливаются из многослойного закаленного триплекса до 24 мм с узлами крепления с терморазрывом.
+                            Надежная защита входа и крыльца от дождя, снега и сосулек. Не затеняют фасад и отлично пропускают свет. Делаются из прочного триплекса с креплениями из нержавеющей стали.
                         </p>
                         <div class="flex items-center justify-end pt-3 border-t border-slateDeep/10">
                             <button onclick="openConciergeModal('Стеклянные козырьки — расчет проекта', 'Стеклянные козырьки')" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-slateDeep to-[#0d2a33] text-white text-xs font-semibold hover:from-[#0EA5E9] hover:to-[#10B981] shadow-sm transition-colors flex items-center gap-2">
-                                <span>Рассчитать проект</span>
+                                <span>Рассчитать стоимость</span>
                                 <span>→</span>
                             </button>
                         </div>
@@ -2513,12 +2518,12 @@
                                 <span>03 • Душевые перегородки</span>
                             </span>
                             <span class="px-3 py-1.5 rounded-full bg-slateDeep/70 text-white backdrop-blur-md text-xs border border-white/20">
-                                Гидрофобная защита Anti-Drop
+                                Защита от налета и капель воды
                             </span>
                         </div>
 
                         <div class="absolute bottom-5 left-5 right-5 text-white">
-                            <h3 class="font-serif text-3xl sm:text-4xl font-normal">Душевые стеклянные перегородки в размер</h3>
+                            <h3 class="font-serif text-3xl sm:text-4xl font-normal">Стеклянные душевые перегородки и кабины</h3>
                         </div>
                     </div>
 
@@ -2528,7 +2533,7 @@
                         </p>
                         <div class="flex items-center justify-end pt-3 border-t border-slateDeep/10">
                             <button onclick="openConciergeModal('Душевые стеклянные перегородки — расчет проекта', 'Душевые перегородки')" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-slateDeep to-[#0d2a33] text-white text-xs font-semibold hover:from-[#0EA5E9] hover:to-[#10B981] shadow-sm transition-colors flex items-center gap-2">
-                                <span>Рассчитать проект</span>
+                                <span>Рассчитать стоимость</span>
                                 <span>→</span>
                             </button>
                         </div>
@@ -2556,29 +2561,29 @@
                                 <span>04 • Лестничные перила из стекла</span>
                             </span>
                             <span class="px-3.5 py-1.5 rounded-full bg-slateDeep/70 text-white backdrop-blur-md text-xs border border-white/20">
-                                3D-сканирование наклона ступеней
+                                Точный замер под угол ступеней
                             </span>
                         </div>
 
                         <div class="absolute bottom-5 left-5 right-5 text-white">
-                            <h3 class="font-serif text-3xl sm:text-4xl font-normal">Парящие лестничные перила из закаленного стекла</h3>
+                            <h3 class="font-serif text-3xl sm:text-4xl font-normal">Стеклянные перила и ограждения для лестниц</h3>
                         </div>
                     </div>
 
                     <div class="pt-6 px-2 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
                         <div class="space-y-3 max-w-xl">
                             <p class="text-sm text-slateMuted leading-relaxed">
-                                Изготавливаем прямые, забежные и гнутые (моллированные) стеклянные перила для бетонных, деревянных и металлических лестниц. Крепление в торец марша сохраняет полную ширину ступеней.
+                                Перила для прямых, винтовых и поворотных лестниц из бетона, дерева или металла. Делаем из закаленного стекла или триплекса: безопасно для детей и взрослых. Крепление сбоку ступеней не сужает проход.
                             </p>
                             <div class="flex flex-wrap gap-2">
-                                <span class="text-xs px-3 py-1 rounded-lg bg-white/75 border border-cyan-100 text-slateDeep">Точечные рутели ⌀50 мм</span>
-                                <span class="text-xs px-3 py-1 rounded-lg bg-white/75 border border-cyan-100 text-slateDeep">Поручень из дуба / ясеня / LED</span>
-                                <span class="text-xs px-3 py-1 rounded-lg bg-white/75 border border-emerald-100 text-slateDeep">Триплекс без зеленого оттенка</span>
+                                <span class="text-xs px-3 py-1 rounded-lg bg-white/75 border border-cyan-100 text-slateDeep">Крепление сбоку ступеней или на стойки</span>
+                                <span class="text-xs px-3 py-1 rounded-lg bg-white/75 border border-cyan-100 text-slateDeep">Поручень из дерева, металла или с подсветкой</span>
+                                <span class="text-xs px-3 py-1 rounded-lg bg-white/75 border border-emerald-100 text-slateDeep">Прозрачное стекло без зеленого оттенка</span>
                             </div>
                         </div>
                         <div class="shrink-0 flex items-center justify-end border-t sm:border-t-0 pt-4 sm:pt-0 border-slateDeep/10">
                             <button onclick="openConciergeModal('Лестничные перила из стекла — расчет проекта', 'Лестничные перила')" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-slateDeep to-[#0d2a33] text-white text-xs font-semibold hover:from-[#0EA5E9] hover:to-[#10B981] shadow-sm transition-colors flex items-center gap-2">
-                                <span>Рассчитать проект</span>
+                                <span>Рассчитать стоимость</span>
                                 <span>→</span>
                             </button>
                         </div>
@@ -2610,12 +2615,12 @@
                                 05 • Межкомнатные перегородки
                             </span>
                             <span class="px-3 py-1.5 rounded-full bg-slateDeep/70 text-white backdrop-blur-md text-xs">
-                                Без нижнего рельса на полу
+                                Без порогов и рельсов на полу
                             </span>
                         </div>
 
                         <div class="absolute bottom-5 left-5 right-5 text-white">
-                            <h3 class="font-serif text-3xl sm:text-4xl font-normal">Межкомнатные раздвижные и стационарные перегородки</h3>
+                            <h3 class="font-serif text-3xl sm:text-4xl font-normal">Стеклянные межкомнатные перегородки и двери</h3>
                         </div>
                     </div>
 
@@ -2625,7 +2630,7 @@
                         </p>
                         <div class="flex items-center justify-end pt-3 border-t border-slateDeep/10">
                             <button onclick="openConciergeModal('Межкомнатные стеклянные перегородки — расчет проекта', 'Межкомнатные перегородки')" class="px-6 py-3.5 rounded-xl bg-slateDeep text-white text-xs font-semibold hover:bg-crystalCyan transition-colors shadow-sm flex items-center gap-2">
-                                <span>Рассчитать проект</span>
+                                <span>Рассчитать стоимость</span>
                                 <span>→</span>
                             </button>
                         </div>
@@ -2652,22 +2657,22 @@
                                 06 • Безрамное остекление
                             </span>
                             <span class="px-3 py-1.5 rounded-full bg-slateDeep/70 text-white backdrop-blur-md text-xs">
-                                Полное открытие проема за 15 сек
+                                Створки полностью сдвигаются вбок
                             </span>
                         </div>
 
                         <div class="absolute bottom-5 left-5 right-5 text-white">
-                            <h3 class="font-serif text-3xl sm:text-4xl font-normal">Панорамное безрамное остекление террас и беседок</h3>
+                            <h3 class="font-serif text-3xl sm:text-4xl font-normal">Безрамное остекление террас, веранд и беседок</h3>
                         </div>
                     </div>
 
                     <div class="pt-6 px-2 flex flex-col justify-between gap-5">
                         <p class="text-sm text-slateMuted leading-relaxed">
-                            Сплошная стеклянная стена из закаленного монолита 10–12 мм без единой вертикальной перемычки. Летом все створки легко сдвигаются в компактную парковку («книжкой» или слайдером), зимой защищают от снега и ветра.
+                            Сплошная стеклянная стена без вертикальных рам и перемычек. Надежно защищает от ветра, дождя и пыли. В хорошую погоду створки легко сдвигаются в сторону, полностью открывая проем.
                         </p>
                         <div class="flex items-center justify-end pt-3 border-t border-slateDeep/10">
                             <button onclick="openConciergeModal('Безрамное остекление — расчет проекта', 'Безрамное остекление')" class="px-6 py-3.5 rounded-xl bg-slateDeep text-white text-xs font-semibold hover:bg-crystalCyan transition-colors shadow-sm flex items-center gap-2">
-                                <span>Рассчитать проект</span>
+                                <span>Рассчитать стоимость</span>
                                 <span>→</span>
                             </button>
                         </div>
@@ -2692,7 +2697,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             
             <div class="text-center mb-12">
-                <span class="text-xs uppercase tracking-[0.22em] text-crystalCyan font-bold block mb-2">Оконный завод • Контакты</span>
+                <span class="text-xs uppercase tracking-[0.22em] text-crystalCyan font-bold block mb-2">Контакты завода</span>
                 <h2 class="font-serif text-3xl md:text-5xl font-normal text-slateDeep mb-4">Свяжитесь <span class="italic text-crystalCyan">с нами</span></h2>
                 <div class="w-24 h-1.5 bg-gradient-to-r from-[#0EA5E9] to-[#10B981] mx-auto rounded-full shadow-sm"></div>
             </div>
@@ -2720,7 +2725,7 @@
                             <div>
                                 <h3 class="text-slateMuted text-xs font-bold uppercase tracking-wider mb-1.5">Напишите нам</h3>
                                 <a href="mailto:oknazavod-gel@yandex.ru" class="text-lg md:text-xl font-bold contact-page-link break-all text-slateDeep">oknazavod-gel@yandex.ru</a>
-                                <p class="text-xs text-slateMuted mt-1 m-0">Отвечаем в течение 30 минут</p>
+                                <p class="text-xs text-slateMuted mt-1 m-0">Ответим на письмо в течение 30 минут</p>
                             </div>
                         </div>
                     </div>
@@ -2747,7 +2752,7 @@
                     <div class="relative w-full h-full min-h-[460px] rounded-[36px] shadow-2xl overflow-hidden border-4 border-white map-wrapper group flex-1 ring-2 ring-sky-300/40">
                         <div class="absolute top-5 left-5 z-10 bg-white/95 backdrop-blur-md px-5 py-2.5 rounded-2xl shadow-md border border-sky-100 flex items-center gap-2.5">
                             <div class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.7)]"></div>
-                            <span class="font-bold text-xs sm:text-sm text-slateDeep">Заходите к нам в гости</span>
+                            <span class="font-bold text-xs sm:text-sm text-slateDeep">Наш офис и производство</span>
                         </div>
                         <iframe src="https://yandex.ru/map-widget/v1/?z=12&ol=biz&oid=123841435812" loading="lazy" title="Оконный завод на Яндекс Картах" width="100%" height="460" frameborder="0" allowfullscreen="true" style="width: 100%; height: 100%; min-height: 460px; border: 0;"></iframe>
                     </div>
@@ -2770,7 +2775,7 @@
                 </div>
                 <span class="text-slate-400">|</span>
                 <span class="font-serif text-lg font-bold tracking-widest text-slateDeep uppercase">СТЕКЛО</span>
-                <span class="text-slate-600">© 2026 Архитектурное стекло и конструкции под ключ.</span>
+                <span class="text-slate-600">© 2026 Оконный завод «Стекло». Производство и монтаж стеклянных конструкций под ключ.</span>
             </div>
             <div class="flex items-center gap-4 font-bold tracking-wide text-slateDeep">
                 <a href="tel:+79883244747" class="hover:text-[#16A685] transition-colors flex items-center gap-2">
@@ -2791,32 +2796,32 @@
             <!-- Статус и надзаголовок -->
             <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
                 <span style="width: 8px; height: 8px; border-radius: 50%; background: #10B981; display: inline-block;"></span>
-                <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #10B981;">Оконный завод • Проектный отдел</span>
+                <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #10B981;">Оконный завод • Расчет стоимости</span>
             </div>
 
             <h3 id="conciergeModalTitle" style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 26px; font-weight: 600; color: #0F172A; margin: 0 0 6px 0; line-height: 1.25;">
-                Рассчитать проект
+                Рассчитать стоимость изделия
             </h3>
             <p style="font-size: 12px; color: #64748B; margin: 0 0 18px 0; line-height: 1.5;">
-                Оставьте контакты и параметры — ведущий инженер завода подготовит расчет спецификации за 10–15 минут.
+                Оставьте номер телефона и примерные размеры — рассчитаем точную стоимость и перезвоним вам за 15 минут.
             </p>
 
             <form onsubmit="submitConciergeForm(event)" style="display: flex; flex-direction: column; gap: 12px; margin: 0;">
                 <div>
-                    <label style="display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #0F172A; margin-bottom: 4px;">Конструкция</label>
+                    <label style="display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #0F172A; margin-bottom: 4px;">Что нужно изготовить:</label>
                     <select id="modalCategorySelect" class="modal-input-field" style="cursor: pointer; font-weight: 500;">
-                        <option value="Стеклянные ограждения">Стеклянные ограждения</option>
-                        <option value="Стеклянные козырьки">Стеклянные козырьки</option>
-                        <option value="Душевые перегородки">Душевые перегородки</option>
-                        <option value="Лестничные перила">Лестничные перила</option>
-                        <option value="Межкомнатные перегородки">Межкомнатные перегородки</option>
-                        <option value="Безрамное остекление">Безрамное остекление</option>
-                        <option value="Комплексный проект">Комплексный проект остекления</option>
+                        <option value="Стеклянные ограждения">Стеклянные ограждения (балкон, терраса)</option>
+                        <option value="Стеклянные козырьки">Стеклянный козырек или навес</option>
+                        <option value="Душевые перегородки">Душевая перегородка / кабина</option>
+                        <option value="Лестничные перила">Лестничные перила из стекла</option>
+                        <option value="Межкомнатные перегородки">Межкомнатная перегородка / дверь</option>
+                        <option value="Безрамное остекление">Безрамное остекление веранды / террасы</option>
+                        <option value="Другая конструкция">Другая конструкция из стекла</option>
                     </select>
                 </div>
 
                 <div>
-                    <label style="display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #0F172A; margin-bottom: 4px;">Как к вам обращаться?</label>
+                    <label style="display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #0F172A; margin-bottom: 4px;">Ваше имя</label>
                     <input type="text" id="modalClientName" required placeholder="Иван" class="modal-input-field">
                 </div>
 
@@ -2826,17 +2831,17 @@
                 </div>
 
                 <div>
-                    <label style="display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #0F172A; margin-bottom: 4px;">Размеры или пожелания (необязательно)</label>
-                    <textarea id="modalClientDims" rows="2" placeholder="Примерные габариты, этаж или пожелания к стеклу..." class="modal-input-field" style="resize: none;"></textarea>
+                    <label style="display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #0F172A; margin-bottom: 4px;">Примерные размеры или пожелания (необязательно)</label>
+                    <textarea id="modalClientDims" rows="2" placeholder="Например: душевая перегородка 90х190 см, прозрачное стекло..." class="modal-input-field" style="resize: none;"></textarea>
                 </div>
 
                 <button type="submit" id="conciergeSubmitBtn" class="modal-submit-button" style="margin-top: 4px;">
-                    <span>Получить расчет проекта</span>
+                    <span>Получить точный расчет</span>
                     <span>→</span>
                 </button>
 
                 <div style="display: flex; align-items: center; justify-content: space-between; font-size: 11px; color: #94A3B8; padding-top: 4px;">
-                    <span>✓ Без навязчивых звонков</span>
+                    <span>✓ Без спама и навязчивых звонков • Консультация бесплатна</span>
                     <a href="tel:+79883244747" style="color: #0EA5E9; text-decoration: none; font-weight: 600;">+7 (988) 324-47-47</a>
                 </div>
             </form>
@@ -2857,7 +2862,7 @@
                 </div>
                 <div>
                     <p style="font-size: 12px; font-weight: 700; color: #0F172A; margin: 0;">Инженерный отдел</p>
-                    <p style="font-size: 11px; color: #64748B; margin: 0; line-height: 1.3;">Поможем с расчетом и подбором узлов примыкания 👋</p>
+                    <p style="font-size: 11px; color: #64748B; margin: 0; line-height: 1.3;">Поможем рассчитать стоимость и ответим на любые вопросы 👋</p>
                 </div>
             </div>
             <div style="position: absolute; top: 50%; right: -6px; width: 12px; height: 12px; background: #ffffff; border-top: 1px solid #E0F2FE; border-right: 1px solid #E0F2FE; transform: rotate(45deg) translateY(-50%);"></div>
@@ -2887,7 +2892,7 @@
             </a>
 
             <button id="open-modal-widget-btn" class="widget-menu-item group" style="transition-delay: 0.2s;">
-                <span class="bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-md text-xs font-semibold text-slateDeep opacity-0 group-hover:opacity-100 transition-opacity border border-white">Задать вопрос инженеру</span>
+                <span class="bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-xl shadow-md text-xs font-semibold text-slateDeep opacity-0 group-hover:opacity-100 transition-opacity border border-white">Задать вопрос</span>
                 <div class="w-12 h-12 bg-gradient-to-tr from-[#0EA5E9] to-[#10B981] rounded-full shadow-xl flex items-center justify-center text-white hover:scale-105 transition-transform">
                     <i data-lucide="calculator" width="20" height="20"></i>
                 </div>
@@ -2911,7 +2916,7 @@
         <div class="w-9 h-9 rounded-xl bg-emerald-500/15 text-emerald-700 flex items-center justify-center shrink-0 font-bold" style="width: 36px; height: 36px; border-radius: 12px; background: rgba(16, 185, 129, 0.15); color: #047857; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">✓</div>
         <div>
             <div id="toastTitle" class="text-sm font-semibold text-slateDeep" style="font-weight: 600; font-size: 14px; color: #0F172A;">Запрос принят</div>
-            <div id="toastMessage" class="text-xs text-slateMuted mt-0.5 leading-relaxed" style="font-size: 12px; color: #64748B; margin-top: 2px; line-height: 1.4;">Инженер свяжется с вами в течение 10 минут.</div>
+            <div id="toastMessage" class="text-xs text-slateMuted mt-0.5 leading-relaxed" style="font-size: 12px; color: #64748B; margin-top: 2px; line-height: 1.4;">Специалист свяжется с вами в течение 10 минут с готовым расчетом.</div>
         </div>
     </div>
 
@@ -3024,17 +3029,17 @@
             }
 
             const shortNames = {
-                optiwhite: 'Optiwhite',
+                optiwhite: 'Прозрачное',
                 fluted: 'Рифленое',
                 bronze: 'Бронза',
-                satin: 'Сатинат'
+                satin: 'Матовое'
             };
 
             const labels = {
-                optiwhite: 'Створка: Кристалл Optiwhite',
-                fluted: 'Створка: Рифленое Moru',
-                bronze: 'Створка: Тонированное Бронза',
-                satin: 'Створка: Матовое Сатинат'
+                optiwhite: 'Створка: Прозрачное Optiwhite',
+                fluted: 'Створка: Рифленое стекло',
+                bronze: 'Створка: Тонированное (бронза)',
+                satin: 'Створка: Матовое стекло'
             };
 
             const colors = {
@@ -3161,123 +3166,12 @@
             });
         }
 
-        // 2./ 2. ИНЖЕНЕРНЫЙ НАВИГАТОР ПО СТЕКЛУ И КОНСТРУКТИВУ
-        const guideScenarios = {
-            terrace: {
-                category: 'Стеклянные ограждения',
-                image: 'assets/actual/01_railings.jpg',
-                photoBadge: 'Ограждения открытых террас и балконов',
-                photoTitle: 'Безрамное триплекс-ограждение со скрытым нижним профилем',
-                formulaBadge: 'ГОСТ 30698 • Класс защиты СМ4',
-                title: 'Закаленный триплекс 8+8 / 10+10 мм с алмазной кромкой',
-                desc: 'Для террас на высоте мы применяем многослойный триплекс из двух закаленных стекол. При экстремальном ударе стекло не осыпается, а остается на эластичной EVA-мембране, выдерживая вес нескольких человек.',
-                specGlass: 'Optiwhite Триплекс 10+10',
-                specMount: 'Скрытый профиль в стяжку',
-                specLoad: 'Порывы до 38 м/с (до 15 этажа)',
-                specMaterial: 'Сталь AISI 316 / Анодирование',
-                engineerTip: 'Если планируете скрытый профиль в пол террасы, заложите монтажный зазор 120 мм в стяжке еще до укладки плитки. В нижней части профиля мы обязательно выводим дренажные каналы, чтобы дождевая вода свободно уходила наружу.',
-                ctaText: 'Рассчитать остекление террасы'
-            },
-            stairs: {
-                category: 'Лестничные перила',
-                image: 'assets/actual/04_stairs.jpg',
-                photoBadge: 'Стеклянные перила и лестничные марши',
-                photoTitle: 'Парящие ограждения на точечных рутелях или мини-стойках',
-                formulaBadge: 'СНиП 2.01.07-85 • Нагрузка до 1.5 кН/м',
-                title: 'Ударопрочный триплекс 8+8 мм со светодиодным поручнем',
-                desc: 'Стеклянные перила крепятся в торец ступеней, не отнимая полезную ширину марша. Конструкция монолитна и не вибрирует благодаря прецизионным коннекторам из стали AISI 316.',
-                specGlass: 'Закаленный триплекс 8+8 мм',
-                specMount: 'Боковые рутели или Spigot',
-                specLoad: 'До 150 кг бокового давления на метр',
-                specMaterial: 'AISI 316 Black Matte / Сатин',
-                engineerTip: 'Для деревянных и бетонных ступеней важно предусмотреть надежную несущую закладную внутри марша. При чистовой отделке рутели крепятся через декоративные розетки, полностью маскируя технологические отверстия.',
-                ctaText: 'Рассчитать лестничные перила'
-            },
-            shower: {
-                category: 'Душевые перегородки',
-                image: 'assets/actual/03_shower.jpg',
-                photoBadge: 'Ванные комнаты и душевые зоны',
-                photoTitle: 'Беспороговые перегородки в строительном исполнении',
-                formulaBadge: 'ГОСТ Р 54171 • Безопасное закаленное стекло',
-                title: 'Закаленное стекло 8–10 мм с водоотталкивающим слоем Easy-Clean',
-                desc: 'Идеальная геометрия под ваш кафель без щелей. Стекло проходит гидрофобную нанообработку, поэтому капли воды скатываются, не оставляя белого известкового налета.',
-                specGlass: 'Закаленное Optiwhite 8–10 мм',
-                specMount: 'Тонкий зажимной профиль 15 мм',
-                specLoad: 'Стойкость к прямому удару лейкой',
-                specMaterial: 'Нержавеющая сталь (не темнеет)',
-                engineerTip: 'В зоне душевого трапа обязательно соблюдайте уклон плитки 1.5–2 см в сторону слива. Для беспорогового входа мы устанавливаем прозрачный силиконовый порожек высотой всего 5 мм — вода гарантированно не переливается в сухую зону.',
-                ctaText: 'Рассчитать душевую перегородку'
-            },
-            partitions: {
-                category: 'Межкомнатные перегородки',
-                image: 'assets/actual/06_frameless_portal.jpg',
-                photoBadge: 'Межкомнатные перегородки и порталы',
-                photoTitle: 'Раздвижные и стационарные стеклянные стены до 3.5 метров',
-                formulaBadge: 'Акустическая изоляция до 38 дБ',
-                title: 'Беспороговый верхний подвес со скрытыми доводчиками',
-                desc: 'Зонирование кухни, гостиной или кабинета без разрушения цельности напольного покрытия. Створки плавно и бесшумно скользят на скрытых роликовых каретках.',
-                specGlass: 'Акустический триплекс / Сатинат',
-                specMount: 'Верхний трек в силовой потолок',
-                specLoad: 'До 120 кг на створку',
-                specMaterial: 'Авиационный анодированный алюминий',
-                engineerTip: 'При натяжных или гипсокартонных потолках обязательно требуется смонтировать силовой брус или стальную трубу 60х40 мм к монолиту перекрытия ДО монтажа финишного потолка. На эту балку придется вся масса подвесных створок.',
-                ctaText: 'Рассчитать межкомнатную перегородку'
-            }
-        };
 
-        let currentGuideScenario = 'terrace';
-
-        function selectGuideScenario(key) {
-            const sc = guideScenarios[key];
-            if (!sc) return;
-            currentGuideScenario = key;
-
-            // Вкладки
-            ['terrace', 'stairs', 'shower', 'partitions'].forEach(k => {
-                const btn = document.getElementById('tab-' + k);
-                if (btn) {
-                    if (k === key) {
-                        btn.className = 'guide-tab p-3.5 sm:p-4 rounded-2xl text-left border transition-all duration-300 bg-slateDeep text-white border-slateDeep shadow-md cursor-pointer';
-                    } else {
-                        btn.className = 'guide-tab p-3.5 sm:p-4 rounded-2xl text-left border transition-all duration-300 bg-white/80 text-slateDeep border-slate-200/80 hover:bg-white cursor-pointer';
-                    }
-                }
-            });
-
-            // Фото с плавным переходом
-            const img = document.getElementById('guideMainImg');
-            if (img) {
-                img.style.opacity = '0.3';
-                setTimeout(() => {
-                    img.src = sc.image;
-                    img.alt = sc.photoTitle;
-                    img.style.opacity = '1';
-                }, 120);
-            }
-
-            const setT = (id, text) => { const el = document.getElementById(id); if (el) el.textContent = text; };
-            setT('guidePhotoBadge', sc.photoBadge);
-            setT('guidePhotoTitle', sc.photoTitle);
-            setT('guideFormulaBadge', sc.formulaBadge);
-            setT('guideTitle', sc.title);
-            setT('guideDesc', sc.desc);
-            setT('guideSpecGlass', sc.specGlass);
-            setT('guideSpecMount', sc.specMount);
-            setT('guideSpecLoad', sc.specLoad);
-            setT('guideSpecMaterial', sc.specMaterial);
-            setT('guideEngineerTip', sc.engineerTip);
-            setT('guideCtaText', sc.ctaText);
-        }
-
-        function requestGuideQuote() {
-            const sc = guideScenarios[currentGuideScenario] || guideScenarios.terrace;
-            openConciergeModal(sc.ctaText, sc.category);
-        }
 
         // 3. МОДАЛЬНОЕ ОКНО И УВЕДОМЛЕНИЯ
         function openConciergeModal(title, category) {
             const titleEl = document.getElementById('conciergeModalTitle');
-            if (titleEl) titleEl.textContent = title || 'Рассчитать проект';
+            if (titleEl) titleEl.textContent = title || 'Рассчитать стоимость изделия';
             
             if (category) {
                 const sel = document.getElementById('modalCategorySelect');
@@ -3429,7 +3323,7 @@
             closeConciergeModal();
             showToast(
                 `${name || 'Спасибо'}, ваш запрос принят!`,
-                'Ведущий инженер завода свяжется с вами в течение 10 минут с готовым расчетом.'
+                'Специалист завода свяжется с вами в течение 10 минут с готовым расчетом.'
             );
             
             await sendLeadData({
@@ -3511,7 +3405,7 @@
             if (openModalBtn) {
                 openModalBtn.addEventListener('click', function() {
                     toggleWidget();
-                    openConciergeModal('Задать вопрос инженеру', 'Комплексный проект');
+                    openConciergeModal('Задать вопрос', 'Комплексный проект');
                 });
             }
         });
